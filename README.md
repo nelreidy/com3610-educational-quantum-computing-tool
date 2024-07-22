@@ -1,1 +1,1 @@
-# COM3610-Application
+# An Educational Quantum Circuit Simulator
