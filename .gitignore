@@ -1,0 +1,11 @@
+node_modules
+diss-proj.code-workspace
+.vscode
+venv
+runtime.txt
+Procfile
+local-cdn
+__pycache__/
+*.py[cod]
+*$py.class
+*.db

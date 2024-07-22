@@ -1,0 +1,51 @@
+<div class="w-full">
+    <div class="lg:flex-grow flex items-center justify-evenly bg-gray-200 p-2">
+        <div class="flex items-center space-x-1">
+            <!-- <button data-tooltip-target="tooltip-undo" type="button" class="bg-indigo-600 hover:bg-indigo-500 text-white py-2 px-4 rounded text-xs"> -->
+                <!-- UNDO taken from https://icons.getbootstrap.com/icons/arrow-counterclockwise/ -->
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16"> -->
+                    <!-- <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/> -->
+                    <!-- <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/> -->
+                <!-- </svg> -->
+            <!-- </button>  -->
+            <!-- UNDO tooltip -->
+            <!-- <div id="tooltip-undo" role="tooltip" class="absolute z-10 invisible inline-block px-2 py-1 text-xs font-small text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip"> -->
+                <!-- Undo -->
+                <!-- <div class="tooltip-arrow" data-popper-arrow></div> -->
+            <!-- </div> -->
+            
+            
+            <!-- <button data-tooltip-target="tooltip-redo" class="bg-indigo-600 hover:bg-indigo-500 text-white py-2 px-4 rounded text-xs"> -->
+                <!-- REDO taken from https://icons.getbootstrap.com/icons/arrow-clockwise/ -->
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16"> -->
+                    <!-- <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/> -->
+                    <!-- <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/> -->
+                <!-- </svg> -->
+            <!-- </button> -->
+            <!-- REDO tooltip -->
+            <!-- <div id="tooltip-redo" role="tooltip" class="absolute z-10 invisible inline-block px-2 py-1 text-xs font-small text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip"> -->
+                <!-- Redo -->
+                <!-- <div class="tooltip-arrow" data-popper-arrow></div> -->
+            <!-- </div> -->
+
+
+            <button aria-label="Clear circuit" data-tooltip-target="tooltip-clear" data-tooltip-placement="right" onclick="clearCircuit()" class="bg-indigo-600 hover:bg-indigo-500 text-white py-2 px-4 rounded text-xs">
+                <!-- BIN taken from https://icons.getbootstrap.com/icons/trash/ -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                </svg>
+            </button>
+            <!-- CLEAR tooltip -->
+            <div id="tooltip-clear" role="tooltip" class="absolute z-10 invisible inline-block px-2 py-1 text-xs font-small text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip">
+                Clear the circuit
+                <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>
+        </div>
+        <a id="circuit-name-nav" contenteditable="true" class="mx-2 text-sm flex-grow text-center">Circuit Name</a>
+        <!-- <button class="bg-indigo-600 hover:bg-indigo-500 text-white py-2 px-4 rounded text-xs">
+            Create Composite Gate
+        </button> -->
+    </div>
+</div>
+

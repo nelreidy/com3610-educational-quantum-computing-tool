@@ -1,0 +1,10 @@
+{
+    "qubits": 3,
+    "gates": [
+        ["H", "c", 0],
+        [0, "X", "c", 0],
+        [0, 0, "X", 0]
+    ],
+    "title": "Greenberger–Horne–Zeilinger (GHZ) state",
+    "description": "The Greenberger-Horne-Zeilinger state is a specific example of an entangled state. It is a generalization of the Bell state to two or more qubits (where additional qubits are entangled through the introduction of additional controled NOT gates). Measuring one of the entangled qubits, allows you to infer the states of the remaining qubits."
+}

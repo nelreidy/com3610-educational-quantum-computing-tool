@@ -1,0 +1,405 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% include 'pages/components/dash_nav.html' %}
+
+<div class="lg:h-screen max-lg:max-lg:h-[90%] flex">
+
+    <aside id="separator-sidebar" class="z-40 w-64 h-screen transition-transform max-lg:hidden" aria-label="Sidebar">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50">
+            <ol class="relative border-s border-gray-200 ml-2">      
+
+                <li class="mb-10 ms-6">            
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Introduction</h3>
+                    <p class="mb-4 text-sm font-normal text-gray-500">A refresher on classical computing, and an introduction to quantum computing.</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Classical Gates and Circuits</h3>
+                    <p class="text-sm font-normal text-gray-500">A brief introduction to classical gates and circuits as a precursor to the quantum equivalents.</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Single Qubit Gates</h3>
+                    <p class="text-sm font-normal text-gray-500">An overview of the most common single qubit gates and their applications.</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-4 h-4 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.008-3.018a1.502 1.502 0 0 1 2.522 1.159v.024a1.44 1.44 0 0 1-1.493 1.418 1 1 0 0 0-1.037.999V14a1 1 0 1 0 2 0v-.539a3.44 3.44 0 0 0 2.529-3.256 3.502 3.502 0 0 0-7-.255 1 1 0 0 0 2 .076c.014-.398.187-.774.48-1.044Zm.982 7.026a1 1 0 1 0 0 2H12a1 1 0 1 0 0-2h-.01Z" clip-rule="evenodd"/>
+                        </svg>                          
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Knowledge test 1</h3>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Two-Qubit gates</h3>
+                    <p class="text-sm font-normal text-gray-500">An overview of the most common two-qubit gates and their applications.</p>
+                </li>
+
+                <li class="ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-4 h-4 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.008-3.018a1.502 1.502 0 0 1 2.522 1.159v.024a1.44 1.44 0 0 1-1.493 1.418 1 1 0 0 0-1.037.999V14a1 1 0 1 0 2 0v-.539a3.44 3.44 0 0 0 2.529-3.256 3.502 3.502 0 0 0-7-.255 1 1 0 0 0 2 .076c.014-.398.187-.774.48-1.044Zm.982 7.026a1 1 0 1 0 0 2H12a1 1 0 1 0 0-2h-.01Z" clip-rule="evenodd"/>
+                        </svg>                          
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Knowledge test 2</h3>
+                </li>
+
+            </ol>
+        </div>
+    </aside>
+    
+    <div class="flex-1 lg:h-screen max-lg:h-full overflow-x-auto">
+        <div class="flex flex-col justify-between h-full">
+
+            <div id="section-0" class="p-4 mx-2">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Introduction</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">This lesson is designed to introduce you the fundamental and basic components in quantum circuits.</p>
+
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">How much do I need to know to start?</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">It is a good idea to have a basic understanding of quantum concepts such as superposition and entanglement before starting this lesson. If you are new to quantum computing, you may want to start with our <a href="/introduction-to-quantum-computing" class="text-indigo-800 underline">Introduction to Quantum Computing</a> lesson. It will also help if you are farmiliar with classical logic gates and circuits, however this is not necessary.
+                </p>
+
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">I'm ready!</h3>
+                <p class="mb-4 text-md font-normal text-gray-500">Great! We will begin with a recap on notation, and disucss classical logic circuits before diving into quantum gates. Use the buttons at the bottom of the page to navigate through the lesson.</p>
+            </div>
+
+            <div id="section-1" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Classical Logic Gates and Circuits</h1>
+                <p class="mb-4 text-md font-normal text-gray-500">It is helpful to understand classical logic gates and circuits before moving on to quantum gates. Classical logic gates are the building blocks of classical circuits, and are used to perform logical operations on binary numbers. In this section, we will discuss the basic logic gates and their truth tables.</p>
+
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">One-Bit Logic Gates</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">The simplest logic gates in classical computing take one bit as an input, and output one bit. We can also represent logic gates as tables, which you will see in this seciton.</p>
+
+                <img src="static/images/singlebitgate.svg" alt="Diagram representing a classical single bit logic gate." class="w-96 object-contain mb-8 mx-auto"> 
+                
+                <p class="mb-4 text-md font-normal text-gray-500"> There are two single-bit gates, the <i>identity gate</i> and the <i>NOT gate</i>. The identity gate does nothing to the bit, the state that goes in (A), is the state that comes out (A).</p>
+
+                <img src="static/images/classicalidentitygate.svg" alt="Diagram representing a classical identity gate." class="w-96 object-contain mb-8 mx-auto"> 
+
+                <p class="mb-8 text-md font-normal text-gray-500">The NOT gate flips the bit - 0 becomes 1, and 1 becomes 0.</p>
+
+                <img src="static/images/classicalNOTgate.svg" alt="Diagram representing a classical NOT gate." class="w-96 object-contain mb-8 mx-auto"> 
+                
+                <p class="mb-8 text-md font-normal text-gray-500">There are two other possible one-bit logic gates - the <i>always 1 gate</i>, and the <i>always 0 gate</i>. They are uncommon and do not have a standard diagram.</p>
+            </div>
+
+            <div id="section-2" class="p-4 mx-2 hidden">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Two-Bit gates</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">Two-bit gates, as the name suggests, take two bits as input, and typically have just one output.</p>
+
+                <img src="static/images/twobitgate.svg" alt="Diagram representing a classical two-bit logic gate." class="w-96 object-contain mb-8 mx-auto"> 
+
+                <p class="mb-4 text-md font-normal text-gray-500">The simplest two-bit gate is the <i>AND gate</i>. The AND gate outputs 1 only if both inputs are 1, otherwise it outputs 0.</p>
+
+                <img src="static/images/classicalANDgate.svg" alt="Diagram representing a classical AND gate." class="w-96 object-contain mb-8 mx-auto">
+
+                <p class="mb-8 text-md font-normal text-gray-500">The <i>OR gate</i> outputs 1 if either input is 1, or if both inputs are 1.</p>
+
+                <img src="static/images/classicalORgate.svg" alt="Diagram representing a classical OR gate." class="w-96 object-contain mb-8 mx-auto">
+
+                <p class="mb-8 text-md font-normal text-gray-500">The <i>XOR gate</i> outputs 1 if the inputs are different, and 0 if they are the same.</p>
+
+                <img src="static/images/classicalXORgate.svg" alt="Diagram representing a classical XOR gate." class="w-96 object-contain mb-8 mx-auto">
+
+                <p class="mb-8 text-md font-normal text-gray-500">The <i>NAND gate</i> outputs 0 if both inputs are 1, otherwise it outputs 1.</p>
+
+                <img src="static/images/classicalNANDgate.svg" alt="Diagram representing a classical NAND gate." class="w-96 object-contain mb-8 mx-auto">
+
+                <p class="mb-8 text-md font-normal text-gray-500">The <i>NOR gate</i> outputs 0 if either input is 1, or if both inputs are 1.</p>
+
+                <img src="static/images/classicalNORgate.svg" alt="Diagram representing a classical NOR gate." class="w-96 object-contain mb-8 mx-auto">
+
+                <p class="mb-8 text-md font-normal text-gray-500">There are many other two-bit gates, but these are the most common.</p>
+            </div>
+
+            <div id="section-3" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Single Qubit Gates</h1>
+                <p class="mb-4 text-md font-normal text-gray-500">Single qubit gates are the building blocks of quantum circuits. They are used to manipulate the state of a single qubit. In this section, we will discuss the most common single qubit gates and their applications.</p>
+
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">The Identity Gate</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">The identity gate is the simplest quantum gate. Similar to the classical identity gate, it does nothing to the qubit state.</p>
+
+                <img src="static/images/identitygatecircuitdiagram.svg" alt="Diagram representing the identity gate on a circuit." class="w-40 object-contain mx-auto">
+
+                $$ I|0\rangle = |0\rangle $$
+                $$ I|1\rangle = |1\rangle $$
+            </div>
+
+            <div id="section-4" class="p-4 mx-2 hidden">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">The Pauli Gates</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">The Pauli gates are a set of three single qubit gates that are named after the physicist Wolfgang Pauli. They are the <i>Pauli-X gate</i>, the <i>Pauli-Y gate</i>, and the <i>Pauli-Z gate</i>.</p>
+
+                <div class="max-lg:hidden grid grid-cols-3">
+                    <div class="max-lg:hidden pb-4 px-2 text-lg font-semibold text-indigo-800">Pauli-X</div>
+                    <div class="max-lg:hidden pb-4 px-2 text-lg font-semibold text-indigo-800">Pauli-Y</div>
+                    <div class="max-lg:hidden pb-4 px-2 text-lg font-semibold text-indigo-800">Pauli-Z</div>
+
+                    <div class="max-lg:hidden pb-8 px-2 text-md font-normal text-gray-500">The Pauli-X gate is equivalent to the classical NOT gate. On a Bloch sphere, it is a rotation of the qubit state around the x-axis by 180 degrees. So \(|0\rangle\) becomes \(|1\rangle\), and \(|1\rangle\) becomes \(|0\rangle\)</div>
+                    <div class="max-lg:hidden pb-8 px-2 text-md font-normal text-gray-500">The Pauli-Y gate is a rotation of the qubit state around the y-axis by 180 degrees. It is equivalent to the Pauli-X gate followed by the Pauli-Z gate.</div>
+                    <div class="max-lg:hidden pb-8 px-2 text-md font-normal text-gray-500">The Pauli-Z gate is a rotation of the qubit state around the z-axis by 180 degrees. It leaves the \(|0\rangle\) state unchanged, and changes the sign of the \(|1\rangle\) state.</div>
+
+                    <div class="max-lg:hidden pb-4 px-2 flex items-center">
+                        <img src="static/images/paulixcircuitdiagram.svg" alt="Diagram representing the Pauli-X gate on a circuit." class="w-40 object-contain mx-auto max-lg:hidden">
+                    </div>
+                    <div class="pb-4 px-2 flex items-center">
+                        <img src="static/images/pauliycircuitdiagram.svg" alt="Diagram representing the Pauli-Y gate on a circuit." class="w-40 object-contain mx-auto max-lg:hidden">
+                    </div>
+                    <div class="pb-4 px-2 flex items-center">
+                        <img src="static/images/paulizcircuitdiagram.svg" alt="Diagram representing the Pauli-Z gate on a circuit." class="w-40 object-contain mx-auto max-lg:hidden">
+                    </div>
+
+                    <div class="pb-4 px-2 max-lg:hidden">
+                        $$ X|0\rangle = |1\rangle $$
+                        $$ X|1\rangle = |0\rangle $$
+                    </div>
+                    <div class="pb-4 px-2 max-lg:hidden">
+                        $$ Y|0\rangle = i|1\rangle $$
+                        $$ Y|1\rangle = -i|0\rangle $$
+                    </div>
+                    <div class="pb-4 px-2 max-lg:hidden">
+                        $$ Z|0\rangle = |0\rangle $$
+                        $$ Z|1\rangle = -|1\rangle $$
+                    </div>
+                    <div class="pb-4 px-2 max-lg:hidden">
+                        <img src="static/images/paulixblochdiagram.svg" alt="Diagram representing the Pauli-X gate transformation on a bloch sphere." class="w-64 object-contain mx-auto">
+                    </div>
+                    <div class="pb-4 px-2 max-lg:hidden">
+                        <img src="static/images/pauliyblochdiagram.svg" alt="Diagram representing the Pauli-Y gate transformation on a bloch sphere." class="w-64 object-contain mx-auto">
+                    </div>
+                    <div class="pb-4 px-2 max-lg:hidden">
+                        <img src="static/images/paulizblochdiagram.svg" alt="Diagram representing the Pauli-Z gate transformation on a bloch sphere." class="w-64 object-contain mx-auto">
+                    </div>
+                </div>
+
+                <div class="lg:hidden">
+                    <h3 class="mb-2 text-lg font-semibold text-indigo-800">Pauli-X</h3>
+                    <p class="mb-4 text-md font-normal text-gray-500">The Pauli-X gate is equivalent to the classical NOT gate. On a Bloch sphere, it is a rotation of the qubit state around the x-axis by 180 degrees. So \(|0\rangle\) becomes \(|1\rangle\), and \(|1\rangle\) becomes \(|0\rangle\)</p>
+                    <img src="static/images/paulixcircuitdiagram.svg" alt="Diagram representing the Pauli-X gate on a circuit." class="w-40 object-contain mx-auto">
+                    $$ X|0\rangle = |1\rangle $$
+                    $$ X|1\rangle = |0\rangle $$
+                    <img src="static/images/paulixblochdiagram.svg" alt="Diagram representing the Pauli-X gate transformation on a bloch sphere." class="w-64 object-contain mb-8 mx-auto">
+
+                    <h3 class="mb-2 text-lg font-semibold text-indigo-800">Pauli-Y</h3>
+                    <p class="mb-4 text-md font-normal text-gray-500">The Pauli-Y gate is a rotation of the qubit state around the y-axis by 180 degrees. It is equivalent to the Pauli-X gate followed by the Pauli-Z gate.</p>
+                    <img src="static/images/pauliycircuitdiagram.svg" alt="Diagram representing the Pauli-Y gate on a circuit." class="w-40 object-contain mx-auto">
+                    $$ Y|0\rangle = i|1\rangle $$
+                    $$ Y|1\rangle = -i|0\rangle $$
+                    <img src="static/images/pauliyblochdiagram.svg" alt="Diagram representing the Pauli-Y gate transformation on a bloch sphere." class="w-64 object-contain mb-8 mx-auto">
+
+                    <h3 class="mb-2 text-lg font-semibold text-indigo-800">Pauli-Z</h3>
+                    <p class="mb-4 text-md font-normal text-gray-500">The Pauli-Z gate is a rotation of the qubit state around the z-axis by 180 degrees. It leaves the \(|0\rangle\) state unchanged, and changes the sign of the \(|1\rangle\) state.</p>
+                    <img src="static/images/paulizcircuitdiagram.svg" alt="Diagram representing the Pauli-Z gate on a circuit." class="w-40 object-contain mx-auto">
+                    $$ Z|0\rangle = |0\rangle $$
+                    $$ Z|1\rangle = -|1\rangle $$
+                    <img src="static/images/paulizblochdiagram.svg" alt="Diagram representing the Pauli-Z gate transformation on a bloch sphere." class="w-64 object-contain mb-8 mx-auto">
+                </div>
+            </div>
+
+            <div id="section-5" class="p-4 mx-2 hidden">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">The S Gate and T Gate</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">The S gate and T gate are two more single qubit gates that are used in quantum circuits. They are both phase gates, and are used to manipulate the phase of a qubit state.</p>
+
+                <div class="max-lg:hidden grid grid-cols-2">
+                    <div class="max-lg:hidden pb-4 px-2 text-lg font-semibold text-indigo-800">S Gate</div>
+                    <div class="max-lg:hidden pb-4 px-2 text-lg font-semibold text-indigo-800">T Gate</div>
+
+                    <div class="max-lg:hidden pb-8 px-2 text-md font-normal text-gray-500">The S gate is equivalent to the square root of the Pauli-Z gate. It is a rotation of the qubit state around the z-axis by 90 degrees.</div>
+                    <div class="max-lg:hidden pb-8 px-2 text-md font-normal text-gray-500">The T gate is equivalent to the fourth root of the Pauli-Z gate. It is a rotation of the qubit state around the z-axis by 45 degrees.</div>
+
+                    <div class="max-lg:hidden pb-4 px-2 flex items-center">
+                        <img src="static/images/sgatecircuitdiagram.svg" alt="Diagram representing the S gate on a circuit." class="w-40 object-contain mx-auto max-lg:hidden">
+                    </div>
+                    <div class="pb-4 px-2 flex items-center">
+                        <img src="static/images/tgatecircuitdiagram.svg" alt="Diagram representing the T gate on a circuit." class="w-40 object-contain mx-auto max-lg:hidden">
+                    </div>
+
+                    <div class="pb-4 px-2 max-lg:hidden">
+                        $$ S|0\rangle = |0\rangle $$
+                        $$ S|1\rangle = i|1\rangle $$
+                    </div>
+                    <div class="pb-4 px-2 max-lg:hidden">
+                        $$ T|0\rangle = |0\rangle $$
+                        $$ T|1\rangle = e^{\frac{i\pi}{4}}|1\rangle $$
+                    </div>
+
+                    <div class="pb-4 px-2 max-lg:hidden">
+                        <img src="static/images/sgateblochdiagram.svg" alt="Diagram representing the S gate transformation on a bloch sphere." class="w-64 object-contain mx-auto">
+                    </div>
+                    <div class="pb-4 px-2 max-lg:hidden">
+                        <img src="static/images/tgateblochdiagram.svg" alt="Diagram representing the T gate transformation on a bloch sphere." class="w-64 object-contain mx-auto">
+                    </div>
+                </div>
+
+                <div class="lg:hidden">
+                    <h3 class="mb-2 text-lg font-semibold text-indigo-800">S Gate</h3>
+                    <p class="mb-4 text-md font-normal text-gray-500">The S gate is equivalent to the square root of the Pauli-Z gate. It is a rotation of the qubit state around the z-axis by 90 degrees.</p>
+                    <img src="static/images/sgatecircuitdiagram.svg" alt="Diagram representing the S gate on a circuit." class="w-40 object-contain mx-auto">
+                    $$ X|0\rangle = |1\rangle $$
+                    $$ X|1\rangle = |0\rangle $$
+                    <img src="static/images/sgateblochdiagram.svg" alt="Diagram representing the S gate transformation on a bloch sphere." class="w-64 object-contain mb-8 mx-auto">
+
+                    <h3 class="mb-2 text-lg font-semibold text-indigo-800">T Gate</h3>
+                    <p class="mb-4 text-md font-normal text-gray-500">The T gate is equivalent to the fourth root of the Pauli-Z gate. It is a rotation of the qubit state around the z-axis by 45 degrees.</p>
+                    <img src="static/images/tgatecircuitdiagram.svg" alt="Diagram representing the T gate on a circuit." class="w-40 object-contain mx-auto">
+                    $$ Y|0\rangle = i|1\rangle $$
+                    $$ Y|1\rangle = -i|0\rangle $$
+                    <img src="static/images/tgateblochdiagram.svg" alt="Diagram representing the T gate transformation on a bloch sphere." class="w-64 object-contain mb-8 mx-auto">
+                </div>
+            </div>
+
+            <div id="section-6" class="p-4 mx-2 hidden">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">The Hadamard Gate</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">The Hadamard gate is a single qubit gate that is used to create superposition. It is a rotation of the qubit state around the x-axis by 90 degrees, followed by a rotation around the z-axis by 180 degrees. It is a combination of the Pauli-X and Pauli-Z gates.</p>
+                <img src="static/images/hadamardcircuitdiagram.svg" alt="Diagram representing the Hadamard gate on a circuit." class="w-40 object-contain mx-auto">
+                $$ H|0\rangle = |+\rangle $$
+                $$ H|1\rangle = |-\rangle $$
+                <img src="static/images/hadamardblochdiagram.svg" alt="Diagram representing the Hadamard gate transformation on a bloch sphere." class="w-64 object-contain mb-8 mx-auto">
+            </div>
+
+            <div id="section-7" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Knowledge Test 1</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">We have introduced the most common and important single qubit gates. Before we move on to talking about two-qubit gates, you can test your knowledge below!</p>
+
+                <div id="question-container-7" class="bg-gray-100 rounded-lg p-4 mb-8">
+                    
+                </div>
+            </div>
+            
+            <div id="section-8" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Two Qubit Gates</h1>
+                <p class="mb-4 text-md font-normal text-gray-500">Two qubit gates are used to manipulate the state of two qubits. Similar to single qubit gates, there are some standard two qubit gates used in quantum computing. In this section, we will discuss the most common two qubit gates and their applications.</p>
+
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">The SWAP Gate</h3>
+                <p class="mb-8 text-md font-normal text-gray-500"> The <i>SWAP gate</i> is a two qubit gate that swaps the states of two qubits. It is used to exchange the states of two qubits, and is used in many quantum algorithms.</p>
+                <img src="static/images/swapcircuitdiagram.svg" alt="Diagram representing the SWAP gate on a circuit." class="w-40 object-contain mx-auto">
+                $$ SWAP|00\rangle = |00\rangle $$
+                $$ SWAP|01\rangle = |10\rangle $$
+                $$ SWAP|10\rangle = |01\rangle $$
+                $$ SWAP|11\rangle = |11\rangle $$
+            </div>
+
+            <div id="section-9" class="p-4 mx-2 hidden">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Controlled Gates</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">Controlled gates are a type of two qubit gate that are used to apply a gate to one qubit, depending on the state of another qubit. The most common controlled gates are the <i>controlled-NOT gate (CNOT gate)</i> and the <i>controlled-Z gate (CZ gate)</i>.</p>
+
+                <div class="max-lg:hidden grid grid-cols-2">
+                    <div class="max-lg:hidden pb-4 px-2 text-lg font-semibold text-indigo-800">CNOT Gate</div>
+                    <div class="max-lg:hidden pb-4 px-2 text-lg font-semibold text-indigo-800">CZ Gate</div>
+
+                    <div class="max-lg:hidden pb-8 px-2 text-md font-normal text-gray-500">The CNOT gate is a controlled gate that applies the Pauli-X gate to the target qubit if the control qubit is in the \(|1\rangle\) state.</div>
+                    <div class="max-lg:hidden pb-8 px-2 text-md font-normal text-gray-500">The CZ gate is a controlled gate that applies the Pauli-Z gate to the target qubit if the control qubit is in the \(|1\rangle\) state.</div>
+
+                    <div class="max-lg:hidden pb-4 px-2 flex items-center">
+                        <img src="static/images/cnotgatecircuitdiagram.svg" alt="Diagram representing the CNOT gate on a circuit." class="w-40 object-contain mx-auto max-lg:hidden">
+                    </div>
+                    <div class="pb-4 px-2 flex items-center">
+                        <img src="static/images/czgatecircuitdiagram.svg" alt="Diagram representing the CZ gate on a circuit." class="w-40 object-contain mx-auto max-lg:hidden">
+                    </div>
+
+                    <div class="pb-4 px-2 max-lg:hidden">
+                        $$ CNOT|00\rangle = |00\rangle $$
+                        $$ CNOT|01\rangle = |01\rangle $$
+                        $$ CNOT|10\rangle = |11\rangle $$
+                        $$ CNOT|11\rangle = |10\rangle $$
+                    </div>
+                    <div class="pb-4 px-2 max-lg:hidden">
+                        $$ CZ|00\rangle = |00\rangle $$
+                        $$ CZ|01\rangle = |01\rangle $$
+                        $$ CZ|10\rangle = |10\rangle $$
+                        $$ CZ|11\rangle = -|11\rangle $$
+                    </div>
+                </div>
+
+                <div class="lg:hidden">
+                    <h3 class="mb-2 text-lg font-semibold text-indigo-800">CNOT Gate</h3>
+                    <p class="mb-4 text-md font-normal text-gray-500">The CNOT gate is a controlled gate that applies the Pauli-X gate to the target qubit if the control qubit is in the \(|1\rangle\) state.</p>
+                    <img src="static/images/cnotgatecircuitdiagram.svg" alt="Diagram representing the CNOT gate on a circuit." class="w-40 object-contain mx-auto">
+                    $$ CNOT|00\rangle = |00\rangle $$
+                    $$ CNOT|01\rangle = |01\rangle $$
+                    $$ CNOT|10\rangle = |11\rangle $$
+                    $$ CNOT|11\rangle = |10\rangle $$
+
+                    <h3 class="mb-2 text-lg font-semibold text-indigo-800">CZ Gate</h3>
+                    <p class="mb-4 text-md font-normal text-gray-500">The CZ gate is a controlled gate that applies the Pauli-Z gate to the target qubit if the control qubit is in the \(|1\rangle\) state.</p>
+                    <img src="static/images/czgatecircuitdiagram.svg" alt="Diagram representing the CZ gate on a circuit." class="w-40 object-contain mx-auto">
+                    $$ CZ|00\rangle = |00\rangle $$
+                    $$ CZ|01\rangle = |01\rangle $$
+                    $$ CZ|10\rangle = |10\rangle $$
+                    $$ CZ|11\rangle = -|11\rangle $$
+                </div>
+
+                <p class="mb-8 text-md font-normal text-gray-500">This concept can be applied to any single qubit gate, where a control qubit conditions the target gate to trigger when in the \(|1\rangle\) state. Conversely, an anti-control can be used to condition a gate to trigger when the control is in the \(|0\rangle\) state.</p>
+                <img src="static/images/controlanticontrolcircuitdiagram.svg" alt="Diagram representing the control and anti-control nodes on a circuit." class="w-96 object-contain mx-auto">
+            </div>
+
+            <div id="section-10" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Knowledge Test 2</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">Test your knowledge on two qubit gates below!</p>
+
+                <div id="question-container-10" class="bg-gray-100 rounded-lg p-4 mb-8">
+                    
+                </div>
+            </div>
+
+            <div id="section-11" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Fundamentals of Quantum Computing</h1>
+                <p class="mb-4 text-md font-normal text-gray-500">You have reached the end of this lesson! We have covered the most common single and two qubit gates. The third and final lesson will cover constructing quantum circuits with these gates we introduced today.</p>
+
+                <a href="/dashboard" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Back to Dashboard</a>
+            </div>
+
+            <div class="w-full bg-gray-50 flex justify-between">
+                <div>
+                    <button aria-label="Back" id="back-button" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-1 px-2 rounded m-2" data-tooltip-target="tooltip-back" data-tooltip-placement="top">
+                        <svg class="w-[20px] h-[20px] text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
+                        </svg>                      
+                    </button>
+                </div>
+                <div id="tooltip-back" role="tooltip" class="absolute z-10 invisible inline-block px-2 py-1 text-xs font-small text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip">
+                    Back
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>       
+
+                <button aria-label="Next" id="next-button" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-1 px-2 rounded m-2" data-tooltip-target="tooltip-next" data-tooltip-placement="top">
+                    <svg class="w-[20px] h-[20px] text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4"/>
+                    </svg>
+                </button>
+                <div id="tooltip-next" role="tooltip" class="absolute z-10 invisible inline-block px-2 py-1 text-xs font-small text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip">
+                    Next
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>  
+
+            </div>
+
+        </div>
+        
+    </div> 
+</div>
+
+{% endblock %}

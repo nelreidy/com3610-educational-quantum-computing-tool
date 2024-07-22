@@ -1,0 +1,361 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% include 'pages/components/dash_nav.html' %}
+
+<div class="lg:h-screen max-lg:max-lg:h-[90%] flex">
+
+    <aside id="separator-sidebar" class="z-40 w-64 h-screen transition-transform max-lg:hidden" aria-label="Sidebar">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50">
+            <ol class="relative border-s border-gray-200 ml-2">      
+
+                <li class="mb-10 ms-6">            
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Introduction</h3>
+                    <p class="mb-4 text-sm font-normal text-gray-500">A refresher on classical computing, and an introduction to quantum computing.</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">What is a qubit?</h3>
+                    <p class="text-sm font-normal text-gray-500">The fundamental building block of quantum computing and why it is so unique.</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-4 h-4 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.008-3.018a1.502 1.502 0 0 1 2.522 1.159v.024a1.44 1.44 0 0 1-1.493 1.418 1 1 0 0 0-1.037.999V14a1 1 0 1 0 2 0v-.539a3.44 3.44 0 0 0 2.529-3.256 3.502 3.502 0 0 0-7-.255 1 1 0 0 0 2 .076c.014-.398.187-.774.48-1.044Zm.982 7.026a1 1 0 1 0 0 2H12a1 1 0 1 0 0-2h-.01Z" clip-rule="evenodd"/>
+                        </svg>                          
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Knowledge test 1</h3>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Superposition</h3>
+                    <p class="text-sm font-normal text-gray-500">A unique trait of qubits that allows for more computational power than classical bits.</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-4 h-4 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.008-3.018a1.502 1.502 0 0 1 2.522 1.159v.024a1.44 1.44 0 0 1-1.493 1.418 1 1 0 0 0-1.037.999V14a1 1 0 1 0 2 0v-.539a3.44 3.44 0 0 0 2.529-3.256 3.502 3.502 0 0 0-7-.255 1 1 0 0 0 2 .076c.014-.398.187-.774.48-1.044Zm.982 7.026a1 1 0 1 0 0 2H12a1 1 0 1 0 0-2h-.01Z" clip-rule="evenodd"/>
+                        </svg>                          
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Knowledge test 2</h3>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Entanglement</h3>
+                    <p class="text-sm font-normal text-gray-500">The quantum phenomenon that correlates qubits regardless of physical distance.</p>
+                </li>
+
+                <li class="ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-4 h-4 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.008-3.018a1.502 1.502 0 0 1 2.522 1.159v.024a1.44 1.44 0 0 1-1.493 1.418 1 1 0 0 0-1.037.999V14a1 1 0 1 0 2 0v-.539a3.44 3.44 0 0 0 2.529-3.256 3.502 3.502 0 0 0-7-.255 1 1 0 0 0 2 .076c.014-.398.187-.774.48-1.044Zm.982 7.026a1 1 0 1 0 0 2H12a1 1 0 1 0 0-2h-.01Z" clip-rule="evenodd"/>
+                        </svg>                          
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Knowledge test 3</h3>
+                </li>
+
+            </ol>
+        </div>
+    </aside>
+    
+    <div class="flex-1 lg:h-screen max-lg:h-full overflow-x-auto">
+        <div class="flex flex-col justify-between h-full">
+
+            <div id="section-0" class="p-4 mx-2">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Introduction</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">This lesson is designed to introduce you to the world of quantum computing, and how it differs from classical computing. We will introduce the qubit, and how it is able to perform computations that are impossible for classical bits. You will also learn about the unique properties of qubits, such as superposition and entanglement. By the end of this lesson, you will have a solid understanding of the basics of quantum computing.</p>
+
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">How much do I need to know to start?</h3>
+                <p class="mb-8 text-md font-normal text-gray-500"> Do not worry! This lesson assumes no background knowledge in quantum computing. We will start from the basics and build up from there. If you have a basic understanding of classical computing, that will be helpful, but it is not required. We will cover all the necessary concepts in this lesson.
+                </p>
+
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">I'm ready!</h3>
+                <p class="mb-4 text-md font-normal text-gray-500">Great! We will begin with a review of classical computing - to get started use the navigaion bar at the bottom of this page to progress through the lesson.</p>
+            </div>
+
+            <div id="section-1" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Introduction: Classical Computing</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">Before we dive into the world of quantum computing, let's take a moment to review classical computing. Classical computing is the type of computing that most of us are familiar with - we rely on it, and use it day in, day out. The fact that you can view this lesson is made possible through classical computing.</p>
+
+                <div class="lg:flex">
+                    <div class="lg:pr-8">
+                        <h3 class="mb-2 text-lg font-semibold text-indigo-800">Information in Classical Computing</h3>
+                        <p class="mb-8 text-md font-normal text-gray-500">The computers we are farmiliar with fundamentally come down to represeting, sending and storing information. In classical computing, information is represented as bits. A bit is the smallest unit of information, and physically, you can think of it as an electrical signal of either LOW or HIGH voltage - 0 or 1.</p>
+
+                        <img src="static/images/bit-voltage.svg" alt="Diagram showing two wires, one with low voltage, one with high, to demonstrate bits in classical computing." class="w-64 object-contain lg:hidden mb-8 mx-auto">
+
+                        <p class="mb-8 text-md font-normal text-gray-500">Combinations of bits can be used to represent more complex information. For example, a byte is made up of 8 bits, and can represent a number between 0 and 255. This is how classical computers store and process information - by manipulating bits.</p>
+                    </div>
+                
+                    <img src="static/images/bit-voltage.svg" alt="Diagram showing two wires, one with low voltage, one with high, to demonstrate bits in classical computing." class="w-64 object-contain max-lg:hidden">
+                </div>
+
+                <p class="mb-8 text-md font-normal text-gray-500">The power of classical computing comes from the ability to manipulate bits in a logical way. By performing operations on bits, we can perform complex calculations, store data, and run programs. This is a very high-level overview on classical computing, and there is far more detail and theory behind classical computing than this lesson can go into.</p>
+                
+            </div>
+
+            <div id="section-2" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">What is a Qubit?</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">In classical computing we talked about electrical voltages physically representing bits. In quantum computing, we use different physical systems to represent information, that behave differently to deterministic (classical) systems.</p>
+
+                <div>
+                    <div class="bg-gray-100 rounded-t-lg overflow-hidden w-32 flex items-center">
+                        <p class="font-semibold text-indigo-800 px-4">Definition</p>
+                    </div> 
+                </div>
+                <div class="bg-gray-50 rounded mb-8">
+                    <p class="p-4 text-sm font-normal text-indigo-800"><b>Deterministic:</b> An outcome is completley predictable given the initial state and inputs. For example, if you give a calculator an input of '2+2', you can predict the exact output (4) without having to see the calculator's output.</p>
+                </div>
+
+                <p class="mb-8 text-md font-normal text-gray-500">A simple example of a different system used for quantum computing is electrons with spin UP and spin DOWN states (\(|0\rangle\) and \(|1\rangle\)). A single electron in this system represents a single unit of information - a qubit. The primary and fundamental difference between this, and the classical system of electrical signals, is that quantum systems are non-deterministic. This will be explained further soon.</p>
+
+                <div>
+                    <div class="bg-gray-100 rounded-t-lg overflow-hidden w-32 flex items-center">
+                        <p class="font-semibold text-indigo-800 px-4">Definition</p>
+                    </div> 
+                </div>
+                <div class="bg-gray-50 rounded mb-4">
+                    <p class="p-4 text-sm font-normal text-indigo-800"><b>Non-deterministic:</b> An outcome can differ, even when given the same initial state and inputs. Non-deterministic systems have random or probablistic properties that give them this behaviour.</p>
+                </div>
+                
+            </div>
+
+            <div id="section-3" class="p-4 mx-2 hidden">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Visualising a Qubit</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">We will continue with our example of an electron, with spin-up and spin-down states. The diagram below represents our electron (our qubit), where the north pole represents spin-up, and the south pole represents spin-down.</p>
+
+                <img src="static/images/spinupspindown.svg" alt="Diagram representing an electron with spin-up and spin-down states." class="w-56 object-contain mx-auto">   
+            </div>
+
+            <div id="section-4" class="p-4 mx-2 hidden">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Visualising a Qubit</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">We represent a quantum state as a point on the surface of the sphere, as shown in the diagram below. In quantum computing, we don't actually refer to states as 'spin-up' and 'spin-down', we use \(|0\rangle\) and \(|1\rangle\), respectively.</p>
+
+                <div class="max-lg:hidden flex justify-center mb-4">
+                    <img src="static/images/spinupspindownstates.svg" alt="Diagram representing spin-up and spin-down states as points on the previous diagram." class="max-lg:hidden w-96 object-contain mx-4"> 
+
+                    <img src="static/images/spinto01.svg" alt="Diagram representing spin-up and spin-down states as points on the previous diagram, relabelled to 0 and 1." class="max-lg:hidden w-96 object-contain mx-4"> 
+                </div>
+
+                <div class="lg:hidden mb-4">
+                    <img src="static/images/spinupspindownstates.svg" alt="Diagram representing spin-up and spin-down states as points on the previous diagram." class="w-72 object-contain mx-4"> 
+
+                    <img src="static/images/spinto01.svg" alt="Diagram representing spin-up and spin-down states as points on the previous diagram, relabelled to 0 and 1." class="w-72 object-contain mx-4"> 
+                </div>
+
+                <p class="mb-8 text-md font-normal text-gray-500">This sphere, with a radius of 1, is a standard visualisation used in quantum computing called a 'Bloch Sphere'.</p>
+                 
+            </div>
+
+            <div id="section-5" class="p-4 mx-2 hidden">
+                <div class="flex justify-center">
+                    <div class="lg:mr-4">
+                        <h3 class="mb-2 text-lg font-semibold text-indigo-800">What is a Qubit: Review</h3>
+                        <p class="mb-8 text-md font-normal text-gray-500">So far, we have learnt that in quantum computing we have different physical systems than in classical computing. This also means quantum computing uses different units of information than classical - the qubit.</p>
+                        <p class="mb-8 text-md font-normal text-gray-500">A qubit can be visualised as a point on the surface of a sphere, where the north pole represents \(|0\rangle\) and the south pole represents \(|1\rangle\). This sphere is called a Bloch Sphere (see the diagram), and is a standard visualisation used in quantum computing.</p>
+
+                        <img src="static/images/bloch1.svg" alt="Diagram representing spin-up and spin-down states as points on the previous diagram, relabelled to 0 and 1." class="lg:hidden w-64 object-contain mx-auto mb-8"> 
+
+                        <p class="mb-8 text-md font-normal text-gray-500">Finally, we know that classical systems are deterministic, while quantum systems are non-deterministic. The next sections will explain exactly what this means, and why this is such an important quality of quantum computing.</p>
+                        <p class="mb-8 text-md font-normal text-gray-500">Before we continue, the next page will contain a short quiz for you to test your knowledge.</p>
+                    </div>
+                    
+                    <img src="static/images/bloch1.svg" alt="Diagram representing spin-up and spin-down states as points on the previous diagram, relabelled to 0 and 1." class="max-lg:hidden w-64 object-contain mx-4"> 
+                </div>
+            </div>
+
+            <div id="section-6" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Knowledge Test 1</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">Test your knowledge so far with the interactive quiz below!</p>
+
+                <div id="question-container-6" class="bg-gray-100 rounded-lg p-4 mb-8">
+                    
+                </div>
+            </div>
+
+            <div id="section-7" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Superposition</h1>
+                <p class="mb-4 text-md font-normal text-gray-500">Superposition is one of the unique properties of quantum systems that makes quantum computing so powerful. Similar to classical computing, a qubit can be in one of two distinct states. However, unlike classical computing a qubit may also be in a superposition of both these two states at once.</p>
+
+                <p class="mb-8 text-md font-normal text-gray-500">Think of the physical systems used for each type of computing - in classical computing, of course you can only have 0 or 1. You can have ON or OFF, but nothing inbetween. While in quantum computing, think of the Bloch sphere, you can have a point at either the north pole (\(|0\rangle\)), or the south pole (\(|1\rangle\)), but you can also have a point anywhere else on the surface of the sphere, where this would be a superposition of |0⟩ and |1⟩.</p>
+
+                <div>
+                    <div class="bg-gray-100 rounded-t-lg overflow-hidden w-32 flex items-center">
+                        <p class="font-semibold text-indigo-800 px-4">Definition</p>
+                    </div> 
+                </div>
+                <div class="bg-gray-50 rounded mb-8">
+                    <p class="p-4 text-sm font-normal text-indigo-800"><b>Superposition:</b> The unique property of a qubit to exist in a state that is a combination of both \(|0\rangle\) and \(|1\rangle\).</p>
+                </div>
+            </div>
+
+            <div id="section-8" class="p-4 mx-2 hidden">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">An aside on notation</h3>
+                <p class="mb-4 text-md font-normal text-gray-500">To formalise everything we have discussed up to this point, and to continue talking about superposition, we need some notation.</p>
+
+                <div class="lg:flex">
+                    <div>
+                        <p class="lg:mb-4 max-lg:mb-8 text-md font-normal text-gray-500">In quantum computing, we use a notation called 'Dirac notation' to represent qubit states. This notation is used to represent the state of a qubit, and is written as \(|0\rangle\) and \(|1\rangle\). You may have noticed us using this notation already. The \(|v\rangle\) combination of symbols is called a 'ket', and it represents a vector. The Bloch sphere helps us visualise and represent vectors, which correlate to qubit states. See the diagram - \(|0\rangle\) represents \((0,0,1)\) and \(|1\rangle\) represents \((0,0,-1)\)</p>
+
+                        <img src="static/images/bloch10coords.svg" alt="Diagram representing \(|0\rangle\) and \(|1\rangle\) as their coordinates on a Bloch sphere." class="lg:hidden w-64 object-contain mx-auto mb-8">  
+
+                        <p class="mb-8 text-md font-normal text-gray-500">We can write out a quantum state formally as:</p>
+                        $$|\phi\rangle = \alpha|0\rangle + \beta|1\rangle$$
+
+                        <p class="mt-8 mb-4 text-md font-normal text-gray-500">Where \(\phi\) is the vector state, and \(\alpha\) and \(\beta\) are complex numbers representing the probability of measuring the qubit in the \(|0\rangle\) and \(|1\rangle\) states, respectively.</p>
+
+                    </div>
+                
+                    <img src="static/images/bloch10coords.svg" alt="Diagram representing \(|0\rangle\) and \(|1\rangle\) as their coordinates on a Bloch sphere." class="max-lg:hidden w-64 object-contain mx-8">  
+
+                </div>
+            
+                <p class="mb-4 text-md font-normal text-gray-500">Finally, \(|0\rangle\) and \(|1\rangle\) are referred to as the computational basis states.</p>   
+
+            </div>
+
+            <div id="section-9" class="p-4 mx-2 hidden">
+                <div class="lg:flex">
+                    <div>
+                        <h3 class="mb-2 text-lg font-semibold text-indigo-800">Back to superposition</h3>
+                        <p class="mb-4 text-md font-normal text-gray-500">Let's consider the following example:</p>
+                        $$|\phi\rangle = \frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle$$
+                        <p class="mb-4 text-md font-normal text-gray-500">This state represents a qubit in a superposition of \(|0\rangle\) and \(|1\rangle\) with equal probability. Where the coefficients \(\frac{1}{\sqrt{2}}\) are complex numbers that represent the probability of measuring the qubit in the \(|0\rangle\) and \(|1\rangle\) states, respectively.</p>
+                        
+                        <img src="static/images/pluststate.svg" alt="Diagram representing the \(|+\rangle\) state on a Bloch sphere." class="lg:hidden w-64 object-contain mx-auto mb-8"> 
+
+                        <p class="mb-8 text-md font-normal text-gray-500">Intuitively, on a Bloch sphere, this point lies on the equator exactly between the north and south poles, as shown in the diagram. This specific state appears frequently and is called the plus state: \(|+\rangle\).</p> 
+                    </div>
+                    <img src="static/images/pluststate.svg" alt="Diagram representing the \(|+\rangle\) state on a Bloch sphere." class="max-lg:hidden w-64 object-contain mx-8">  
+                </div> 
+            </div>
+
+            <div id="section-10" class="p-4 mx-2 hidden">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Additional common states</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">Apart from the two computational basis states \(|0\rangle\) and \(|1\rangle\), and the state we saw previously, \(|+\rangle\), there are also 3 more common states that have their own symbols - the \(|-\rangle\), \(|i\rangle\) and \(|-i\rangle\) states.</p>
+
+                <img src="static/images/commonstatesbloch.svg" alt="Diagram representing the 6 common states on a Bloch sphere." class="w-80 object-contain mx-auto"> 
+                
+            </div>
+
+            <div id="section-11" class="p-4 mx-2 hidden">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Measurement</h3>
+                <p class="mb-4 text-md font-normal text-gray-500">A really important distinction should be made at this point. Although a qubit can exist in a superposition of both states, it can only be measured as either \(|0\rangle\) and \(|1\rangle\). Measurement forces the qubit to collapse into one of the two computational basis states.</p>
+
+                <div class="lg:flex">
+                    <div>
+                        <p class="lg:mb-4 max-lg:mb-8 text-md font-normal text-gray-500">The Schrödinger's Cat thought experiment can help conceptualise this. In the experiment, a cat, a vial of poison, a hammer, a radioactive source and a Geiger counter are placed in a sealed box. If the Geiger counter detects a single atom from the radioactive source decaying, the hammer is triggered to shatter the vial of poison, killing the cat.</p>
+
+                        <img src="static/images/schrodingerscat.svg" alt="Illustration of Schrödinger's Cat" class="lg:hidden w-80 object-contain mx-auto mb-8"> 
+
+                        <p class="mb-4 text-md font-normal text-gray-500">The idea is that the event of the radioactive source decaying is random and may or may not occour.</p>
+                        <p class="mb-8 text-md font-normal text-gray-500">The cat is in a superposition of both alive and dead states until the box is opened and the cat is observed. Once the box is opened, the cat must be alive or dead, but not in a superposition of both.</p>
+                    </div>
+                    <img src="static/images/schrodingerscat.svg" alt="Illustration of Schrödinger's Cat" class="max-lg:hidden w-80 object-contain mx-8"> 
+                </div> 
+            </div>
+
+            <div id="section-12" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Knowledge Test 2</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">Test your knowledge of superposition so far with the interactive quiz below!</p>
+
+                <div id="question-container-12" class="bg-gray-100 rounded-lg p-4 mb-8">
+                    
+                </div>
+            </div>
+
+            <div id="section-13" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Entanglement</h1>
+                <p class="mb-4 text-md font-normal text-gray-500">Entanglement is another unique quantum property that involves multiple qubits. So far we have spoken about systems only involving a single qubit, where we have two computational basis states - \(|0\rangle\) and \(|1\rangle\).</p>
+
+                <p class="mb-8 text-md font-normal text-gray-500">If we had a quantum system with two qubits, there would be four computational basis states - \(|00\rangle\), \(|01\rangle\), \(|10\rangle\) and \(|11\rangle\). A pair of qubits can be said to be in a superposition of these four states. For example:</p>
+
+                $$ |\phi\rangle = \frac{1}{\sqrt{2}}|00\rangle + \frac{1}{2}|01\rangle + \frac{\sqrt{3}}{4}|10\rangle + \frac{1}{4}|11\rangle $$
+
+                <p class="mb-4 mt-8 text-md font-normal text-gray-500">The probability of measuring the two qubits is \(\frac{1}{2}\) for \(|00\rangle\), \(\frac{1}{4}\) for \(|01\rangle\), \(\frac{3}{16}\) for \(|10\rangle\) and \(\frac{1}{16}\) for \(|11\rangle\).</p>
+
+                <p class="mb-8 text-md font-normal text-gray-500"> To generalise this, for \(n\)-qubits of a system, there are \(2^{n}\) computational basis states, where the system is in a superposition of the \(2^{n}\) computational basis states.</p>
+            </div>
+
+            <div id="section-14" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Entanglement</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">Consider this example:</p>
+
+                $$|\phi\rangle = \frac{1}{\sqrt{2}}|00\rangle + \frac{1}{\sqrt{2}}|11\rangle$$
+
+                <p class="mb-4 mt-8 text-md font-normal text-gray-500">Notice how there is no possibility of measuring either \(|01\rangle\) or \(|10\rangle\), and additionally if you measure the first qubit as 0 or 1, without measuring the second, you can deduce its state. If we measured \(|0?\rangle\), the only possibility is that the second qubit is \(|0\rangle\).</p>
+
+                <p class="mb-8 text-md font-normal text-gray-500">This is the concept of entanglement - where the state of one qubit is correlated to the state of another qubit.</p>
+            </div>
+
+            <div id="section-15" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Knowledge Test 3</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">Test your knowledge of entanglement so far with the interactive quiz below!</p>
+
+                <div id="question-container-15" class="bg-gray-100 rounded-lg p-4 mb-8">
+                    
+                </div>
+            </div>
+
+            <div id="section-16" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Introduction to Quantum Computing</h1>
+                <p class="mb-4 text-md font-normal text-gray-500">You have reached the end of this lesson! We have covered the basics of quantum computing, including the qubit, superposition and entanglement. These are the fundamental building blocks of quantum computing, and understanding them is key to understanding how quantum computers work.</p>
+                <p class="mb-8 text-md font-normal text-gray-500">Quantum computing is a complex and rapidly evolving field, and there is much more to learn beyond this lesson. If you are interested in learning more about quantum computing, there are many resources available online, including textbooks, research papers, and online courses. A recomendation is <i>Introduction to Classical and Quantum Computing - Thomas G. Wong</i>.</p>
+
+                <a href="/dashboard" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Back to Dashboard</a>
+            </div>
+        
+            <div class="w-full bg-gray-50 flex justify-between">
+                <div>
+                    <button aria-label="Back" id="back-button" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-1 px-2 rounded m-2" data-tooltip-target="tooltip-back" data-tooltip-placement="top">
+                        <svg class="w-[20px] h-[20px] text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
+                        </svg>                      
+                    </button>
+                </div>
+                <div  id="tooltip-back" role="tooltip" class="absolute z-10 invisible inline-block px-2 py-1 text-xs font-small text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip">
+                    Back
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>       
+
+                <button aria-label="Next" id="next-button" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-1 px-2 rounded m-2" data-tooltip-target="tooltip-next" data-tooltip-placement="top">
+                    <svg class="w-[20px] h-[20px] text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4"/>
+                    </svg>
+                </button>
+                <div  id="tooltip-next" role="tooltip" class="absolute z-10 invisible inline-block px-2 py-1 text-xs font-small text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip">
+                    Next
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>  
+
+            </div>
+
+        </div>
+        
+    </div> 
+</div>
+
+{% endblock %}

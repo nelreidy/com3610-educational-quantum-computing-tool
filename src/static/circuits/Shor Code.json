@@ -1,0 +1,16 @@
+{
+    "qubits": 9,
+    "gates": [
+        ["c","c","H","c","c",0,0,0,0,"b","X","H","b","c","c",0,0,0,0,"X",0,0,"H","c","c","X",0],
+        [0,0,0,"X",0,0,0,0,0,"b",0,0,"b","X",0,0,0,0,0,"c",0,0,0,0,0,0,0],
+        [0,0,0,0,"X",0,0,0,0,"b",0,0,"b",0,"X",0,0,0,0,"c",0,0,0,0,0,0,0],
+        ["X",0,"H",0,0,"c","c",0,0,"b",0,0,"b",0,0,"c","c",0,0,0,"X",0,"H","X",0,"c",0],
+        [0,0,0,0,0,"X",0,0,0,"b",0,0,"b",0,0,"X",0,0,0,0,"c",0,0,0,0,0,0],
+        [0,0,0,0,0,0,"X",0,0,"b",0,0,"b",0,0,0,"X",0,0,0,"c",0,0,0,0,0,0],
+        [0,"X","H",0,0,0,0,"c","c","b",0,0,"b",0,0,0,0,"c","c",0,0,"X","H",0,"X","c",0],
+        [0,0,0,0,0,0,0,"X",0,"b",0,0,"b",0,0,0,0,"X",0,0,0,"c",0,0,0,0,0],
+        [0,0,0,0,0,0,0,0,"X","b",0,0,"b",0,0,0,0,0,"X",0,0,"c",0,0,0,0,0]
+    ],
+    "title": "Shor Code",
+    "description": "A quantum error correction method that uses 8 additional qubits to correct both bit-flip and phase-flip errors occouring on one qubit. Encoding of the qubit occours before the first barrier. The error is simulated between the two barriers, and decoding occours after the second barrier. Toggle q[0]'s measurement to observe."
+}

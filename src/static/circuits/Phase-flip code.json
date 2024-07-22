@@ -1,0 +1,10 @@
+{
+    "qubits": 3,
+    "gates": [
+        ["c","c","H","b","Z","b","H","c","c","X",0],
+        ["X",0,"H","b",0,"b","H","X",0,"c",0],
+        [0,"X","H","b",0,"b","H",0,"X","c",0]
+    ],
+    "title": "Phase-flip code",
+    "description": "A basic quantum error correction method. Similar to the bit-flip error code, with the introduction of Hadamard gates after encoding, and before decoding. A phase-flip error is where a qubit state is flipped from ∣+⟩ to ∣−⟩ or vice versa. The same logic as the bit-flip code is applied. The Pauli-Z gate between the two barriers simulates a phase flip error - toggle the measurement probe for q[0] to 'on' to observe."
+}

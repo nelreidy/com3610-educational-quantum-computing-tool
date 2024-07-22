@@ -1,0 +1,15 @@
+{% load static %}
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="{% static 'js/main.bundle.js' %}"></script>
+
+<!-- load only for circuit page -->
+{% if request.path == '/builder' %}
+    <script src="{% static 'js/circuit.bundle.js' %}"></script>
+{% endif %}
+
+<!-- load only for lesson page -->
+{% if request.path == '/introduction-to-quantum-computing' or request.path == '/fundamentals-of-quantum-computing' or request.path == '/quantum-circuits' %}
+    <script src="{% static 'js/lesson.bundle.js' %}"></script>
+{% endif %}

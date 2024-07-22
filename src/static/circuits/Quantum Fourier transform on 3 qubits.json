@@ -1,0 +1,10 @@
+{
+    "qubits": 3,
+    "gates": [
+        ["H", "S", "T", 0, 0, 0, "sw", 0],
+        [0, "c", 0, "H", "S", 0, 0],
+        [0, 0, "c", 0, "c", "H", "sw", 0]
+    ],
+    "title": "Quantum Fourier transform on 3 qubits",
+    "description": ""
+}

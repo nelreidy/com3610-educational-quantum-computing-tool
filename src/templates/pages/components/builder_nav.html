@@ -1,0 +1,182 @@
+<!-- ADAPTED FROM https://v1.tailwindcss.com/components/navigation -->
+<nav class="snap-start flex items-center justify-between flex-wrap bg-indigo-600 p-3">
+    
+    <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <img src="/static/images/site_icon.svg" alt="Site logo" class="fill-current h-8 w-8 mr-2" />
+        <span class="font-semibold text-xl tracking-tight bg-clip-text text-white">
+            Quantum Circuit Simulator
+        </span>
+    </div>
+
+    <div class="flex flex-grow text-sm justify-evenly">
+        <div class="text-sm lg:flex-grow">
+            <a href="/dashboard" class="inline-block mt-4 lg:inline-block lg:mt-0 text-indigo-100 hover:text-white mr-4">
+                Dashboard
+            </a>
+            {% if user.is_authenticated %}
+                <a onclick="setLoadForm()" type="button" data-modal-target="load-modal" data-modal-toggle="load-modal" class="inline-block mt-4 lg:inline-block lg:mt-0 text-indigo-100 hover:text-white mr-4">
+                    Load Circuit
+                </a>
+                <div id="load-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                                <h3 class="text-xl font-semibold text-gray-900">
+                                    Load Circuit
+                                </h3>
+                                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="load-modal">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="rounded-b">
+                                {% include 'pages/components/circuit_table.html' %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a onclick="setSaveForm()" type="button" data-modal-target="save-modal" data-modal-toggle="save-modal" class="inline-block mt-4 lg:inline-block lg:mt-0 text-indigo-100 hover:text-white mr-4">
+                    Save Circuit
+                </a>
+                <div id="save-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                    <div class="relative p-4 w-full max-w-2xl max-h-full">
+                        <!-- Modal content -->
+                        <div class="relative bg-white rounded-lg shadow">
+                            <!-- Modal header -->
+                            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                                <h3 class="text-xl font-semibold text-gray-900">
+                                    Save Circuit
+                                </h3>
+                                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="save-modal">
+                                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                    </svg>
+                                    <span class="sr-only">Close modal</span>
+                                </button>
+                            </div>
+                            <!-- Modal body -->
+                            <div class="p-4 md:p-5">
+                                <form id="save-form" class="space-y-4" action="#">
+                                    <label for="save-circuit-name" class="block mb-2 text-sm font-medium text-gray-900">Circuit Title</label>
+                                    <input type="text" id="save-circuit-name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5" placeholder="Circuit Name" maxlength="50">
+                                    <label for="save-circuit-desc" class="block mb-2 text-sm font-medium text-gray-900">Circuit Description</label>
+                                    <textarea id="save-circuit-desc" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Description of the circuit..."></textarea>
+    
+                                    <div class="flex items-center pt-4 md:pt-5 border-t border-gray-200 rounded-b">
+                                        <button onclick="saveCircuit(event)" data-modal-hide="save-modal" type="submit" type="button" class="text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Save</button>
+                                        <button data-modal-hide="save-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-indigo-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Cancel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <a onclick="setImportForm()" type="button" data-modal-target="import-modal" data-modal-toggle="import-modal" class="inline-block mt-4 lg:inline-block lg:mt-0 text-indigo-100 hover:text-white mr-4">
+                Import Circuit
+            </a>
+            <div id="import-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                <div class="relative p-4 w-full max-w-2xl max-h-full">
+                    <!-- Modal content -->
+                    <div class="relative bg-white rounded-lg shadow">
+                        <!-- Modal header -->
+                        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                            <h3 class="text-xl font-semibold text-gray-900">
+                                Import Circuit
+                            </h3>
+                            <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="import-modal">
+                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                </svg>
+                                <span class="sr-only">Close modal</span>
+                            </button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="p-4 md:p-5">
+                            <form id="import-form" class="space-y-4" action="#">
+                                <label for="file_input" class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50">
+                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                        <svg class="w-8 h-8 mb-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                                        </svg>
+                                        <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                                        <p id="file_name" class="text-xs text-gray-500">No file selected</p>
+                                    </div>
+                                    <input id="file_input" type="file" class="hidden" accept=".json" />
+                                </label>
+
+                                <div class="flex items-center pt-4 md:pt-5 border-t border-gray-200 rounded-b">
+                                    <button onclick="importCircuit(event, document.getElementById('file_input').files[0])" data-modal-hide="import-modal" type="submit" type="button" class="text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center ">Import</button>
+                                    <button data-modal-hide="import-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-indigo-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a onclick="setExportForm()" type="button" data-modal-target="export-modal" data-modal-toggle="export-modal" class="inline-block mt-4 lg:inline-block lg:mt-0 text-indigo-100 hover:text-white mr-4">
+                Export Circuit
+            </a>            
+            <div id="export-modal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                <div class="relative p-4 w-full max-w-2xl max-h-full">
+                    <!-- Modal content -->
+                    <div class="relative bg-white rounded-lg shadow">
+                        <!-- Modal header -->
+                        <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t">
+                            <h3 class="text-xl font-semibold text-gray-900">
+                                Export Circuit
+                            </h3>
+                            <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center" data-modal-hide="export-modal">
+                                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                </svg>
+                                <span class="sr-only">Close modal</span>
+                            </button>
+                        </div>
+                        <!-- Modal body -->
+                        <div class="p-4 md:p-5">
+                            <form id="export-form" class="space-y-4" action="#">
+                                <label for="export-circuit-name" class="block mb-2 text-sm font-medium text-gray-900">Circuit Title</label>
+                                <input type="text" id="export-circuit-name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5" placeholder="Circuit Name" maxlength="50">
+                                <label for="export-circuit-desc" class="block mb-2 text-sm font-medium text-gray-900">Circuit Description</label>
+                                <textarea id="export-circuit-desc" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Description of the circuit..."></textarea>
+
+                                <div class="flex items-center pt-4 md:pt-5 border-t border-gray-200 rounded-b">
+                                    <button onclick="exportCircuit(event)" data-modal-hide="export-modal" type="submit" type="button" class="text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Download</button>
+                                    <button data-modal-hide="export-modal" type="button" class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-indigo-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Cancel</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="examplesDropdownbutton" data-dropdown-toggle="examplesDropdown" data-dropdown-placement="bottom-start" class="inline-block mt-4 lg:inline-block lg:mt-0 text-indigo-100 hover:text-white mr-4">
+                <div class="flex justify-between items-center">
+                    <span>Example Circuits</span>
+                    <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                    </svg>
+                </div>
+            </button>
+            <!-- Dropdown menu -->
+            <div id="examplesDropdown" class="z-50 hidden bg-white rounded-lg shadow w-60">
+                <ul class="h-48 py-2 overflow-y-auto text-gray-700" aria-labelledby="dropdownUsersButton">
+                    {% for example in example_circuits %}
+                        <li>
+                            <a href="/builder?load={{ example.data }}" class="text-xs flex items-center px-4 py-2 hover:bg-gray-100">
+                                {{ example.name }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

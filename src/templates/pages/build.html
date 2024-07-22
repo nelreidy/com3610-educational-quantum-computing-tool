@@ -1,0 +1,36 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+{% include 'pages/components/builder_nav.html' %} <!-- top nav tool bar -->
+
+<!-- container for sim -->
+<div id="sim-container" class="h-full relative">
+    <!-- tutorial -->
+    <div id="tutorial-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-[100]" style="display: none;"></div>
+    
+    <!-- toast -->
+    <div id="toast-parent" class="p-3 hidden fixed bottom-0 left-0 flex items-center justify-center z-10"></div>
+
+    <!-- main -->
+    <div class="grid grid-cols-5 border-b border-gray-400">
+        <!-- component bar -->
+        <div class="bg-gray-100 h-screen col-span-1 p-2"> 
+            <div class="h-full overflow-auto" id="component-bar">
+            </div>
+        </div>
+
+        <!-- main builder -->
+        <div class="bg-white flex flex-col h-screen col-span-4"> 
+            <!-- tools for main builder -->
+            {% include 'pages/components/tools.html' %}
+
+            <!-- circuit creation area -->
+            <div id ="circuit-wrapper" class="h-full flex flex-row p-3 overflow-auto">
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'pages/components/measurements.html' %}
+{% endblock %}

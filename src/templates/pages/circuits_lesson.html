@@ -1,0 +1,261 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% include 'pages/components/dash_nav.html' %}
+
+<div class="lg:h-screen max-lg:max-lg:h-[90%] flex">
+
+    <aside id="separator-sidebar" class="z-40 w-64 h-screen transition-transform max-lg:hidden" aria-label="Sidebar">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50">
+            <ol class="relative border-s border-gray-200 ml-2">      
+
+                <li class="mb-10 ms-6">            
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Introduction</h3>
+                    <p class="mb-4 text-sm font-normal text-gray-500">A reminder of the common gates/components in quantum circuits.</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Series</h3>
+                    <p class="text-sm font-normal text-gray-500">Connecting quantum gates in series.</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-4 h-4 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.008-3.018a1.502 1.502 0 0 1 2.522 1.159v.024a1.44 1.44 0 0 1-1.493 1.418 1 1 0 0 0-1.037.999V14a1 1 0 1 0 2 0v-.539a3.44 3.44 0 0 0 2.529-3.256 3.502 3.502 0 0 0-7-.255 1 1 0 0 0 2 .076c.014-.398.187-.774.48-1.044Zm.982 7.026a1 1 0 1 0 0 2H12a1 1 0 1 0 0-2h-.01Z" clip-rule="evenodd"/>
+                        </svg>                          
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Knowledge test 1</h3>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Parallel</h3>
+                    <p class="text-sm font-normal text-gray-500">Connecting quantum gates in parallel.</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-4 h-4 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.008-3.018a1.502 1.502 0 0 1 2.522 1.159v.024a1.44 1.44 0 0 1-1.493 1.418 1 1 0 0 0-1.037.999V14a1 1 0 1 0 2 0v-.539a3.44 3.44 0 0 0 2.529-3.256 3.502 3.502 0 0 0-7-.255 1 1 0 0 0 2 .076c.014-.398.187-.774.48-1.044Zm.982 7.026a1 1 0 1 0 0 2H12a1 1 0 1 0 0-2h-.01Z" clip-rule="evenodd"/>
+                        </svg>                          
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Knowledge test 2</h3>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Extension: Quantum Error Correction</h3>
+                    <p class="text-sm font-normal text-gray-500">Exploring what QEC is.</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Bit Flip Code</h3>
+                    <p class="text-sm font-normal text-gray-500">Looking at the quantum circuit for correcting a single bit flip error.</p>
+                </li>
+
+                <li class="ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Phase Flip Code</h3>
+                    <p class="text-sm font-normal text-gray-500">Looking at the quantum circuit for correcting a single phase flip error.</p>
+                </li>
+            </ol>
+        </div>
+    </aside>
+    
+    <div class="flex-1 lg:h-screen max-lg:h-full overflow-x-auto">
+        <div class="flex flex-col justify-between h-full">
+
+            <div id="section-0" class="p-4 mx-2">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Introduction</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">This lesson is designed to introduce you to constructing quantum circuits, specifically using this platform.</p>
+
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">How much do I need to know to start?</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">It is a good idea to have a basic understanding of quantum concepts and knowledge of common quantum gates. We recommend going to the <a href="/fundamentals-of-quantum-computing" class="text-indigo-800 underline">Fundamentals of Quantum Computing</a> lesson if you want a recap on quantum gates.
+                </p>
+
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">I'm ready!</h3>
+                <p class="mb-4 text-md font-normal text-gray-500">Great! We will begin with a recap on common quantum gates, then dive into constructing quantum circuits. Use the buttons at the bottom of the page to navigate through the lesson.</p>
+            </div>
+
+            <div id="section-1" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Recap: Common Quantum Gates</h1>
+                <p class="mb-4 text-md font-normal text-gray-500">You can review the most common quantum gates below:</p>
+
+                <div class="lg:grid lg:grid-cols-3 lg:gap-10">
+                    <div class="mb-4">
+                        <img src="static/images/identitygatecircuitdiagram.svg" alt="Diagram representing the identity gate on a circuit." class="w-40 object-contain mx-auto">
+                        <p class="text-center text-sm font-normal text-gray-500">Identity Gate</p>
+                        <p class="text-center text-sm font-normal text-gray-500"><i>No change to qubit state</i></p>
+                    </div>
+                    <div></div>
+                    <div></div>
+                    <div class="mb-4">
+                        <img src="static/images/paulixcircuitdiagram.svg" alt="Diagram representing the Pauli X gate on a circuit." class="w-40 object-contain mx-auto mt-3">
+                        <p class="text-center text-sm font-normal text-gray-500 mt-5">Pauli-X Gate</p>
+                        <p class="text-center text-sm font-normal text-gray-500"><i>Rotation around x-axis by 180°</i></p>
+                    </div>
+                    <div class="mb-4">
+                        <img src="static/images/pauliycircuitdiagram.svg" alt="Diagram representing the Pauli Y gate on a circuit." class="w-40 object-contain mx-auto">
+                        <p class="text-center text-sm font-normal text-gray-500">Pauli-Y Gate</p>
+                        <p class="text-center text-sm font-normal text-gray-500"><i>Rotation around y-axis by 180°</i></p>
+                    </div>
+                    <div class="mb-4">
+                        <img src="static/images/paulizcircuitdiagram.svg" alt="Diagram representing the Pauli Z gate on a circuit." class="w-40 object-contain mx-auto">
+                        <p class="text-center text-sm font-normal text-gray-500">Pauli-Z Gate</p>
+                        <p class="text-center text-sm font-normal text-gray-500"><i>Rotation around z-axis by 180°</i></p>
+                    </div>
+
+                    <div class="mb-4">
+                        <img src="static/images/sgatecircuitdiagram.svg" alt="Diagram representing the S gate on a circuit." class="w-40 object-contain mx-auto">
+                        <p class="text-center text-sm font-normal text-gray-500">S Gate</p>
+                        <p class="text-center text-sm font-normal text-gray-500"><i>Rotation around z-axis by 90°</i></p>
+                    </div>
+                    <div class="mb-4">
+                        <img src="static/images/tgatecircuitdiagram.svg" alt="Diagram representing the T gate on a circuit." class="w-40 object-contain mx-auto">
+                        <p class="text-center text-sm font-normal text-gray-500">T Gate</p>
+                        <p class="text-center text-sm font-normal text-gray-500"><i>Rotation around z-axis by 45°</i></p>
+                    </div>
+                    <div class="mb-4">
+                        <img src="static/images/hadamardcircuitdiagram.svg" alt="Diagram representing the Hadamard gate on a circuit." class="w-40 object-contain mx-auto">
+                        <p class="text-center text-sm font-normal text-gray-500">Hadamard Gate</p>
+                        <p class="text-center text-sm font-normal text-gray-500"><i>Rotation around the x-axis by 90°, followed by a rotation around the z-axis by 180°</i></p>
+                    </div>
+
+                    <div class="mb-4">
+                        <img src="static/images/cnotgatecircuitdiagram.svg" alt="Diagram representing the function of a control node on a circuit." class="w-40 object-contain mx-auto">
+                        <p class="text-center text-sm font-normal text-gray-500 mt-5">Control Node</p>
+                        <p class="text-center text-sm font-normal text-gray-500"><i>Applies a gate to a target qubit if the control qubit is in state |1></i></p>
+                    </div>
+                    <div class="mb-4">
+                        <img src="static/images/anticnotcircuitdiagram.svg" alt="Diagram representing the function of an anti-control node on a circuit." class="w-40 object-contain mx-auto">
+                        <p class="text-center text-sm font-normal text-gray-500 mt-5">Anti-control Node</p>
+                        <p class="text-center text-sm font-normal text-gray-500"><i>Applies a gate to a target qubit if the control qubit is in state |0></i></p>
+                    </div>
+                    <div class="mb-4">
+                        <img src="static/images/swapcircuitdiagram.svg" alt="Diagram representing the swap gate on a circuit." class="w-40 object-contain mx-auto">
+                        <p class="text-center text-sm font-normal text-gray-500 mt-5">SWAP Gate</p>
+                        <p class="text-center text-sm font-normal text-gray-500"><i>Swaps the states of two qubits</i></p>
+                    </div>
+                        
+                </div>
+            </div>
+
+            <div id="section-2" class="p-4 mx-2">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Series</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">Quantum circuits 'flow' from left to right - gates are applied in this order. The diagram below is a basic, example that we will look at now.</p>
+
+                <img src="static/images/singlequbit2x.svg" alt="Single qubit circuit diagram with two Pauli-X gates applied." class="w-96 object-contain mx-auto mb-8">
+
+                <p class="mb-4 text-md font-normal text-gray-500">In a circuit, each qubit is represented by a horizontal circuit line. Our diagram contains a single qubit that is labelled \(q[0]\). In a circuit, all qubits begin initially in the computational basis state of \(|0\rangle\). This circuit is read (and executed) from left to right. The two grey areas on the circuit represent 'moments', moment 1 (m1) and moment 2 (m2) respectively.</p>
+
+                <p class="mb-4 text-md font-normal text-gray-500">Lets go through this circuit step by step. We start with \(q[0]\) being in the \(|0\rangle\) state. The first moment (m1, containing a Pauli-X gate) then gets applied to \(q[0]\) which results in the \(|1\rangle\) state. The second moment (m2, containing another Pauli-X gate) then gets applied to \(q[0]\) which results in the \(|0\rangle\) state. </p>
+            </div>
+
+            <div id="section-3" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Knowledge Test 1</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">Test your knowledge so far below!</p>
+
+                <div id="question-container-3" class="bg-gray-100 rounded-lg p-4 mb-8">
+                    
+                </div>
+            </div>
+
+            <div id="section-4" class="p-4 mx-2">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Parallel</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">We will now look at circuits with multiple qubits, where operations can be applied in 'parallel'. In these circuits, a moment contains all operations to be appliced/executed at a single point in time, at the same time. We draw parallel circuit lines for each qubit in a multi-qubit circuit, and qubits are labelled \(q[0]\) to \(q[n]\), for \(n\) amount of qubits in a circuit. See the diagram below:</p>
+
+                <img src="static/images/3qubitcircuitA.svg" alt="3 qubit circuit diagram with various Pauli-X gates applied." class="w-96 object-contain mx-auto mb-8">
+
+                <p class="mb-4 text-md font-normal text-gray-500">In this diagram, we have moment 1 (m1) and moment 2 (m2). Moment 1 contains two Pauli-X gates, one on \(q[0]\), and one on \(q[1]\). When moment 1 is executed, these two gates get applied at the same time to each qubit respectively. Additionally, this moment contains no operations on \(q[2]\), so nothing happens to this qubit in moment 1. When moment 2 is executed, the Pauli-X gate on \(q[0]\) and the Pauli-X gate on \([q2]\) get executed at the same time. There are no operations on \(q[1]\) in moment 2, so nothing happens to this qubit.</p>
+
+                <p class="mb-4 text-md font-normal text-gray-500">The entire system (of the 3 qubits) can be represented as \(|q[1]q[2]q[3]\rangle\):</p>
+                <p class="mb-4 text-md font-normal text-gray-500">Before moment 1: \(|000\rangle\)</p>
+                <p class="mb-4 text-md font-normal text-gray-500">After moment 1: \(|110\rangle\)</p>
+                <p class="mb-8 text-md font-normal text-gray-500">After moment 2: \(|011\rangle\)</p>
+            </div>
+
+            <div id="section-5" class="p-4 mx-2">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Another Example</h3>
+                <p class="mb-4 text-md font-normal text-gray-500">Again, in the diagram below we have two moments, moment 1 (m1) and moment 2 (m2). This time, however, we have a controlled SWAP gate in moment 2.</p>
+
+                <img src="static/images/3qubitcircuitB.svg" alt="3 qubit circuit diagram with various Pauli-X gates and a controlled SWAP gate applied." class="w-96 object-contain mx-auto mb-8">
+
+                <p class="mb-4 text-md font-normal text-gray-500">Moment 1 is similar to what we have seen before, and after moment 1 the system is in the \(|110\rangle\) state. Looking at moment 2 now, we have a control node on \(q[0]\) connected to a SWAP gate over \(q[1]\) and \(q[2]\). As the system is in the \(|110\rangle\) state before moment 2, when moment 2 is executed, the control node is triggered. This means the SWAP gate is executed, and the states of \(q[1]\) and \(q[2]\) are swapped. Nothing happens to \(q[0]\) as a control node does not perform any transformations on the control qubit. After moment 2, the system is in the \(|101\rangle\) state.</p>
+            </div>
+
+            <div id="section-6" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Knowledge Test 2</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">Test your knowledge so far below!</p>
+
+                <div id="question-container-6" class="bg-gray-100 rounded-lg p-4 mb-8">
+                    
+                </div>
+            </div>
+
+            <div id="section-7" class="p-4 mx-2">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Extension: Quantum Error Correction</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">We've reached the end of the lesson! If you're interested in learning more about Quantum Error Correction (QEC), or to see some practical examples of quantum circuits, you can continue on (note: currently under construction). Otherwise, you can head on over to the <a href="/fundamentals-of-quantum-computing" class="text-indigo-800 underline">Circuit Builder</a>, or back to your Dashboard.</p>
+
+                <a href="/dashboard" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Back to Dashboard</a>
+            </div>
+
+            <div class="w-full bg-gray-50 flex justify-between">
+                <div>
+                    <button aria-label="Back" id="back-button" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-1 px-2 rounded m-2" data-tooltip-target="tooltip-back" data-tooltip-placement="top">
+                        <svg class="w-[20px] h-[20px] text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
+                        </svg>                      
+                    </button>
+                </div>
+                <div id="tooltip-back" role="tooltip" class="absolute z-10 invisible inline-block px-2 py-1 text-xs font-small text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip">
+                    Back
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>       
+
+                <button aria-label="Next" id="next-button" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-1 px-2 rounded m-2" data-tooltip-target="tooltip-next" data-tooltip-placement="top">
+                    <svg class="w-[20px] h-[20px] text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4"/>
+                    </svg>
+                </button>
+                <div id="tooltip-next" role="tooltip" class="absolute z-10 invisible inline-block px-2 py-1 text-xs font-small text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip">
+                    Next
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>  
+
+            </div>
+
+        </div>
+        
+    </div> 
+</div>
+
+{% endblock %}

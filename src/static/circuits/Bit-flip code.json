@@ -1,0 +1,10 @@
+{
+    "qubits": 3,
+    "gates": [
+        ["c","c","b","X","b","c","c","X",0],
+        ["X",0,"b",0,"b","X",0,"c",0],
+        [0,"X","b",0,"b",0,"X","c",0]
+    ],
+    "title": "Bit-flip code",
+    "description": "A basic quantum error correction method. A bit-flip error is when a qubit state is flipped from ∣0⟩ to ∣1⟩ or vice versa. The idea of the bit-flip code is to encode the single qubit as an entangled state of 3 qubits. Toggle the measurement to 'on' for q[0], and observe. The Pauli-X gate between the two barriers is simulating a bit flip error on q[0]. The barriers divide the circuit into the sections 'encoding', 'error' and 'decoding'."
+}

@@ -1,0 +1,12 @@
+body::-webkit-scrollbar {
+    display: none;
+}
+
+div::-webkit-scrollbar {
+    display: none;
+}
+
+#spotlight-element {
+    box-shadow: 0 0 0 1000px rgba(0,0,0,0.5);
+    will-change: transform, opacity;
+}
