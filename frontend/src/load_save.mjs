@@ -61,6 +61,10 @@ export function setSaveForm() {
     document.getElementById('save-circuit-desc').value = circuit.description;
 };
 
+export function loadCircuit(event, file) {
+
+};
+
 /**
  * Function to set the load form with the current user's saved circuits
  */
