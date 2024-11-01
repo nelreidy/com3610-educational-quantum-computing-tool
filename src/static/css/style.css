@@ -10,3 +10,142 @@ div::-webkit-scrollbar {
     box-shadow: 0 0 0 1000px rgba(0,0,0,0.5);
     will-change: transform, opacity;
 }
+
+
+/* Timeline container */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 20px 0;
+    margin: 0 auto;
+    width: 100%;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+/* Line in the middle */
+.timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: #4f46e5;
+    transform: translateX(-50%);
+}
+
+/* Timeline item container */
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+.timeline-top {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: -20px; /* Adjust as needed */
+}
+
+.bloch-sphere-img{
+    width: 40px;   
+    height: 40px; 
+    display: block;
+    margin: 0 auto;
+    margin-right: auto-1px;
+    animation: spin 1.5s ease-out; 
+    right: 50%;
+}
+
+/* Date on the left */
+.timeline-date {
+    font-weight: bold;
+    color: #6b7280;
+    flex: 1;
+    text-align: right;
+    padding-right: 20px;
+    width: 20%;
+
+
+}
+
+
+/* Node in the middle */
+.timeline-node {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #4f46e5;
+    position: relative;
+    z-index: 1;
+
+}
+
+/* Content box on the right */
+.timeline-content {
+    background-color: #1f2937;
+    color: #e5e7eb;
+    padding: 15px;
+    border-radius: 8px;
+    margin-left: 20px;
+    width: 80%;
+    max-width: 800px; /* Wider container */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Title in content */
+.timeline-title {
+    font-size: 1.125rem;
+    color: #818cf8;
+    margin-bottom: 8px;
+}
+
+/* Media query for responsive alignment */
+@media (max-width: 768px) {
+    .timeline {
+        width: 100%;
+    }
+    .timeline-date {
+        display: none;
+    }
+    .timeline-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .timeline-content {
+        width: calc(100% - 40px);
+        margin-left: 40px;
+    }
+}
+
+
+/* Alternate positioning */
+.timeline-item:nth-child(odd) .timeline-date {
+    text-align: right;
+    order: 1;
+}
+.timeline-item:nth-child(odd) .timeline-content {
+    order: 3;
+    margin-left: 20px;
+}
+.timeline-item:nth-child(even) .timeline-date {
+    text-align: left;
+    order: 3;
+}
+.timeline-item:nth-child(even) .timeline-content {
+    order: 1;
+    margin-right: 20px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
