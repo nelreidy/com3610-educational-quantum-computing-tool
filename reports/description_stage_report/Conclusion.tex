@@ -1,0 +1,74 @@
+
+\chapter{Plan of action}
+
+The chart below shows my plan of action until the end of this semester.  \\
+
+\hspace{-3.0cm}
+\begin{ganttchart}[
+    vgrid, hgrid,
+    title/.append style={fill=gray!30},
+    title label font=\bfseries,
+    title label anchor/.append style={below left=7pt and 0pt},
+    bar/.append style={fill=blue!60},
+    bar label font=\normalsize\color{black},
+    progress label text={},
+    x unit=1.1cm ,
+    y unit chart=1.3cm,  
+    label node anchor/.append style={text=left},
+    bar label node/.append style={text width=5cm,align=right},
+    % Increase this value to widen the chart
+]{1}{12}  % Timeline from week 1 to week 12
+
+
+  
+  \gantttitle{Project Timeline in weeks}{12} \\  % Title for the entire chart
+\gantttitlelist{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}{1}\\  % Dates only as text
+
+
+  % Define tasks and their timelines
+  \ganttbar{General research and study}{1}{6} \\  % Task 1: Week 1 to Week 2
+  \ganttbar{Survey and analysis report}{3}{10} \\  % Task 2: Week 3 to Week 4
+  \ganttbar{Set up project repo \& skeleton }{3}{3} \\  % Task 3: Week 5 to Week 6
+  \ganttbar[name=task6, bar label font=\small, bar label node/.append style={align=right,text width=5.5cm, inner sep=2pt}]{(1)Module content: Historical context and state of  QC today}{3}{3} \\  % Task 4: Week 7 to Week 8
+  \ganttbar[name=task6, bar label font=\footnotesize, bar label node/.append style={align=right,text width=5.9cm, inner sep=2pt}]{(2) Module Content: QC fundamentals(Qubits, superposition, circuits, etc..)}{4}{4} \\  % Task 5: Week 9 to Week 10
+  \ganttbar[name=task6, bar label font=\small, bar label node/.append style={align=right,text width=5cm, inner sep=2pt}]{Design module structure and Implement (1) \& (2)}{5}{7} \\  % Task 6: Week 11 to Week 12
+  \ganttbar[name=task6, bar label font=\small, bar label node/.append style={align=right,text width=5cm, inner sep=2pt}]%
+    {Set up test suite }{8}{8} \\
+  \ganttbar[name=task6, bar label font=\small, bar label node/.append style={align=right,text width=5.4cm, inner sep=2pt}] 
+    {Module content and implementation: Quantum error correction }{9}{9} \\  % Task 6: Week 11 to Week 12
+  \ganttbar[name=task6, bar label font=\small, bar label node/.append style={align=right,text width=5.4cm, inner sep=2pt}] 
+  {Quantum algorithms \& Qiskit research }{11}{12} \\% Task 6:
+ \ganttbar[name=task6, bar label font=\small, bar label node/.append style={align=right,text width=5.4cm, inner sep=2pt}] 
+  {Progress tracking implementation}{11}{12} % Task 6: Week 11 to Week 12
+\end{ganttchart}
+
+\vspace{0.7cm}
+
+\noindent{I plan on iteratively adding and refining modules as my understanding deepens. Module content generation includes quizzes and assignments. Research will be ongoing, while quantum algorithms and Qiskit research will take centre stage later on. I am also leaving the implementation of interactive features and the lab environment for semester two, given the steep learning curve for quantum computing.}
+
+
+\newpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section*{\LARGE References}
+
+\begin{itemize}
+    \item Wong, T.G. (2022). Introduction to classical and quantum computing. Omaha: Rooted Groove. Copyright.(Accessed: 26 September 2024).
+    \item Nielsen, M.A. and Chuang, I.L. (2000). Quantum computation and quantum information. Cambridge: Cambridge University Press. (Accessed: 1 october 2024).
+    \item J. , A., Adedoyin, A., Ambrosiano, J., Anisimov, P., Bärtschi, A., Casper, W., Chennupati, G., Coffrin, C., Djidjev, H., Gunter, D., Karra, S., Lemons, N., Lin, S., Malyzhenkov, A., Mascarenas, D., Mniszewski, S., Nadiga, B., O’Malley, D., Oyen, D. and Pakin, S. (2020). Quantum Algorithm Implementations for Beginners. Available at: https://arxiv.org/abs/1804.03719. (Accessed: 8 October 2024)
+    \item IBM Quantum Learning Platform (n.d.) Available at: https://learning.quantum.ibm.com/ (Accessed: 1 October 2024).
+    \item Q-ctrl.com. (2024). Available at: https://black.q-ctrl.com/skills.(Accessed: 6 October 2024).
+\end{itemize}
+
