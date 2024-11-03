@@ -11,39 +11,39 @@ let currentLessonIndex = 0;
 
 // Questions for the introduction lesson
 let questionsIntroduction = [
-    // {
-    //     section: 3,
-    //     questions:[
-    //         {
-    //             question: "Who proposed that quantum computers could simulate quantum mechanics more efficiently than classical computers?",
-    //             options: [
-    //                 "Richard Feynman",
-    //                 "David Deutsch",
-    //                 "Peter Shor", 
-    //             ],
-    //             answer: "Richard Feynman"
-    //         }, 
-    //         {
-    //             question: "What type of quantum computer is D-Wave’s system?",
-    //             options: [
-    //                 "Quantum gate computer",
-    //                 "Quantum annealer",
-    //                 "Universal quantum computer",
-    //             ],
-    //             answer: "Quantum annealer"
-    //         }, 
-    //         {
-    //             question: "Which algorithm demonstrated that quantum computers could potentially break modern encryption methods?", 
-    //             options: [
-    //                 "Shor's Algorithm",
-    //                 "Grover's Algorithm",
-    //                 "Feynman's Algorithm"
-    //             ], 
-    //             answer: "Shor's Algorithm"
-    //         }
+    {
+        section: 3,
+        questions:[
+            {
+                question: "Who proposed that quantum computers could simulate quantum mechanics more efficiently than classical computers?",
+                options: [
+                    "Richard Feynman",
+                    "David Deutsch",
+                    "Peter Shor", 
+                ],
+                answer: "Richard Feynman"
+            }, 
+            {
+                question: "What type of quantum computer is D-Wave’s system?",
+                options: [
+                    "Quantum gate computer",
+                    "Quantum annealer",
+                    "Universal quantum computer",
+                ],
+                answer: "Quantum annealer"
+            }, 
+            {
+                question: "Which algorithm demonstrated that quantum computers could potentially break modern encryption methods?", 
+                options: [
+                    "Shor's Algorithm",
+                    "Grover's Algorithm",
+                    "Feynman's Algorithm"
+                ], 
+                answer: "Shor's Algorithm"
+            }
 
-    //     ]
-    // },
+        ]
+    },
     {
         section: 8,
         questions: [
@@ -524,9 +524,8 @@ const timelineData = [
     const timelineContainer = document.getElementById("timeline-container");
     console.log(timelineContainer);
   
-      // Loop through the data and create timeline items
     timelineData.forEach(item => {
-        // Create timeline item elements
+
         const timelineItem = document.createElement("div");
         timelineItem.classList.add("timeline-item");
   
@@ -544,7 +543,7 @@ const timelineData = [
         const timelineDescription = document.createElement("p");
         timelineDescription.textContent = item.description;
   
-        // Append elements to build the timeline item
+
         timelineContent.appendChild(timelineTitle);
         timelineContent.appendChild(timelineDescription);
         timelineItem.appendChild(timelineDate);
