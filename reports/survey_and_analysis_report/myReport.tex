@@ -1,0 +1,144 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MSc Project Background Report Template
+% Prof. Roger K. Moore
+% University of Sheffield
+% 22 March 2017
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[12pt,oneside]{book}
+\setlength\parindent{0pt}
+% \usepackage[margin=1.2in]{geometry}
+\usepackage[top=1in, bottom=1in, left=1.2in, right=1.2in]{geometry}
+
+\usepackage{setspace}
+\usepackage[toc,page]{appendix}
+\usepackage[none]{hyphenat} % turn hyphenation off by default
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{enumitem} % for customizing lists
+
+% Redefine bullet styles
+\renewcommand{\labelitemii}{$\circ$}
+\setlength{\itemsep}{-0.2em}
+\usepackage{tcolorbox}
+\usepackage{caption}
+\captionsetup{font=small} % or use footnotesize, scriptsize, etc.
+
+
+
+
+\usepackage[style=numeric,backend=biber]{biblatex}
+\addbibresource{references.bib} 
+% \renewcommand{\bibname}{References}
+% \renewcommand{\refname}{References}
+\usepackage{titlesec}
+
+
+ %%%% OMG Thank god I hated the HUGE chapter headding space  %%%%
+\makeatletter
+\def\@makechapterhead#1{%
+  %%%%\vspace*{50\p@}% %%% removed!
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+        \huge\bfseries \@chapapp\space \thechapter
+        \par\nobreak
+        \vskip 2\p@
+    \fi
+    \interlinepenalty\@M
+    \Huge \bfseries #1\par\nobreak
+    \vskip 25\p@
+  }}
+\def\@makeschapterhead#1{%
+  %%%%%\vspace*{50\p@}% %%% removed!
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries  #1\par\nobreak
+    \vskip 30\p@
+  }}
+\makeatother
+ %%%% OMG Thank god I hated the HUGE chapter headding space  %%%%
+
+
+\begin{document}
+
+\frontmatter
+
+\begin{titlepage}
+
+% You need to edit the details here
+
+\begin{center}
+\includegraphics[width=5cm]{images/UOSLogo_Portrait_Violet_RGB.png}\\[2cm]
+\linespread{1.2}\huge {\bfseries An Educational Quantum Computing System}\\[1cm]
+\linespread{1}\LARGE {\bfseries Literature Survey and Analysis}\\[1.5cm]
+\linespread{1}
+{\Large Noor Elreidy}\\[0.5cm]
+{\large \emph{Supervisor: Phil Mcminn}}\\[1cm]
+\large{This report is submitted in partial fulfilment of the requirement\\[0.3cm]for the degree of} BEng Computer Science\\[0.3cm] 
+{in the}
+School of Computer Science\\[1cm]
+\today
+\end{center}
+
+\end{titlepage}
+
+% -------------------------------------------------------------------
+% Declaration
+% -------------------------------------------------------------------
+
+\newpage
+\chapter*{\Large Declaration}
+
+\setstretch{1.1} % set the line spacing differently if you wish, but this looks good to me. 
+
+All sentences or passages quoted in this report from other people's work have been specifically acknowledged by clear cross-referencing to author, work and page(s). Any illustrations that are not the work of the author of this report have been used with the explicit permission of the originator and are specifically acknowledged. I understand that failure to do this amounts to plagiarism and will be considered grounds for failure in this project and the degree examination as a whole.\\[1cm]
+
+\noindent Name: Noor Elreidy\\[1mm]
+\rule[1em]{25em}{0.5pt}
+
+\noindent Signature: Noor Elreidy\\[1mm]
+\rule[1em]{25em}{0.5pt}
+
+\noindent Date:\\[1mm]
+\rule[1em]{25em}{0.5pt}
+
+% -------------------------------------------------------------------
+% Abstract
+% -------------------------------------------------------------------
+
+\input{chapters/abstract.tex}
+
+% -------------------------------------------------------------------
+% TOC etc
+% -------------------------------------------------------------------
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\setstretch{1.1} 
+
+\mainmatter
+
+\input{chapters/chapter1.tex}
+\input{chapters/chapter2.tex}
+\input{chapters/chapter3.tex}
+\input{chapters/chapter4.tex}
+\input{chapters/chapter5.tex}
+
+% \bibliographystyle{acm} 
+% \bibliography{references} 
+\begingroup
+\vspace*{-2cm}
+\printbibliography[title={References}]
+\endgroup
+
+\begin{appendices}
+\input{chapters/appendixA.tex}
+\input{chapters/appendixB.tex}
+\end{appendices}
+
+\end{document}
