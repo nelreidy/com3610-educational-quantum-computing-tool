@@ -1,10 +1,9 @@
 \chapter{Literature Survey}
 
-\section{Background Knowledge}
 
 This section will go over the general background knowledge I have acquired up until now to be able to produce educational content. It starts with a summary of the historical context behind quantum computing, before diving into quantum computing core concepts, phenomena, and algorithms.  
 
-\subsection{ History and Context }
+\section{ History and Context }
 
 Quantum computing as a concept came about much longer ago than one would think. It began with Richard Feynman’s 1982 proposal that a machine based on quantum principles could simulate and mimic quantum systems (often specifically quantum mechanics) more effectively than classical systems\cite{Refrence2}. That was mainly for the purpose of helping us better understand the laws of physics and chemistry. Not long after, David Deutsch, often regarded as the father of quantum computing, introduced the 1985 concept of a universal quantum computer, laying foundational theory for the field. Peter Shor's 1994 algorithm demonstrated quantum computing's disruptive potential in cryptography, and then Lov Grover’s 1996 search algorithm provided a quadratic speedup compared to classic algorithmic equivalents.\newline
 
@@ -14,9 +13,9 @@ In 1998, IBM and Stanford developed the first two-qubit quantum computer, provin
 
 Google claimed quantum supremacy in 2019 with its Sycamore processor, solving a problem in seconds that would take classical computers millennia. Despite rapid expansion in the 2020s, challenges such as scalability, qubit coherence, and noise reduction continue to hinder progress. Finally, current and future focus seems to be on quantum-classical hybrid models, promising advancements in cryptography, optimization, and secure communications.
 
-\subsection{Quantum Computing: all you need to know}
+\section{Quantum Computing Fundementals}
 
-\subsubsection*{The Qubit}
+\subsection{The Qubit}
 
 Starting with the most basic unit of a quantum computing system, we have the \textbf{qubit}. This is the equivalent of the classical bit, but it has the unique property of \textbf{superposition}, allowing it to exist in a combination of both 0 and 1 states simultaneously. This property is the foundational concept that makes quantum computing so powerful and fundamentally different from classical computing. \newline
 
@@ -43,7 +42,7 @@ whereas $\alpha$ and $\beta$ are complex number representing the probability amp
 Using spherical coordinates with angles $\theta$ and $\phi$, each qubit state can be represented as a point on the surface of the Bloch sphere. Here, $\theta$ indicates the "latitude," showing the degree of superposition between the 0 and 1 states, while $\phi$ represents the "longitude," showing the relative phase between these states. This mapping helps us easily visualize quantum states, rotations, and transformations, making it simpler to study the effects of quantum gates and the behavior of qubits. 
 
 
-\subsubsection*{Common Qubit States}
+\subsection{Common Qubit States}
 
 Now that we understand what a qubit and a bloch sphere is, we can introduce some common qubit states, pictured below in Figure 2.2:
 
@@ -98,7 +97,7 @@ The imaginary unit \( i \) is defined as \( i = \sqrt{-1} \), meaning \( i^2 = -
 \end{tcolorbox}
 
 
-\subsubsection*{Measuring the Qubit}
+\subsection{Measuring the Qubit}
 
 In the previous section, we explored the Bloch sphere, which provides a visual representation of a qubit's state as a point in a three-dimensional space. However, when we measure a qubit, this state collapses to one of the two basis states: \( |0\rangle \) or \( |1\rangle \). The probabilities of measuring these states depend on the position of the qubit on the Bloch sphere.For example,  consider a qubit in the superposition state:
 \vspace{0.1em}
@@ -108,7 +107,7 @@ In the previous section, we explored the Bloch sphere, which provides a visual r
 \vspace{0.1em}On the Bloch sphere, this qubit lies closer to the \( |1\rangle \) state than to the \( |0\rangle \) state, indicating that it is more likely to collapse to \( |1\rangle \) upon measurement. We cannot be certain of the qubit's state until we measure it. Once measured, however, the qubit collapses to a definite state, and its value is no longer probabilistic—it becomes a fixed, observable outcome.
 
 
-\subsubsection*{Quantum Gates}
+\subsection{Quantum Gates}
 
 Just like classical computing, quantum also has gates that affect the state of its foundational unit, the Qubit. Figure 2.3 and Table 2.1 below illustrate the representations used to denote quantum gates and their respective functions 
 
@@ -149,14 +148,48 @@ Just like classical computing, quantum also has gates that affect the state of i
 \end{table}
 
 
-\subsubsection*{Entanglement}
+\subsection{Entanglement}
+
+Quantum entanglement is a unique and fundamental phenomenon in quantum mechanics, where two or more qubits become interconnected in such a way that the state of one qubit is directly related to the state of the other(s), regardless of the physical distance between them. This means that measuring one qubit instantly determines the state of its entangled partner(s), even if they are separated by vast distances.\\
+
+Figure 2.4 illustrates a common circuit used to create a basic quantum entanglement between two qubits, \( q_0 \) and \( q_1 \). The circuit consists of two operations: a \textbf{Hadamard gate} on \( q_0 \) and a \textbf{Controlled-NOT (CNOT) gate} between \( q_0 \) and \( q_1 \). Note that here we introduce a two qubit system for the first time. \newpage
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=7cm]{images/cnot.jpg}
+\caption{Entaglement using CNOT (Bell state  circuit).}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Hadamard Gate (H):} The Hadamard gate is applied to qubit \( q_0 \), placing it in a superposition state. If \( q_0 \) starts in the \( |0\rangle \) state, applying the Hadamard gate will create a superposition state \( \frac{1}{\sqrt{2}}(|0\rangle + |1\rangle) \), meaning \( q_0 \) now has equal probabilities of being measured as \( |0\rangle \) or \( |1\rangle \).
+    
+    \item \textbf{Controlled-NOT (CNOT) Gate:} The CNOT gate is then applied with \( q_0 \) as the control qubit and \( q_1 \) as the target qubit. This gate flips the state of \( q_1 \) if \( q_0 \) is in the \( |1\rangle \) state, entangling the two qubits. As a result, the combined state of \( q_0 \) and \( q_1 \) becomes \( \frac{1}{\sqrt{2}}(|00\rangle + |11\rangle) \), an entangled state known as a Bell state. 
+\end{itemize}
+
+In this entangled state, measuring \( q_0 \) will instantly determine the state of \( q_1 \), and vice versa. If \( q_0 \) is measured as \( |0\rangle \), \( q_1 \) will also be \( |0\rangle \); if \( q_0 \) is measured as \( |1\rangle \), \( q_1 \) will also be \( |1\rangle \). This entanglement allows the two qubits to share information in a way that cannot be achieved in classical systems.
 
 
+\subsection{Quantum Circuits}
+\subsection{Interesting Quantum Phenomenon}
 
+\subsection{Quantum Noise and Error Correction }
+
+\subsection{Classical Quantum Simulation and Qiskit}
+
+
+\subsection{Shor's Factorisation Algortihm }
+
+\subsection{Grover's Search Algorithm }
+
+\subsection{Quantum Complexity: P, NP and BQP}
+
+\newpage
 
 \section{Existing Tools}
 
+\subsection{General tools}
+\subsection{Lea Button's simulator}
 
-\section{technology survey}
+\section{Technology survey}
 
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
