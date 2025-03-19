@@ -13,3 +13,9 @@
 {% if request.path == '/introduction-to-quantum-computing' or request.path == '/fundamentals-of-quantum-computing' or request.path == '/quantum-circuits' %}
     <script src="{% static 'js/lesson.bundle.js' %}"></script>
 {% endif %}
+
+
+<!-- load only for lesson page -->
+{% if request.path == '/quantum-phenomena' or request.path == '/quantum-algorithms' or request.path == '/error-correction'  or request.path == '/running-quantum-programs'%}
+    <script src="{% static 'js/lesson.bundle.js' %}"></script>
+{% endif %}

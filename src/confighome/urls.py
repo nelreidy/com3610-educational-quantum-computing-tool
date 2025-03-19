@@ -19,6 +19,8 @@ urlpatterns = [
     path('password_change/done/', auth_views.PasswordChangeDoneView.as_view(), name='password_change_done'),
     path('change_email/', views.change_email, name='change_email'),
     path('change_email_done/', auth_views.TemplateView.as_view(template_name='registration/change_email_done.html'), name='change_email_done'),
+    path('profile/', views.get_profile, name='profile'), 
+    path('delete_account/', views.delete_account, name='delete_account'),
     path('dashboard', views.dash, name='dashboard'),
     path('circuit_table/', views.get_circuit_table, name='circuit_table'),
     path('builder', views.build, name='builder'),
@@ -28,7 +30,12 @@ urlpatterns = [
     path('delete_circuit/<int:pk>/', views.delete_circuit, name='delete_circuit'),
     path('introduction-to-quantum-computing', views.intro, name='introduction-to-quantum-computing'),
     path('fundamentals-of-quantum-computing', views.fundamentals, name='fundamentals-of-quantum-computing'),
-    path('quantum-circuits', views.quantum_circuits, name='quantum-circuits')
+    path('quantum-circuits', views.quantum_circuits, name='quantum-circuits'),
+    path('error-correction', views.error_correction, name='error-correction'),
+    path('running-quantum-programs', views.running_programs, name='running-quantum-programs'),
+    path('quantum-phenomena', views.quantum_phenomena, name='quantum-phenomena'),
+    path('quantum-algorithms', views.quantum_algorithms, name='quantum-algorithms'),
+    
 ]
 
 if settings.DEBUG:

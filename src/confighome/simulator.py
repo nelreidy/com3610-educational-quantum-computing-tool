@@ -6,7 +6,10 @@
 
 import cirq
 import numpy as np
-
+from qiskit import QuantumCircuit, transpile, assemble
+from qiskit.primitives import StatevectorSampler
+from qiskit.visualization import plot_histogram
+from qiskit_aer import Aer
 class Simulator:
     """
     A class to represent a quantum circuit simulator

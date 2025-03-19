@@ -1,0 +1,794 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% include 'pages/components/dash_nav.html' %}
+
+<div class="lg:h-screen max-lg:max-lg:h-[90%] flex">
+
+    <aside id="separator-sidebar" class="z-40 w-64 h-screen transition-transform max-lg:hidden" aria-label="Sidebar">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50">
+            <ol class="relative border-s border-gray-200 ml-2">      
+                <li class="mb-10 ms-6">            
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Introduction</h3> 
+                    <!-- explain under intro, how things can run both on quantum hardware and on simulation -->
+                </li>
+                <li class="mb-10 ms-6">            
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Quantum Hardware</h3>
+                    <!-- explain how quantu hardware runs. explain no os, when it first hapnneede etc. give me source for a diagram to include and explain  -->
+                </li>
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Quantum Simulation</h3>
+                     <!-- explain how quantum stuff can be simulated and on what.   -->
+                </li>
+
+                <li class="ms-6 mb-10">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-4 h-4 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.008-3.018a1.502 1.502 0 0 1 2.522 1.159v.024a1.44 1.44 0 0 1-1.493 1.418 1 1 0 0 0-1.037.999V14a1 1 0 1 0 2 0v-.539a3.44 3.44 0 0 0 2.529-3.256 3.502 3.502 0 0 0-7-.255 1 1 0 0 0 2 .076c.014-.398.187-.774.48-1.044Zm.982 7.026a1 1 0 1 0 0 2H12a1 1 0 1 0 0-2h-.01Z" clip-rule="evenodd"/>
+                        </svg>                          
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Knowledge test 1</h3>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Circuit Tutorial in Qiskit</h3>
+                     <!-- explain what qiskit is and a little histrory. give a little tutorial and tell me how to cinlude code in a code editor window that is read only  -->
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Executing on Real Quantum Devices</h3>
+                    <!-- explain how a normal person can run stuff on quantum computers. ie ibm . give a little tutorial on how it works with screenshots  -->
+                </li>
+
+                <li class="ms-6 mb-10">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-4 h-4 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.008-3.018a1.502 1.502 0 0 1 2.522 1.159v.024a1.44 1.44 0 0 1-1.493 1.418 1 1 0 0 0-1.037.999V14a1 1 0 1 0 2 0v-.539a3.44 3.44 0 0 0 2.529-3.256 3.502 3.502 0 0 0-7-.255 1 1 0 0 0 2 .076c.014-.398.187-.774.48-1.044Zm.982 7.026a1 1 0 1 0 0 2H12a1 1 0 1 0 0-2h-.01Z" clip-rule="evenodd"/>
+                        </svg>                          
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Knowledge test 2</h3>
+                </li> 
+                <li class="mb-1 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">References & More Sources</h3>
+                </li>
+            </ol>
+        </div>
+    </aside>
+
+    <div class="flex-1 lg:h-screen max-lg:h-full overflow-x-auto">
+        <div class="flex flex-col justify-between h-full">
+
+            <div id="section-0" class="p-4 mx-2">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Introduction</h1>
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    Quantum computing operates at the intersection of physics and computer science, leveraging quantum mechanics to perform computations in ways that classical computers cannot. However, due to the current limitations of quantum hardware, many quantum algorithms are often tested and developed using simulations before being executed on real quantum devices.
+                </p>
+            
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-indigo-800 mb-2">Quantum Hardware vs. Simulation</h2>
+                    <p class="text-md text-gray-500 mb-4">
+                        Quantum computations can be executed in two primary environments: on actual quantum processors or using classical simulations that mimic quantum behavior.
+                    </p>
+                    
+                    <ul class="list-disc list-inside text-gray-500 mb-4">
+                        <li><span class="font-semibold text-indigo-800">Quantum Hardware</span> – Physical quantum computers, such as those built by IBM, Google, and Rigetti, use superconducting qubits, trapped ions, or other quantum systems to perform calculations. These devices provide real quantum behavior but are limited by noise, decoherence, and hardware constraints.</li>
+                        <li><span class="font-semibold text-indigo-800">Quantum Simulation</span> – Classical computers can simulate quantum mechanics up to a certain number of qubits. This is useful for algorithm development, debugging, and educational purposes but becomes impractical for large-scale quantum computations due to exponential resource requirements.</li>
+                    </ul>
+                
+                    <p class="text-md text-gray-500">
+                        Many quantum programming frameworks, such as 
+                        <a href="https://qiskit.org/" class="text-indigo-800 underline hover:text-indigo-900">Qiskit</a>, 
+                        <a href="https://cirq.readthedocs.io/" class="text-indigo-800 underline hover:text-indigo-900">Cirq</a>, and 
+                        <a href="https://azure.microsoft.com/en-us/products/quantum/" class="text-indigo-800 underline hover:text-indigo-900">Microsoft Quantum Development Kit</a>, 
+                        allow users to write quantum programs that can run both on simulators and real quantum hardware.
+                    </p>
+                </div>
+
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-indigo-800 mb-2">What Should I Know Before Starting?</h2>
+                    <p class="text-md text-gray-500 mb-4">
+                        To better understand the differences between quantum hardware and simulation, it helps to have a basic grasp of the following concepts:
+                    </p>
+            
+                    <ul class="list-disc list-inside text-gray-500 mb-4">
+                        <li><span class="font-semibold text-indigo-800">Superposition</span> – The ability of qubits to exist in multiple states simultaneously, unlike classical bits.</li>
+                        <li><span class="font-semibold text-indigo-800">Entanglement</span> – A phenomenon where two or more qubits become interconnected, meaning the state of one qubit instantly influences the other, no matter the distance between them.</li>
+                        <li><span class="font-semibold text-indigo-800">Quantum Measurement</span> – The act of measuring a qubit collapses its superposition into a definite state, affecting the outcome of computations.</li>
+                        <li><span class="font-semibold text-indigo-800">Quantum Circuits</span> – The sequence of quantum gates that manipulate qubits to perform computations.</li>
+                    </ul>
+            
+                    <p class="text-md text-gray-500">
+                        If these concepts are new to you, consider starting with our 
+                        <a href="/introduction-to-quantum-computing" class="text-indigo-800 underline hover:text-indigo-900">
+                            Introduction to Quantum Computing
+                        </a> lesson before proceeding.
+                    </p>
+                </div>
+            
+                <h3 class="mb-2 mt-8 text-lg font-semibold text-indigo-800">I'm ready</h3>
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    Great! Let's explore the differences between quantum hardware and simulation, and how you can leverage both to develop and run quantum programs.
+                </p>
+            </div>
+            
+
+            <div id="section-1" class="p-4 mx-2">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Quantum Hardware</h1>
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    Quantum computers operate fundamentally differently from classical computers, leveraging quantum mechanics to process information. Unlike traditional systems, they do not use operating systems and instead rely on direct manipulation of qubits to execute quantum circuits.
+                </p>
+
+                <div class="flex flex-col md:flex-row items-center md:items-start p-4">
+                    <div class="md:w-1/2">
+                        <h2 class="text-xl font-semibold text-indigo-800 mb-2">What is a Qubit? (on an almost physical level) </h2>
+                        <p class="text-md text-gray-500 mb-4">
+                            Unlike classical computers, which use bits represented by high and low voltages (1s and 0s), quantum computers use <span class="text-indigo-800">qubits</span>. Instead of just being 0 or 1, a qubit can exist in a combination of both states at the same time due to  <span class="text-indigo-800">superposition</span>.
+                        </p>
+                        
+                        <p class="text-md text-gray-500 mb-4">
+                            In classical computers, transistors use electrical voltage to store and manipulate bits. However, in quantum systems, qubits are typically implemented using one of: superconducting circuits, trapped ions, or photonic systems.
+                        </p>
+
+                        <!----------------------------------------------------------------------->
+                        <!------------------------------------------------------------------------>
+                        <!-- horizonal line -->
+                        <hr class="border-gray-300 my-8">
+                        <!------------------------------------------------------------------------>
+                        <!------------------------------------------------------------------------>
+
+                        <h3 class="text-xl font-semibold text-indigo-800 mb-2 mt-8">Superconducting Circuit Systems </h2>
+                        <div class="mb-4 flex items-start">
+                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center  min-w-12 max-w-8 min-h-8 max-h-8 w-8 h-8 bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                                1
+                            </span>
+
+                            <p class="text-md text-gray-600">
+                                A <span class=" text-indigo-800">superconducting circuit</span> is just like a normal electrical circuit but made of superconducting material. This means it conducts electricity without resistance, so current can flow <span class="font-semibold">forever</span> without losing energy.
+                            </p>
+                        </div>
+                    
+                        <div class="mb-4 flex items-start">
+                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center  bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                                2
+                            </span>
+                            <p class="text-md text-gray-600">
+                                Inside this circuit, we add something called a <span class="font-semibold text-indigo-800">Josephson Junction</span>—a tiny insulating barrier. This junction forces the current to flow in a quantum way, meaning it can flow in <span class="font-semibold">one direction or the other</span>, or even <span class="font-semibold">both directions at the same time</span> (superposition).
+                            </p>
+                        </div>
+                    
+                        <div class="mb-4 flex items-start">
+                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center  bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                                3
+                            </span>
+                            <div>
+                                <p class="text-md text-gray-600">
+                                    The <span class="font-semibold text-indigo-800">direction of the current flow</span> defines the qubit state:
+                                </p>
+                                <ul class="list-disc list-inside text-gray-600">
+                                    <li><span class="text-indigo-800">Current flowing one way</span> = |0⟩ (low energy state).</li>
+                                    <li><span class="text-indigo-800">Current flowing the other way</span> = |1⟩ (high energy state).</li>
+                                    <li><span class="text-indigo-800">Both at once (superposition)</span> = The qubit is in a mix of |0⟩ and |1⟩.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    
+                        <div class="mb-4 flex items-start">
+                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center  bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                                4
+                            </span>
+                            <p class="text-md text-gray-600">
+                                To <span class="font-semibold text-indigo-800">control the qubit</span>, we use <span class="font-semibold">microwave pulses</span>. These pulses give the qubit energy to push the current in the direction we want. This is how we perform quantum operations like flipping a qubit from <span class="text-indigo-800">|0⟩ → |1⟩</span> or creating <span class="font-semibold">superposition</span>.
+                            </p>
+                        </div>
+
+                        <div class="mb-4 flex items-start">
+                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                                5
+                            </span>
+                            <p class="text-md text-gray-600">
+                                In <span class="font-semibold text-indigo-800">multi-qubit systems</span>, each qubit consists of its own superconducting loop with a Josephson junction, forming distinct quantum states. Qubits interact through electric fields (capacitive coupling) or magnetic fields (inductive coupling), enabling entanglement and controlled quantum operations such as multi-qubit gates</span>.
+                            </p>
+                        </div>
+
+                        <div class="p-4 bg-gray-100 border-l-4 border-indigo-500 shadow-md rounded-lg mt-6">
+                            <p class="text-md text-gray-600">This technology is used by IBM, Google, and Rigetti because it allows for fast quantum operations, but the need for extreme cooling and suscpetibility to noise makes it challenging to scale.</p>
+                        </div>
+
+                        <!------------------------------------------------------------------------>
+                        <!-- horizonal line -->
+                        <hr class="border-gray-300 my-8">
+                        <!------------------------------------------------------------------------>
+
+
+                        <h3 class="text-xl font-semibold text-indigo-800 mb-2 mt-4s">Trapped Ion Quantum Systems</h3>
+
+                        <!-- Step 1 -->
+                        <div class="mb-4 flex items-start">
+                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center min-w-12 max-w-8 min-h-8 max-h-8 w-8 h-8 bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                                1
+                            </span>
+                            <p class="text-md text-gray-600">
+                                A <span class=" text-indigo-800">trapped ion system</span> consists of individual <span class="font-semibold">charged atoms (ions)</span> that are suspended using <span class="font-semibold">electromagnetic fields</span> inside a vacuum chamber. These ions are highly stable, preserving their quantum states for extended periods.
+                            </p>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="mb-4 flex items-start">
+                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                                2
+                            </span>
+                            <p class="text-md text-gray-600">
+                                Each ion has multiple <span class="font-semibold text-indigo-800">electronic energy levels</span>, but we use two specific levels to represent a qubit:
+                            </p>
+                        </div>
+                        
+                        <!-- Step 3 (Qubit states) -->
+                        <div class="mb-4 flex items-start">
+                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                                3
+                            </span>
+                            <div>
+                                <p class="text-md text-gray-600">
+                                    The <span class="font-semibold text-indigo-800">qubit states</span> in a trapped ion system are defined as:
+                                </p>
+                                <ul class="list-disc list-inside text-gray-600">
+                                    <li><span class="text-indigo-800">Lower energy state</span> = |0⟩</li>
+                                    <li><span class="text-indigo-800">Higher energy state</span> = |1⟩</li>
+                                    <li><span class="text-indigo-800">Superposition</span> = The ion exists in a mix of |0⟩ and |1⟩.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 4 -->
+                        <div class="mb-4 flex items-start">
+                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                                4
+                            </span>
+                            <p class="text-md text-gray-600">
+                                To control the qubit, <span class="font-semibold text-indigo-800">laser pulses</span> are used to manipulate the ion’s quantum state. These pulses provide energy to transition between |0⟩ and |1⟩, allowing quantum operations like superposition and entanglement.
+                            </p>
+                        </div>
+                        
+                        <!-- Step 5 -->
+                        <div class="mb-4 flex items-start">
+                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                                5
+                            </span>
+                            <p class="text-md text-gray-600">
+                                In <span class="font-semibold text-indigo-800">multi-qubit systems</span>, each qubit is an ion, and qubits interact through <span class="font-semibold">Coulomb forces (electrostatic repulsion)</span>. This enables entanglement and controlled multi-qubit gates, such as the <span class="font-semibold">CNOT Gate</span>.
+                            </p>
+                        </div>
+
+
+
+                        <!------------------------------------------------------------------------>
+                        <!------------------------------------------------------------------------>
+                        <!-- horizonal line -->
+                        <hr class="border-gray-300 my-8">
+                        <!------------------------------------------------------------------------>
+                        <!------------------------------------------------------------------------>
+
+                        
+                        <h3 class="text-xl font-semibold text-indigo-800 mb-2">Photonic Quantum Systems</h3>
+
+                        <!-- Step 1 -->
+                        <div class="mb-4 flex items-start">
+                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center min-w-12 max-w-8 min-h-8 max-h-8 w-8 h-8 bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                                1
+                            </span>
+                            <p class="text-md text-gray-600">
+                                A <span class="font-semibold text-indigo-800">photonic quantum system</span> uses <span class="font-semibold">individual photons (particles of light)</span> to represent qubits. Unlike other quantum systems that use matter-based qubits, photons travel at the speed of light and are naturally resistant to environmental noise.
+                            </p>
+                        </div>
+                        
+                        <!-- Step 2 -->
+                        <div class="mb-4 flex items-start">
+                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                                2
+                            </span>
+                            <p class="text-md text-gray-600">
+                                Qubits in photonic systems are encoded using light properties, such as:
+                            </p>
+                        </div>
+                        
+                        <!-- Step 3 (Qubit Encoding) -->
+                        <div class="mb-4 flex items-start">
+                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                                3
+                            </span>
+                            <div>
+                                <p class="text-md text-gray-600">
+                                    The quantum state of a photonic qubit is defined by:
+                                </p>
+                                <ul class="list-disc list-inside text-gray-600">
+                                    <li><span class="text-indigo-800">Polarization</span> – The direction in which the light wave oscillates (e.g., horizontal = |0⟩, vertical = |1⟩).</li>
+                                    <li><span class="text-indigo-800">Phase</span> – The wave’s position in its oscillation cycle, which can encode superposition states.</li>
+                                    <li><span class="text-indigo-800">Path Encoding</span> – Using beam splitters to direct photons into separate paths, representing different quantum states.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 4 -->
+                        <div class="mb-4 flex items-start">
+                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                                4
+                            </span>
+                            <p class="text-md text-gray-600">
+                                To manipulate photonic qubits, optical components such as <span class="font-semibold">beam splitters, wave plates, and phase shifters</span> are used. These components change the quantum state of the photons, allowing quantum operations to be performed.
+                            </p>
+                        </div>
+                        
+                        <!-- Step 5 -->
+                        <div class="mb-4 flex items-start">
+                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                                5
+                            </span>
+                            <p class="text-md text-gray-600">
+                                In <span class="font-semibold text-indigo-800">multi-qubit systems</span>, each qubit is an ion, and qubits interact through <span class="font-semibold">Coulomb forces (electrostatic repulsion)</span>. This enables entanglement and controlled multi-qubit gates, such as the <span class="font-semibold">CNOT Gate</span>.
+                            </p>
+                        </div>
+                        
+                
+                    </div>
+                
+                    <!-- Image on the Right -->
+                    <div class="md:w-1/2 flex justify-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Qubit_Superposition.svg" 
+                             alt="POSSIBLE image of each system"
+                             class="w-full max-w-sm rounded-lg shadow-md">
+                    </div>
+                </div>
+            </div>
+
+             <!-------------------------------------------------------------------------------------------------------------------------------------------->
+            <!-------------------------------------------------------------------------------------------------------------------------------->
+            
+            
+
+            <div id="section-2" class="p-4 mx-2 hidden">
+                <h3 class="mb-4 text-2xl font-semibold text-indigo-800">Running Programs on Quantum Hardware</h3>
+
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    Now that we understand the basics of how different quantum systems work, let's explore this basic overview of how run quantum programs run on real quantum hardware. 
+                </p>
+                <p class="mb-4 text-md font-normal text-gray-500">
+                         Recall that in classical computing, programs are executed on a <span class="font-semibold text-indigo-800">Von Neumann architecture</span>, which consists of a CPU, memory (RAM), registers, and storage. Instructions are fetched from memory, processed by the CPU, and data is temporarily stored in registers before being written back to memory or disk.
+                </p>
+ 
+        
+            
+                <!-- Step 2: No Traditional OS in Quantum Computing -->
+                <div class="mb-4 flex items-start">
+                    <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                        1
+                    </span>
+                    <p class="text-md text-gray-600">
+                        Quantum computers do <span class="font-semibold text-indigo-800">not use a traditional operating system</span>. Instead of a CPU and RAM, they rely on quantum processors (QPUs) that operate based on quantum mechanics. There is no central OS managing tasks dynamically; rather, quantum programs are sent as precompiled instructions directly to the quantum processor.
+                    </p>
+                </div>
+            
+                <!-- Step 3: Quantum Processor Architecture -->
+                <div class="mb-4 flex items-start">
+                    <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                        2
+                    </span>
+                    <div>
+                        <p class="text-md text-gray-600">
+                            The architecture of a quantum system consists of:
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600">
+                            <li><span class="text-indigo-800">Quantum Processing Unit (QPU)</span> – The core quantum processor that executes quantum operations.</li>
+                            <li><span class="text-indigo-800">Classical Control System</span> – Manages error correction, qubit initialization, and state readout.</li>
+                            <li><span class="text-indigo-800">Quantum Memory</span> – Unlike classical RAM, quantum memory is ephemeral, meaning qubit states last only for a short time.</li>
+                            <li><span class="text-indigo-800">Cryogenic Systems</span> – Most quantum processors (like superconducting qubits) require near absolute zero temperatures to function properly.</li>
+                        </ul>
+                    </div>
+                </div>
+            
+                <!-- Step 4: Execution Process -->
+                <div class="mb-4 flex items-start">
+                    <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                        3
+                    </span>
+                    <p class="text-md text-gray-600">
+                        Quantum programs are written in quantum programming languages such as <span class="font-semibold text-indigo-800">Qiskit, Cirq, or Quipper</span>. The program is converted into a sequence of quantum gates, which are executed on the quantum processor. A classical computer handles the preprocessing and final result analysis.
+                    </p>
+                </div>
+            
+                <!-- Step 5: How Memory Works -->
+                <div class="mb-4 flex items-start">
+                    <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                        4
+                    </span>
+                    <p class="text-md text-gray-600">
+                        Unlike classical computers, which store data in registers and RAM, quantum computers use <span class="font-semibold text-indigo-800">qubits</span> that hold information in superposition. Since quantum states are fragile, results must be measured before the qubits decohere. This means memory is not persistent, and intermediate results cannot be stored like in classical systems.
+                    </p>
+                </div>
+            
+                <!-- Step 6: Measurement and Readout -->
+                <div class="mb-4 flex items-start">
+                    <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                        5
+                    </span>
+                    <p class="text-md text-gray-600">
+                        After execution, the quantum system collapses the qubits into a classical state through measurement. These results are then processed by a classical computer to interpret and analyze the computation.
+                    </p>
+                </div>
+
+
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Qubit_Superposition.svg" 
+                         alt="INSERT DIAGRAM"
+                         class="w-full max-w-sm rounded-lg shadow-md">
+                </div>
+
+                <!-- Quantum Hardware Industry Overview Box -->
+                <div class="p-4 bg-gray-100 border-l-4 border-indigo-500 shadow-md rounded-lg mt-6">
+                    <h4 class="text-lg font-semibold text-indigo-800 mb-2">The Current State of Quantum Hardware</h4>
+                    
+                    <p class="text-md text-gray-600 mb-2">
+                        Quantum hardware is still in the early stages of development, with companies racing to increase qubit counts and improve error correction. Most quantum computers are experimental and require cryogenic cooling to function.
+                    </p>
+
+                    <h5 class="text-md font-semibold text-indigo-800 mt-3">Industry Leaders</h5>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li><span class=" text-indigo-800">IBM</span> – One of the biggest players, offering 127-qubit and 433-qubit superconducting quantum processors.</li>
+                        <li><span class=" text-indigo-800">Google</span> – Achieved quantum supremacy in 2019, working on error-corrected quantum systems.</li>
+                        <li><span class=" text-indigo-800">Rigetti Computing</span> – Developing cloud-accessible superconducting quantum processors.</li>
+                        <li><span class=" text-indigo-800">IonQ</span> – Leading in trapped ion quantum computing with some of the highest qubit fidelity.</li>
+                        <li><span class=" text-indigo-800">D-Wave</span> – Specializes in quantum annealing for optimization problems.</li>
+                    </ul>
+
+                    <h5 class="text-md font-semibold text-indigo-800 mt-3">Accessibility</h5>
+                    <p class="text-md text-gray-600">
+                        The average person can access real quantum computers through cloud-based platforms:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600 mb-2">
+                        <li><span class="text-indigo-800">IBM Quantum Experience</span> – Free access to small quantum processors.</li>
+                        <li><span class="text-indigo-800">Amazon Braket</span> – Cloud service offering access to multiple quantum hardware providers.</li>
+                        <li><span class="text-indigo-800">Microsoft Azure Quantum</span> – Provides quantum hardware access through cloud computing.</li>
+                    </ul>
+
+                    <p class="text-md text-gray-600">
+                        While current quantum computers are still prone to errors and decoherence, rapid advancements are being made in scalability and fault tolerance. Access to larger systems is typically limited to research institutions and enterprise clients.
+                    </p>
+                </div>
+
+            </div>
+
+
+            
+         <!-------------------------------------------------------------------------------------------------------------------------------------------->
+         <!-------------------------------------------------------------------------------------------------------------------------------->
+        
+         
+         <div id="section-3" class="p-4 mx-2 hidden">
+            <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Quantum Simulation</h1>
+            <p class="mb-8 text-md font-normal text-gray-500">
+                Now that we know about the state of hardware-based quantum development, let's learn about how quantum simulation works and what tools we can use to simulate quantum circuits, algorithms, and programs.
+            </p>
+
+            <h3 class="text-xl font-semibold text-indigo-800 mb-2">What is Quantum Simulation?</h3>
+            <p class="text-md text-gray-600">
+                <span class=" text-indigo-800">Quantum simulation</span> refers to the process of using classical computers to mimic the behavior of quantum systems. Since quantum hardware is still developing, simulations allow researchers to test quantum algorithms, study quantum mechanics, and develop applications without needing real quantum processors. Simulations run on classical CPUs and GPUs. As such, classical computers cannot store quantum states directly, and instead use: 
+            </p>
+            <ul class="list-disc list-inside text-gray-600">
+                <li><span class="text-indigo-800">State vector simulation</span> – Stores the full quantum state of a system as a vector and applies operations directly.</li>
+                <li><span class="text-indigo-800">Tensor network simulation</span> – Uses a compressed representation to handle larger quantum systems more efficiently.</li>
+                <li><span class="text-indigo-800">Density matrix simulation</span> – Models noise and decoherence, making it useful for testing real-world conditions.</li>
+            </ul>
+
+        
+
+            <div class="p-4 bg-gray-100 border-l-4 border-indigo-500 shadow-md rounded-lg mt-6">
+                <h3 class="text-xl font-semibold text-indigo-800 mb-2">Simulation Limitations</h3>
+                <div>
+                    <p class="text-md text-gray-600">
+                        Despite their usefulness, quantum simulations have limitations. The main challenges of quantum simulation include:
+                    </p>
+                    <ul class="list-disc list-inside text-gray-600">
+                        <li><span class="text-indigo-800">Exponential memory requirements</span> – A system with n qubits requires storing 2ⁿ complex numbers, making large simulations impractical.</li>
+                        <li><span class="text-indigo-800">Slow performance for large qubit counts</span> – Simulating more than 30–40 qubits becomes computationally expensive, even on supercomputers.</li>
+                        <li><span class="text-indigo-800">Limited ability to model quantum speedups</span> – Classical simulations cannot fully replicate the quantum parallelism that makes quantum computing powerful.</li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <h3 class="text-xl font-semibold text-indigo-800 mb-2 mt-8">Some Available Simulation Frameworks and Tools</h3>
+
+            <p class="text-md text-gray-600">
+                Quantum simulations on classical hardware can be achieved using different approaches. There are generally two main types of quantum simulators: 
+                interactive UI-based circuit simulators, which provide a drag-and-drop interface, and programming frameworks, which allow developers to code quantum circuits, algorithms, and programs.
+            </p>
+
+            <div class="px-6">
+            
+                <!-- UI-Based Quantum Circuit Simulators -->
+                <h4 class="text-lg font-semibold text-indigo-800 mt-3"> UI-Based Circuit Simulators</h4>
+                <p class="text-md text-gray-600">
+                    These simulators allow users to visually construct quantum circuits using a drag-and-drop interface, making them great for beginners and educational purposes. Examples include:
+                </p>
+                <ul class="list-disc list-inside text-gray-600">
+                    <li><span class="text-indigo-800">IBM Quantum Composer</span> – A graphical quantum circuit builder available through IBM Quantum Experience.</li>
+                    <li><span class="text-indigo-800">Quirk</span> – An interactive quantum circuit simulator for experimenting with quantum gates.</li>
+                    <li><span class="text-indigo-800">Quantum Playground</span> – A web-based simulator for visualizing quantum states and circuits.</li>
+                    <li><span class="text-indigo-800">This web-apps very own Quantum Circuit simulator</span> A simplified beginner friendly simulator with attached examples, tutorials, and a qiskit implementation.</li>
+                </ul>
+                
+                <!-- Programming-Based Quantum Simulators -->
+                <h4 class="text-lg font-semibold text-indigo-800 mt-3">Programming-Based Quantum Frameworks</h4>
+                <p class="text-md text-gray-600">
+                    These frameworks allow quantum circuits to be programmed using code, providing more flexibility and control over quantum simulations.
+                </p>
+                <ul class="list-disc list-inside text-gray-600">
+                    <li><span class="text-indigo-800">Qiskit</span> – IBM’s high-performance simulator, supporting state-vector, noise modeling, and density matrix methods.</li>
+                    <li><span class="text-indigo-800">Cirq</span> – Google’s quantum simulation library, used for developing quantum algorithms.</li>
+                    <li><span class="text-indigo-800">QuTiP</span> – Focuses on open quantum systems and quantum mechanics research.</li>
+                    <li><span class="text-indigo-800">PennyLane</span> – Used for quantum machine learning simulations.</li>
+                    <li><span class="text-indigo-800">Microsoft Quantum Development Kit (Q#)</span> – Provides simulators for quantum algorithm testing.</li>
+                </ul>
+            </div>
+
+            <div class="p-4 bg-gray-100 border-l-4 border-indigo-500 shadow-md rounded-lg mt-6">
+                <p class="text-md text-gray-600 mt-4">
+                    <span class="font-semibold text-indigo-800">IBM</span> is one of the leading entities in quantum computing, particularly known for its advancements in superconducting qubits and quantum cloud services. Beyond hardware, IBM provides free and comprehensive educational resources, making quantum computing more accessible to learners worldwide. As such, we will be using IBM's quantum framework, Qiskit, for our simulations. But before diving into hands-on tutorials, let's revise with a quick knowledge test!
+                </p>
+            </div>
+        </div>
+
+    
+ 
+
+            
+         <!-------------------------------------------------------------------------------------------------------------------------------------------->
+         <!-------------------------------------------------------------------------------------------------------------------------------->
+                   
+            
+            
+
+        <div id="section-4" class="p-4 mx-2 hidden">
+            <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Knowledge Test 1</h1>
+            <p class="mb-8 text-md font-normal text-gray-500">Let's test your knowledge about Quantum Hardware and Simulation! </p>
+
+            <div id="question-container-4" class="bg-gray-100 rounded-lg p-4 mb-8">
+                
+            </div>
+        </div>
+
+        
+
+            
+         <!-------------------------------------------------------------------------------------------------------------------------------------------->
+         <!-------------------------------------------------------------------------------------------------------------------------------->
+        
+
+            
+        <div id="section-5" class="p-4 mx-2 hidden">
+
+            <h1 class="text-2xl font-semibold text-indigo-800 mb-2 mt-4">Introduction to Qiskit</h1>
+            <p class="text-md text-gray-600">
+                Now that we understand quantum systems and simulation, it's time to start working with real quantum programming!
+                To do this, we will be using <span class="font-semibold text-indigo-800">Qiskit</span>—one of the most widely used quantum programming frameworks.  
+            </p>
+
+            <h4 class="text-lg font-semibold text-indigo-800 mt-3"> What is Qiskit?</h4>
+            <p class="text-md text-gray-600">
+                <span class="text-indigo-800">Qiskit</span> (Quantum Information Science Kit) is an open-source quantum computing framework (Python library) developed by IBM. It allows us to:
+            </p>
+            <ul class="list-disc list-inside text-gray-600">
+                <li>Design and simulate quantum circuits on a classical computer.</li>
+                <li>Run quantum algorithms on real IBM quantum hardware via the cloud.</li>
+                <li>Use built-in quantum algorithms, visualization tools, and error mitigation techniques.</li>
+            </ul>
+
+            <h4 class="text-lg font-semibold text-indigo-800 mt-3">Why Qiskit?</h4>
+            <p class="text-md text-gray-600">
+                We are using Qiskit because:
+            </p>
+            <ul class="list-disc list-inside text-gray-600">
+                <li>It is free and open-source—anyone can use it.</li>
+                <li>It is backed by <span class="font-semibold text-indigo-800">IBM</span>, one of the leaders in quantum computing.</li>
+                <li>It provides both simulation and real quantum hardware execution.</li>
+                <li>It has an active community and extensive documentation, making it beginner-friendly.</li>
+            </ul>
+
+            <h4 class="text-lg font-semibold text-indigo-800 mt-3"> What Will We Learn?</h4>
+            <p class="text-md text-gray-600">
+                In this tutorial, we will start by learning the basics of Qiskit, including:
+            </p>
+            <ul class="list-disc list-inside text-gray-600">
+                <li>Installing Qiskit and setting up the environment.</li>
+                <li>Creating and visualizing quantum circuits.</li>
+                <li>Simulating quantum algorithms on a local simulator.</li>
+                <li>Running quantum programs on real IBM quantum hardware.</li>
+            </ul>
+
+            <div class="p-4 bg-red-100 border-l-4 border-red-500 shadow-md rounded-lg mt-6">
+                <h4 class="text-lg font-semibold text-red-800 mb-2">⚠️ Qiskit Version Warning</h4>
+                
+                <p class="text-md text-red-700">
+                    Qiskit is known to have breaking changes between versions, which can lead to code incompatibility.  
+                    This tutorial is designed for <span class="font-semibold">Qiskit version 1.4.0</span>. If you are using a different version, some code may not work as expected.
+                </p>
+   
+            </div>
+        </div>
+
+
+
+            
+         <!-------------------------------------------------------------------------------------------------------------------------------------------->
+         <!-------------------------------------------------------------------------------------------------------------------------------->
+        
+        
+
+        <div id="section-6" class="p-4 mx-2 hidden">
+
+            <h3 class="text-xl font-semibold text-indigo-800 mb-2 mt-4">Setting Up Your Environment for Qiskit</h3>
+
+            <p class="text-md text-gray-600">
+                Before we start coding quantum circuits, we need to set up our environment and install <span class="font-semibold text-indigo-800">Qiskit version 1.4.0</span>.  
+                Follow these steps to ensure everything works correctly.
+            </p>
+
+            <!-- Step 1: Install Python -->
+            <div class="mb-4 flex items-start">
+                <span style="width: 32px; height: 32px;" class="flex items-center justify-center min-w-12 max-w-8 min-h-8 max-h-8 w-8 h-8 bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                    1
+                </span>
+                <p class="text-md text-gray-600">
+                    Ensure you have Python 3.8 or later installed. You can check your Python version by running:
+                </p>
+            </div>
+
+            <pre class="bg-gray-100 p-3 rounded-md text-sm text-gray-800"><code>python --version</code></pre>
+
+            <p class="text-md text-gray-600 mt-3">
+                If you need to install Python, download it from the official site:  
+                <a href="https://www.python.org/downloads/" class="text-indigo-800 underline hover:text-indigo-900">python.org/downloads</a>.
+            </p>
+
+            <!-- Step 2: Create a Virtual Environment -->
+            <div class="mb-4 mt-8 flex items-start">
+                <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                    2
+                </span>
+                <p class="text-md text-gray-600">
+                    It's recommended to install Qiskit inside a virtual environment to avoid conflicts with other Python packages.
+                </p>
+            </div>
+
+            <pre class="bg-gray-100 p-3 mb-1 rounded-md text-sm text-gray-800"><code id="code1">python -m venv qiskit-env</code></pre>
+            <pre class="bg-gray-100 p-3 mb-1 rounded-md text-sm text-gray-800"><code id="code2">source qiskit-env/bin/activate  # On Mac/Linux</code></pre>
+            <pre class="bg-gray-100 p-3 mb-1 rounded-md text-sm text-gray-800"><code id="code3">qiskit-env\Scripts\activate     # On Windows</code></pre>
+
+            <p class="text-md text-gray-600 mt-2 ">
+                Once activated, your terminal should show (qiskit-env) before the command prompt.
+            </p>
+
+            <!-- Step 3: Install Qiskit 1.4.0 -->
+            <div class="mb-4 flex items-start mt-8">
+                <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                    3
+                </span>
+                <p class="text-md text-gray-600">
+                    Now, install Qiskit version 1.4.0 using pip:
+                </p>
+            </div>
+
+            <pre class="bg-gray-100 p-3 rounded-md text-sm text-gray-800"><code>pip install qiskit==1.4.0</code></pre>
+
+
+            <!-- Troubleshooting Box -->
+            <div class="p-4 bg-yellow-100 border-l-4 border-yellow-500 shadow-md rounded-lg mt-6">
+                <h4 class="text-lg font-semibold text-yellow-800 mb-2">⚠️ Troubleshooting Installation Issues</h4>
+                
+                <p class="text-md text-yellow-700">
+                    If you encounter errors during installation, try the following:
+                </p>
+                <ul class="list-disc list-inside text-yellow-700">
+                    <li>Ensure you're using Python 3.8 or later.</li>
+                    <li>Upgrade pip: <code>pip install --upgrade pip</code></li>
+                    <li>Use a clean virtual environment before installing Qiskit.</li>
+                    <li>Check the official Qiskit documentation:  
+                        <a href="https://qiskit.org/documentation/install.html" class="text-yellow-800 underline hover:text-yellow-900">qiskit.org/documentation/install</a>
+                    </li>
+                </ul>
+            </div>
+
+            <p class="text-md text-gray-600 mt-4">
+                Now that your environment is set up, let's begin writing our first quantum circuit! 🚀
+            </p>
+
+       
+        </div>
+
+                    
+         <!-------------------------------------------------------------------------------------------------------------------------------------------->
+         <!-------------------------------------------------------------------------------------------------------------------------------->
+        
+
+        <div id="section-7" class="p-4 mx-2 hidden">
+            <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Quantum Phenomena and Principles</h1>
+            <p class="mb-4 text-md font-normal text-gray-500">You have reached the end of this lesson. You have learned about some of the key quantum pricnciples and phenomena that define the behavior of quantum systems. </p>
+
+            <div id="references-container" class="bg-gray-100 rounded-lg p-4 mb-8">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">More sources for content covered in this lesson</h3>
+                <p class="text-md">
+                    - <span class="fw-semibold">Introduction to Classical and Quantum Computing:</span> 
+                    <a class="text-blue-600 underline hover:text-blue-800" href="https://www.thomaswong.net/introduction-to-classical-and-quantum-computing-1e4p.pdf#page=177">No-Cloning Theorem</a>, 
+                    <a class="text-blue-600 underline hover:text-blue-800" href="https://www.thomaswong.net/introduction-to-classical-and-quantum-computing-1e4p.pdf#page=252">Bell Inequalities</a>, 
+                    <a class="text-blue-600 underline hover:text-blue-800" href="https://www.thomaswong.net/introduction-to-classical-and-quantum-computing-1e4p.pdf#page=269">Quantum Teleportation</a>, 
+                    </p>
+                <p class="text-md">
+                <p> - <a class="text-blue-600 underline hover:text-blue-800" href="https://learning.quantum.ibm.com/course/basics-of-quantum-information/quantum-circuits#no-cloning-theorem">Basics of Quantum Information: No-cloning theorem</a> by IBM</p>
+                <p> - <a class="text-blue-600 underline hover:text-blue-800" href="https://byjus.com/physics/quantum-tunnelling/">Quantum Tunneling</a> by BYJU's</p>
+
+
+            </div>
+
+            <a href="/dashboard" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Back to Dashboard</a>
+        </div>
+
+        <div class="w-full bg-gray-50 flex justify-between">
+            <div>
+                <button aria-label="Back" id="back-button" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-1 px-2 rounded m-2" data-tooltip-target="tooltip-back" data-tooltip-placement="top">
+                    <svg class="w-[20px] h-[20px] text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
+                    </svg>                      
+                </button>
+            </div>
+            <div id="tooltip-back" role="tooltip" class="absolute z-10 invisible inline-block px-2 py-1 text-xs font-small text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip">
+                Back
+                <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>       
+
+            <button aria-label="Next" id="next-button" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-1 px-2 rounded m-2" data-tooltip-target="tooltip-next" data-tooltip-placement="top">
+                <svg class="w-[20px] h-[20px] text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4"/>
+                </svg>
+            </button>
+            <div id="tooltip-next" role="tooltip" class="absolute z-10 invisible inline-block px-2 py-1 text-xs font-small text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip">
+                Next
+                <div class="tooltip-arrow" data-popper-arrow></div>
+            </div>  
+
+        </div>
+
+    </div>
+    
+    </div> 
+</div>
+</div>
+{% endblock %}

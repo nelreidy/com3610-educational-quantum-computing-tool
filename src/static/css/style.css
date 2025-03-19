@@ -122,6 +122,12 @@ div::-webkit-scrollbar {
     }
 }
 
+/* Title in content */
+.link {
+    color: blue;
+    text-decoration: underline;
+}
+
 
 /* Alternate positioning */
 .timeline-item:nth-child(odd) .timeline-date {

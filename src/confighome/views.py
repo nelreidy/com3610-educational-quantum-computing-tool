@@ -76,6 +76,15 @@ def change_email(request):
         form = ChangeEmailForm(instance=request.user)
     return render(request, 'registration/change_email.html', {'form': form})
 
+@login_required
+def get_profile(request):
+    return render(request, 'registration/profile.html', {})
+
+@login_required
+def delete_account(request):
+    if request.method == 'POST':
+        request.user.delete()
+
 def get_circuit_table(request):
     user_circuits = UserFile.objects.filter(user=request.user).order_by('id')
     paginator = Paginator(user_circuits, 6)
@@ -120,6 +129,18 @@ def fundamentals(request):
 
 def quantum_circuits(request):
     return render(request, 'pages/circuits_lesson.html', {})
+
+def quantum_phenomena(request):
+    return render(request, 'pages/phenomena_lesson.html', {})
+
+def error_correction(request):
+    return render(request, 'pages/error_correction_lesson.html', {})
+
+def running_programs(request):
+    return render(request, 'pages/running_programs_lesson.html', {})
+
+def quantum_algorithms(request):
+    return render(request, 'pages/algorithms_lesson.html', {})
 
 @csrf_exempt
 @login_required

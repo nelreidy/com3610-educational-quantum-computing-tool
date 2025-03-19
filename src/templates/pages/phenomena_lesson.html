@@ -1,0 +1,427 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+{% include 'pages/components/dash_nav.html' %}
+
+<div class="lg:h-screen max-lg:max-lg:h-[90%] flex">
+
+    <aside id="separator-sidebar" class="z-40 w-64 h-screen transition-transform max-lg:hidden" aria-label="Sidebar">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50">
+            <ol class="relative border-s border-gray-200 ml-2">      
+
+                <li class="mb-10 ms-6">            
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Quantum Phenomena and Principles</h3>
+                    <p class="mb-4 text-sm font-normal text-gray-500"></p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">The No-Cloning Theorem</h3>
+                    <p class="text-sm font-normal text-gray-500">A brief introduction to classical gates and circuits as a precursor to the quantum equivalents.</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Quantum Teleportation</h3>
+                    <p class="text-sm font-normal text-gray-500">A brief introduction to classical gates and circuits as a precursor to the quantum equivalents.</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-4 h-4 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.008-3.018a1.502 1.502 0 0 1 2.522 1.159v.024a1.44 1.44 0 0 1-1.493 1.418 1 1 0 0 0-1.037.999V14a1 1 0 1 0 2 0v-.539a3.44 3.44 0 0 0 2.529-3.256 3.502 3.502 0 0 0-7-.255 1 1 0 0 0 2 .076c.014-.398.187-.774.48-1.044Zm.982 7.026a1 1 0 1 0 0 2H12a1 1 0 1 0 0-2h-.01Z" clip-rule="evenodd"/>
+                        </svg>                          
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Knowledge test 1</h3>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Quantum Tunneling</h3>
+                    <p class="text-sm font-normal text-gray-500">An overview of the most common single qubit gates and their applications.</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Bell's theorem and Non-Locality</h3>
+                    <p class="text-sm font-normal text-gray-500">An overview of the most common two-qubit gates and their applications.</p>
+                </li>
+
+                <li class="ms-6 mb-10">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-4 h-4 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.008-3.018a1.502 1.502 0 0 1 2.522 1.159v.024a1.44 1.44 0 0 1-1.493 1.418 1 1 0 0 0-1.037.999V14a1 1 0 1 0 2 0v-.539a3.44 3.44 0 0 0 2.529-3.256 3.502 3.502 0 0 0-7-.255 1 1 0 0 0 2 .076c.014-.398.187-.774.48-1.044Zm.982 7.026a1 1 0 1 0 0 2H12a1 1 0 1 0 0-2h-.01Z" clip-rule="evenodd"/>
+                        </svg>                          
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Knowledge test 2</h3>
+                </li>
+
+                
+                <li class="mb-1 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">End and Resources</h3>
+                    <p class="text-sm font-normal text-gray-500"></p>
+                </li>
+
+            </ol>
+        </div>
+    </aside>
+    
+    <div class="flex-1 lg:h-screen max-lg:h-full overflow-x-auto">
+        <div class="flex flex-col justify-between h-full">
+
+            <div id="section-0" class="p-4 mx-2">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Introduction</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">This lesson introduces the fundamental principles and phenomena that govern quantum mechanics and quantum computing. These principles form the backbone of quantum circuits and algorithms, enabling the unique capabilities of quantum computers.</p>
+
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-indigo-800 mb-4">What Should I Know Before Starting?</h2>
+                    <p class="text-md text-gray-500 mb-4">
+                        To get the most out of this lesson, it is helpful to have a basic understanding of quantum mechanics, including:
+                    </p>
+                    
+                    <ul class="list-disc list-inside text-gray-500 mb-4">
+                        <li><span class="font-semibold text-indigo-800">Superposition</span> – The ability of quantum systems to exist in multiple states at once.</li>
+                        <li><span class="font-semibold text-indigo-800">Entanglement</span> – A deep connection between particles, allowing them to influence each other instantly over any distance.</li>
+                        <li><span class="font-semibold text-indigo-800">Quantum Measurement</span> – The principle that observing a quantum system affects its state.</li>
+                    </ul>
+                
+                    <p class="text-md text-gray-500">
+                        If these concepts are new to you, consider starting with our 
+                        <a href="/introduction-to-quantum-computing" class="text-indigo-800 underline hover:text-indigo-900">
+                            Introduction to Quantum Computing
+                        </a> lesson.
+                    </p>
+                </div>
+                
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">I'm ready!</h3>
+                <p class="mb-4 text-md font-normal text-gray-500">Great! We will begin the No-Cloning theorem.</p>
+            </div>
+
+            <div id="section-1" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">The No-Cloning Theorem</h1>
+            
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    The No-Cloning Theorem states that it is impossible to create an identical copy of an arbitrary unknown quantum state. Unlike classical information, which can be copied without altering the original (e.g., duplicating a file), quantum information behaves differently due to the fundamental laws of quantum mechanics.
+                </p>
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Why Can't We Clone Quantum States?</h3>
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    In classical computing, copying information is straightforward, but in quantum mechanics, the evolution of a quantum system is governed by unitary and linear operations. Suppose we have a qubit:
+                </p>
+                <p class="mb-4 text-md font-normal bg-gray-100 rounded-lg p-4 mb-8 p-4 w-1/4 mx-auto text-center">
+                    <!-- |ψ⟩ = α|0⟩ + β|1⟩ -->
+                    $$ | \psi \rangle = \alpha |0\rangle + \beta |1\rangle $$
+                 
+                </p>
+            
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    This qubit |ψ⟩ has a probabaility α of being 0 and  β of being 1. If we attempt to clone this state, the operation would require:
+                </p>
+            
+                <p class="mb-4 text-md font-normal bg-gray-100 rounded-lg p-4 mb-8 p-4 w-1/4 mx-auto text-center">
+                    <!-- |ψ⟩|0⟩ → U |ψ⟩|ψ⟩ -->
+                    $$ | \psi \rangle |0\rangle \rightarrow U | \psi \rangle | \psi \rangle $$
+                </p>
+
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    where <span class="font-semibold text-indigo-800">U</span> represents a unitary operator performing the cloning by taking the original qubit |ψ⟩ and an empty qubit |0⟩ and turns them into two identical copies. However, due to the linearity of <span class="font-semibold text-indigo-800">U</span>, such an operation would lead to inconsistencies in the resulting quantum state. Furthermore, unitary operations preserve probabilities, making it impossible to construct a universal cloning operator that works for all quantum states.
+                </p>
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">The Role of Measurement</h3>
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    Quantum superposition makes it impossible to determine a qubit’s exact state without measuring it. However, measurement collapses the state, irreversibly destroying the superposition. Since copying requires “knowing” the exact state, it contradicts the fundamental principles of quantum mechanics.
+                </p>
+            
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Applications of the No-Cloning Theorem</h3>
+            
+                <ul class="list-disc list-inside text-gray-500 mb-4">
+                    <li><span class="text-indigo-800">Quantum Cryptography</span> – Any attempt to copy a quantum state in cryptographic protocols would alter it, introducing immediately detectable errors.</li>
+                    <li><span class="text-indigo-800">Quantum Computing Algorithm Integrity</span> – The theorem prevents unintended duplication of quantum states during computation, preserving coherence and reliability.</li>
+                </ul>
+            </div>
+            
+
+            <div id="section-2" class="p-4 mx-2 hidden">
+                <h3 class="mb-4 text-2xl font-semibold text-indigo-800">Quantum Teleportation</h3>
+                
+                <p class="mb-6 text-md font-normal text-gray-500">
+                    Quantum teleportation is a protocol that enables the transfer of a quantum state from 
+                    one particle to another, regardless of distance, without physically moving the particle itself. It is similar to the teleportation seen in science fiction, but with a quantum twist.
+                    Unlike classical communication, which transmits a copy of information directly, quantum teleportation 
+                    relies on entanglement and classical communication to transfer the complete information 
+                    about a quantum state from one location to another.
+                </p>
+            
+                <p class="mb-6 text-md font-normal text-gray-500">
+                    Due to the <span class="text-indigo-800">no-cloning theorem </span> , the original state cannot be copied and must bedestroyed 
+                    during the process. This ensures that the quantum state is transferred but not duplicated. 
+                    The physical particle itself does not move—only its quantum state is reconstructed at the destination.
+                </p>
+            
+                <h3 class="mb-3 text-lg font-semibold text-indigo-800">Quantum Teleportation Circuit</h3>
+            
+                <p class="mb-6 text-md font-normal text-gray-500">
+                    The quantum teleportation process can be implemented using a quantum circuit. 
+                    The circuit below illustrates how an unknown quantum state |ψ⟩ is transferred 
+                    from one qubit to another using an entangled pair |Φ⁺⟩, with one qubit held by the sender and the other by the receiver,  and classical communication.
+                </p>
+            
+                <div class="flex justify-center">
+                    <img src="static/images/quantum_teleportation_circuit.svg" 
+                         alt="INSERT CIRCUIT BUILDER BUT STATIC BUT QUBITS" class="w-80 object-contain">
+                </div>
+
+                
+                <div class="bg-gray-100 p-6 rounded-lg w-75 mx-auto">
+                    <h3 class="mt-6 mb-3 text-lg font-semibold text-indigo-800">Steps of Quantum Teleportation</h3>
+                
+                    <ol class="list-decimal list-inside space-y-3 text-md font-normal text-gray-500">
+                        <li>
+                            <span class="font-semibold text-indigo-700">Entanglement Preparation:</span>
+                            Alice (the sender) and Bob (the receiver) share an entangled Bell state, for example, the maxiamlly enatgled state \( |\Phi^+\rangle = \frac{|00\rangle + |11\rangle}{\sqrt{2}} \)
+                            between two qubits (q1 and q2). Alice holds q1, and Bob holds q2. 
+                        </li>
+                        <li>
+                            <span class="font-semibold text-indigo-700">Measurement and Communication:</span>
+                            Alice interacts her part of the entangled pair with the unknown state  \( |\psi\rangle \) which we want to teleport, and then 
+                            then measures both qubits. This is where the original qubit is destroyed, as measurement collapses the quantum state irreversibly. She sends the two-bit measurement result to Bob 
+                            over a classical communication channel.
+                        </li>
+                        <li>
+                            <span class="font-semibold text-indigo-700">State Reconstruction:</span>
+                            Based on Alice’s measurement results, Bob applies corrective quantum gates 
+                            (X for bit-flip, Z for phase-flip) to his qubit, recovering the original quantum state \( |\psi\rangle \).
+                        </li>
+                    </ol>
+                </div>
+
+            
+                <h3 class="mt-5 mb-3 text-lg font-semibold text-indigo-800">Applications of Quantum Teleportation</h3>
+            
+                <ul class="list-disc list-inside space-y-3 text-md font-normal text-gray-500">
+                    <li>
+                        <span class=" text-indigo-700">Quantum Networks:</span>
+                        Quantum teleportation enables the secure transmission of quantum information 
+                        over long distances, forming the backbone of future quantum internet technologies.
+                    </li>
+                    <li>
+                        <span class=" text-indigo-700"> General Quantum Computing:</span>
+                        It allows qubits to be moved efficiently within a quantum processor or 
+                        even across multiple quantum devices, ensuring the scalability of quantum computing.
+                    </li>
+                </ul>
+            </div>
+            
+
+            <div id="section-3" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Knowledge Test 1</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">Let's test your knowledge about the NO-cloning theorem and Quantum teleportation! </p>
+
+                <div id="question-container-3" class="bg-gray-100 rounded-lg p-4 mb-8">
+                    
+                </div>
+            </div>
+
+
+            <div id="section-4" class="p-4 mx-2 hidden">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Quantum Tunneling</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">
+                    Quantum tunneling is a phenomenon in which a particle can pass through a potential barrier 
+                    even when classical physics predicts it does not have enough energy to do so. This occurs 
+                    because of the wave-like nature of quantum particles, which allows them to exist in a superposition 
+                    of states, giving them a nonzero probability of appearing on the other side of a barrier.
+                </p>
+            
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Understanding the Phenomenon</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">
+                    In classical mechanics, if a ball does not have enough energy to roll over a hill, it will simply stop.
+                    However, in quantum mechanics, a particle described by a wavefunction has a probability of 
+                    "tunneling" through a barrier, appearing on the other side as if it had passed straight through.
+                    This is due to the probabilistic nature of wavefunctions and the Schrödinger equation.
+                </p>
+            
+                <div class="flex justify-center">
+                    <img src="static/images/quantum_tunneling_diagram.svg" 
+                         alt="Illustration of a particle quantum tunneling through a barrier." 
+                         class="w-96 object-contain mb-8">
+                </div>
+            
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Mathematical Representation</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">
+                    Quantum tunneling is described using the time-independent Schrödinger equation. If a particle 
+                    with energy \( E \) approaches a potential barrier of height \( V \), where \( E < V \), 
+                    its wavefunction in the barrier region is given by:
+                </p>
+            
+                <p class="mb-4 text-md font-normal bg-gray-100 rounded-lg p-4 w-3/4 mx-auto text-center">
+                    $$ \psi(x) = Ae^{-\kappa x} $$  
+                    where \( \kappa = \frac{\sqrt{2m(V - E)}}{\hbar} \)  <br>
+                    \( A \) is the normalization constant.  <br>
+                    \( \hbar \) is the reduced Planck constant. <br> 
+                    \( m \) is the mass of the particle.  
+                </p>
+            
+                <p class="mb-8 text-md font-normal text-gray-500">
+                    The wavefunction decays exponentially within the barrier, but does not reach zero, meaning there is 
+                    a probability that the particle will be found on the other side.
+                </p>
+            
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Applications of Quantum Tunneling</h3>
+                <ul class="list-disc list-inside text-gray-500 mb-4">
+                    <li>
+                        <span class="text-indigo-800">Transistors and Microelectronics:</span> 
+                        Quantum tunneling is fundamental to modern semiconductor devices, such as 
+                        field-effect transistors and tunnel diodes, where electrons tunnel through 
+                        insulating barriers.
+                    </li>
+                    <li>
+                        <span class="text-indigo-800">Nuclear Fusion:</span> 
+                        Quantum tunneling allows protons in the Sun to overcome their electrostatic 
+                        repulsion, enabling nuclear fusion and energy generation.
+                    </li>
+                    <li>
+                        <span class="text-indigo-800">Scanning Tunneling Microscopy (STM):</span> 
+                        STM devices use quantum tunneling to visualize surfaces at the atomic level, 
+                        by measuring the tunneling current between a sharp tip and a conductive surface.
+                    </li>
+                </ul>
+            </div>
+            
+            <div id="section-5" class="p-4 mx-2 hidden">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Bell's Theorem and Non-Locality</h3>
+            
+                <p class="mb-2 text-md font-normal text-gray-500">
+                    Bell’s Theorem challenges our classical understanding of reality by showing that quantum mechanics predicts correlations between entangled particles that cannot be explained by classical physics. It tests the concept of <span class="font-semibold text-indigo-700">local realism</span>, which consists of:
+                </p>
+            
+                <ul class="list-disc list-inside space-y-2 text-md font-normal text-gray-500">
+                    <li><span class="font-semibold text-indigo-700">Locality:</span> An event happening at one location cannot instantly affect an event at another distant location (i.e., information cannot travel faster than light).</li>
+                    <li><span class="font-semibold text-indigo-700">Realism:</span> Particles have definite properties (like spin or polarization) before they are measured, independent of observation.</li>
+                </ul>
+            
+                <h3 class="mt-6 mb-2 text-lg font-semibold text-indigo-800">Bell’s Inequality</h3>
+            
+                <p class="mb-2 text-md font-normal text-gray-500">
+                    Bell’s inequality sets a mathematical limit on how strongly two distant particles can be correlated under the assumption of local realism. If local realism were true, measurements on entangled particles should not exceed this limit.
+                However, experiments have demonstrated that <span class="text-indigo-700">entangled particles violate Bell’s inequality</span>, meaning their correlations are stronger than what local realism allows. This suggests that at least one of the following must be false:
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-md font-normal text-gray-500 mb-8">
+                    <li><span class="font-semibold text-indigo-700">Locality is wrong:</span> There is some kind of instantaneous connection between entangled particles.</li>
+                    <li><span class="font-semibold text-indigo-700">Realism is wrong:</span> Quantum properties are not predetermined but only defined when measured.</li>
+                </ul>
+
+                <div class="flex justify-center">
+                    <img src="static/images/bells_theorem_violation.svg" alt="EXPIRAMENT ??" class="w-96 object-contain">
+                </div>
+
+                <div class="bg-gray-100 rounded-lg p-4 mb-4">
+                    <h3 class="mb-2 text-lg font-semibold text-indigo-800">Implications of Bell’s Theorem</h3>
+            
+                    <p class="text-md font-normal text-gray-500">
+                        Bell’s Theorem confirms that quantum mechanics is fundamentally <span class="text-indigo-700">non-local</span>. The violation of Bell’s inequality implies that entangled particles behave in a way that cannot be explained by any classical local theory, supporting the idea that quantum entanglement allows for correlations that defy classical intuitions about space and time. I.e measurements on one particle can instantaneously affect another, regardless of distance. 
+                    </p>
+
+                </div>
+        
+
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Applications of Bell’s Theorem</h3>
+                <ul class="list-disc list-inside space-y-3 text-md font-normal text-gray-500">
+                    <li>
+                        <span class="text-indigo-700">Quantum Cryptography:</span>
+                        Bell’s theorem underpins quantum key distribution protocols, such as BB84 and device-independent cryptography, ensuring secure communication based on quantum entanglement.
+                    </li>
+                    <li>
+                        <span class="text-indigo-700">Quantum Networks:</span>
+                        Future quantum networks use entanglement to establish non-local correlations between distant nodes, enabling ultra-secure global communication.
+                    </li>
+                </ul>
+        
+            </div>
+            
+
+            <div id="section-6" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Knowledge Test 2</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">Test your knowledge on Quantum tunneling and Bell's theorem below!</p>
+
+                <div id="question-container-6" class="bg-gray-100 rounded-lg p-4 mb-8">
+                </div>
+            </div>
+
+            <div id="section-7" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Quantum Phenomena and Principles</h1>
+                <p class="mb-4 text-md font-normal text-gray-500">You have reached the end of this lesson. You have learned about some of the key quantum pricnciples and phenomena that define the behavior of quantum systems. </p>
+
+                <div id="references-container" class="bg-gray-100 rounded-lg p-4 mb-8">
+                    <h3 class="mb-2 text-lg font-semibold text-indigo-800">More sources for content covered in this lesson</h3>
+                    <p class="text-md">
+                        - <span class="fw-semibold">Introduction to Classical and Quantum Computing:</span> 
+                        <a class="text-blue-600 underline hover:text-blue-800" href="https://www.thomaswong.net/introduction-to-classical-and-quantum-computing-1e4p.pdf#page=177">No-Cloning Theorem</a>, 
+                        <a class="text-blue-600 underline hover:text-blue-800" href="https://www.thomaswong.net/introduction-to-classical-and-quantum-computing-1e4p.pdf#page=252">Bell Inequalities</a>, 
+                        <a class="text-blue-600 underline hover:text-blue-800" href="https://www.thomaswong.net/introduction-to-classical-and-quantum-computing-1e4p.pdf#page=269">Quantum Teleportation</a>, 
+                        </p>
+                    <p class="text-md">
+                    <p> - <a class="text-blue-600 underline hover:text-blue-800" href="https://learning.quantum.ibm.com/course/basics-of-quantum-information/quantum-circuits#no-cloning-theorem">Basics of Quantum Information: No-cloning theorem</a> by IBM</p>
+                    <p> - <a class="text-blue-600 underline hover:text-blue-800" href="https://byjus.com/physics/quantum-tunnelling/">Quantum Tunneling</a> by BYJU's</p>
+
+
+                </div>
+
+                <a href="/dashboard" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Back to Dashboard</a>
+            </div>
+
+            <div class="w-full bg-gray-50 flex justify-between">
+                <div>
+                    <button aria-label="Back" id="back-button" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-1 px-2 rounded m-2" data-tooltip-target="tooltip-back" data-tooltip-placement="top">
+                        <svg class="w-[20px] h-[20px] text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
+                        </svg>                      
+                    </button>
+                </div>
+                <div id="tooltip-back" role="tooltip" class="absolute z-10 invisible inline-block px-2 py-1 text-xs font-small text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip">
+                    Back
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>       
+
+                <button aria-label="Next" id="next-button" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-1 px-2 rounded m-2" data-tooltip-target="tooltip-next" data-tooltip-placement="top">
+                    <svg class="w-[20px] h-[20px] text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4"/>
+                    </svg>
+                </button>
+                <div id="tooltip-next" role="tooltip" class="absolute z-10 invisible inline-block px-2 py-1 text-xs font-small text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip">
+                    Next
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>  
+
+            </div>
+
+        </div>
+        
+    </div> 
+</div>
+
+{% endblock %}
