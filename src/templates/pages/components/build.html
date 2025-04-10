@@ -1,8 +1,5 @@
 
-{% extends "base.html" %}
-
 {% block content %}
-{% include 'pages/components/builder_nav.html' %} <!-- top nav tool bar -->
 
 <script>
     window.isReadOnly = false; // or false
@@ -11,12 +8,6 @@
 
 <!-- container for sim -->
 <div id="sim-container" class="h-full relative">
-    <!-- tutorial -->
-    <div id="tutorial-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-[100]" style="display: none;"></div>
-    
-    <!-- toast -->
-    <div id="toast-parent" class="p-3 hidden fixed bottom-0 left-0 flex items-center justify-center z-10"></div>
-
     <!-- main -->
     <div class="grid grid-cols-5 border-b border-gray-400">
         <!-- component bar -->

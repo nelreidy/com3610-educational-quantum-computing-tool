@@ -368,7 +368,7 @@ let questionsPhenomena = [
         ]
     }, 
     {
-    sections: 6,
+    section: 6,
     questions: [
             {
                 question: "What is quantum tunneling?",
@@ -691,7 +691,6 @@ let questionsRunningQuantumPrograms = [
 
 let currentPage = window.location.pathname; 
 let questions;
-console.log(currentPage);
 if (currentPage === '/introduction-to-quantum-computing') {
     questions = questionsIntroduction;
 } else if (currentPage === '/fundamentals-of-quantum-computing') {
@@ -738,7 +737,6 @@ function displayLesson(index) {
     sections.forEach((section, i) => {
         if (i == index) {
             section.classList.remove('hidden');
-            console.log(i);
         } else {
             section.classList.add('hidden');
         }

@@ -1,0 +1,10 @@
+{
+    "qubits": 3,
+    "gates": [
+        [0, 0, 0, "X", "Z"],
+        ["X", 0, "M", "c", 0],
+        ["c", "H", "M", 0, "c"]
+    ],
+    "title": "Quantum Teleportation Circuit",
+    "description": "Implements quantum teleportation by transferring an unknown quantum state in q3 to the receiever q0. The sender hold q2 along with q3. The reciever's q0 and q1 are passed into this circuit as a pre-shared already entangled pair. \n \n  The sender measures their qubits, and then sends the results through classical channels to the receiver. The receiver then applies the appropriate gates to their qubits to recover the original state of q3."
+}

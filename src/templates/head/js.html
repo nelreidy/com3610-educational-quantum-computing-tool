@@ -5,7 +5,7 @@
 <script src="{% static 'js/main.bundle.js' %}"></script>
 
 <!-- load only for circuit page -->
-{% if request.path == '/builder' %}
+{% if request.path == '/builder'  or request.path == '/quantum-phenomena' %}
     <script src="{% static 'js/circuit.bundle.js' %}"></script>
 {% endif %}
 
@@ -19,3 +19,4 @@
 {% if request.path == '/quantum-phenomena' or request.path == '/quantum-algorithms' or request.path == '/error-correction'  or request.path == '/running-quantum-programs'%}
     <script src="{% static 'js/lesson.bundle.js' %}"></script>
 {% endif %}
+

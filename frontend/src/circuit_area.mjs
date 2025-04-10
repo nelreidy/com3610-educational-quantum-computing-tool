@@ -673,18 +673,19 @@ function createPortraitError() {
 
 // Call the function to create gates when the page loads
 window.addEventListener('load', main);
-function main() {
+export async function main() {
     // Check if the device is in portrait mode
     var isPortrait = window.matchMedia("(orientation: portrait)").matches;
+    let currentPage = window.location.pathname; 
+    var url = new URL(window.location.href);
 
-    if (isPortrait) {
-        // If the device is in portrait mode or is a mobile device, display a message
-        createPortraitError();
-    } else {
+
+    if (currentPage === '/quantum-phenomena'){
+
         var url = new URL(window.location.href);
-        var load = url.searchParams.get("load");
-        var tutorial = url.searchParams.get("tutorial");
-
+        var jstr = {"qubits":3,"gates":[[0,0,0,"X","Z"],["X",0,"M","c",0],["c","H","M",0,"c"]],"title":"Quantum Teleportation Circuit","description":"Implements quantum teleportation by transferring an unknown quantum state in q3 to the receiever q0. The sender hold q2 along with q3. The reciever's q0 and q1 are passed into this circuit as a pre-shared already entangled pair. \n \n  The sender measures their qubits, and then sends the results through classical channels to the receiver. The receiver then applies the appropriate gates to their qubits to recover the original state of q3."}
+        
+        
         // Initiate the circuit and graphing
         circuit = new Circuit(currentQubits);
         graphing = new Grapher();
@@ -698,18 +699,58 @@ function main() {
         let hoverInfo = new HoverInfo();
         hoverInfo.generateInfo();
 
-        if (tutorial) {
-            // Create the tutorial
-            startTutorial();
-        } else if (load) {
-            var jsonData = JSON.parse(decodeURIComponent(load));
-            var jsonString = JSON.stringify(jsonData);
-            var blob = new Blob([jsonString], { type: "application/json" });
-            importCircuit(null, blob);
+        try {
+            const blob = new Blob([JSON.stringify(jstr)], { type: "application/json" });
+            await importCircuit(null, blob);  // now it's safe to await!
+            console.log("Circuit imported successfully!");
+            await updateArea();               // draw imported circuit properly
+        } catch (error) {
+            console.error("Error importing circuit:", error);
         }
+
+        updateArea();
+
+
+    } else {
+        
+        if (isPortrait) {
+            // If the device is in portrait mode or is a mobile device, display a message
+            createPortraitError();
+        } else {
+            var url = new URL(window.location.href);
+            var load = url.searchParams.get("load");
+            var tutorial = url.searchParams.get("tutorial");
+
+            // Initiate the circuit and graphing
+            circuit = new Circuit(currentQubits);
+            graphing = new Grapher();
+
+            // Initiate the circuit area and side bar
+            createSideBar();
+            createArea();
+            initFlowbite();
+
+            // Create hover info
+            let hoverInfo = new HoverInfo();
+            hoverInfo.generateInfo();
+
+            if (tutorial) {
+                // Create the tutorial
+                startTutorial();
+            } else if (load) {
+                var jsonData = JSON.parse(decodeURIComponent(load));
+                console.log(jsonData);
+                var jsonString = JSON.stringify(jsonData);
+                var blob = new Blob([jsonString], { type: "application/json" });
+                console.log(jsonString);
+                importCircuit(null, blob);
+            }
+        }
+
     }
 
-    // Circuit name character limit and listener
+
+    //Circuit name character limit and listener
     var maxLength = 50; 
     var circuitNameElement = document.getElementById('circuit-name-nav');
     circuitNameElement.addEventListener('input', function() {
@@ -732,6 +773,8 @@ function main() {
             circuitNameElement.blur();
         }
     });
+
+    updateArea();
 }
 
 window.addEventListener("orientationchange", function() {

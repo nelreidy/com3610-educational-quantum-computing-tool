@@ -1,6 +1,602 @@
-<div class="relative w-full p-4 bg-gray-100 flex flex-col items-center">
-    <div class="bg-yellow-400 text-black font-bold uppercase px-4 py-2 text-lg border-2 border-black">
-        🚧 Under Construction 🚧
-    </div>
-    <div class="border-t-4 border-black w-3/4 mt-4"></div>
+{% extends "base.html" %}
+
+
+{% block content %}
+{% include 'pages/components/dash_nav.html' %}
+
+<div class="lg:h-screen max-lg:max-lg:h-[90%] flex">
+
+    <aside id="separator-sidebar" class="z-40 w-64 h-screen transition-transform max-lg:hidden" aria-label="Sidebar">
+        <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50">
+            <ol class="relative border-s border-gray-200 ml-2">      
+
+                <li class="mb-10 ms-6">            
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Introduction</h3>
+                    <p class="mb-4 text-sm font-normal text-gray-500"> Why Quantum Algorithms?</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Grover's</h3>
+                    <p class="text-sm font-normal text-gray-500">A brief overview of the history of quantum computing and its state today.</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-4 h-4 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.008-3.018a1.502 1.502 0 0 1 2.522 1.159v.024a1.44 1.44 0 0 1-1.493 1.418 1 1 0 0 0-1.037.999V14a1 1 0 1 0 2 0v-.539a3.44 3.44 0 0 0 2.529-3.256 3.502 3.502 0 0 0-7-.255 1 1 0 0 0 2 .076c.014-.398.187-.774.48-1.044Zm.982 7.026a1 1 0 1 0 0 2H12a1 1 0 1 0 0-2h-.01Z" clip-rule="evenodd"/>
+                        </svg>                          
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Knowledge test 1</h3>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Shor's</h3>
+                    <p class="text-sm font-normal text-gray-500">The fundamental building block of quantum computing and why it is so unique.</p>
+                </li>
+
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
+                        <svg class="w-4 h-4 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd" d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm9.008-3.018a1.502 1.502 0 0 1 2.522 1.159v.024a1.44 1.44 0 0 1-1.493 1.418 1 1 0 0 0-1.037.999V14a1 1 0 1 0 2 0v-.539a3.44 3.44 0 0 0 2.529-3.256 3.502 3.502 0 0 0-7-.255 1 1 0 0 0 2 .076c.014-.398.187-.774.48-1.044Zm.982 7.026a1 1 0 1 0 0 2H12a1 1 0 1 0 0-2h-.01Z" clip-rule="evenodd"/>
+                        </svg>                          
+                    </span>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Knowledge test 2</h3>
+                </li>
+            </ol>
+        </div>
+    </aside>
+    
+    <div class="flex-1 lg:h-screen max-lg:h-full overflow-x-auto">
+        <div class="flex flex-col justify-between h-full">
+
+            <div id="section-0" class="p-4 mx-2">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Introduction</h1>
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    Quantum algorithms leverage the principles of quantum mechanics to process information in fundamentally new ways, offering potential speedups for certain computational tasks compared to classical algorithms.
+                </p>
+            
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-indigo-800 mb-4">Why Quantum Algorithms?</h2>
+                    <p class="text-md text-gray-500 mb-4">
+                        Classical computers are powerful, but some problems remain computationally infeasible due to their complexity. Quantum algorithms harness the principles of quantum mechanics to outperform classical approaches in certain cases. Two of the most famous quantum algorithms demonstrating this advantage are:
+                    </p>
+            
+                    <ul class="list-disc list-inside text-gray-500 mb-4">
+                        <li>
+                            <span class="font-semibold text-indigo-800">Shor’s Algorithm (1994)</span> – An exponentially faster method for factoring large numbers, threatening classical encryption systems.
+                        </li>
+                        <li>
+                            <span class="font-semibold text-indigo-800">Grover’s Algorithm (1996)</span> – A quadratically faster method for searching an unstructured database, providing an improvement over brute-force search.
+                        </li>
+                    </ul>
+            
+                    <p class="text-md text-gray-500 mb-4">
+                        These breakthroughs highlight why quantum computing is a revolutionary field, with the potential to solve problems far beyond the reach of classical machines.
+                    </p>
+                </div>
+            
+                <div class="p-4">
+                    <h2 class="text-xl font-semibold text-indigo-800 mb-4">What Should I Know Before Starting?</h2>
+                    <p class="text-md text-gray-500 mb-4">
+                        To understand Grover’s Algorithm, it is helpful to be familiar with the following quantum computing concepts:
+                    </p>
+                    
+                    <ul class="list-disc list-inside text-gray-500 mb-4">
+                        <li><span class="font-semibold text-indigo-800">Superposition</span> – Quantum systems can exist in multiple states at once, allowing parallel computation.</li>
+                        <li><span class="font-semibold text-indigo-800">Quantum Measurement</span> – Measuring a quantum system collapses its state into a definite outcome.</li>
+                        <li><span class="font-semibold text-indigo-800">Quantum Circuits</span> – Understanding how quantum gates operate on qubits to manipulate information.</li>
+                        <li><span class="font-semibold text-indigo-800">Amplitude Amplification</span> – A key mechanism in Grover’s Algorithm that increases the probability of measuring the correct answer.</li>
+                    </ul>
+                
+                    <p class="text-md text-gray-500">
+                        If these concepts are new to you, consider reviewing our 
+                        <a href="/introduction-to-quantum-computing" class="text-indigo-800 underline hover:text-indigo-900">
+                            Introduction to Quantum Computing
+                        </a> lesson.
+                    </p>
+                </div>
+            
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">I'm ready!</h3>
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    Great! Let’s begin by exploring the problem Grover’s Algorithm solves and how it achieves a quadratic speedup over classical search.
+                </p>
+            </div>
+
+
+            <div id="section-1" class="p-4 mx-2">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Introduction to Grover’s Algorithm</h1>
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    In classical computing, searching an unstructured database (such as looking for a specific element in an unsorted list) requires checking each entry one by one, leading to a worst-case runtime of O(N) for a database with N items. Grover’s Algorithm, developed by Lov Grover in 1996, is a quantum algorithm that significantly improves search efficiency, reducing the number of queries to O(√N) using the principles of quantum mechanics.
+                </p>
+            
+                <div class="mb-4">
+                    <h2 class="text-xl font-semibold text-indigo-800">What Should I Know Before Starting?</h2>
+                    <p class="text-md text-gray-500 mb-4">
+                        To understand how Grover’s Algorithm works, it is helpful to have a basic understanding of:
+                    </p>
+            
+                    <ul class="list-disc list-inside text-gray-500 mb-4">
+                        <li><span class=" text-indigo-800">Superposition</span> – The ability of a quantum system to exist in multiple states at once.</li>
+                        <li><span class=" text-indigo-800">Quantum Measurement</span> – The principle that measuring a quantum system collapses it into one of its possible states.</li>
+                        <li><span class=" text-indigo-800">Quantum Interference</span> – The process by which quantum states combine, reinforcing or canceling each other to direct computation towards the correct solution.</li>
+                        <li><span class=" text-indigo-800">Oracle Functions</span> – A black-box function that marks the correct solution without revealing any additional information.</li>
+                    </ul>
+            
+                    <p class="text-md text-gray-500">
+                        If these concepts are new to you, consider starting with our
+                        <a href="/fundamentals-of-quantum-computing" class="text-indigo-800 underline hover:text-indigo-900">
+                            Fundamentals of Quantum Computing
+                        </a> lesson.
+                    </p>
+                </div>
+            
+                <h2 class="text-xl font-semibold text-indigo-800">Historical Background</h2>
+                <p class="mb-4 text-md text-gray-500">
+                    Grover’s Algorithm was first theoretically proposed by Lov Grover in 1996 while he was working at Bell Labs. At that time, quantum computers were purely theoretical, and the algorithm was described mathematically without practical implementation. The significance of Grover’s work was that it provided the first example of a quadratic speedup for a search problem, proving that quantum mechanics could offer computational advantages beyond classical limits.
+                </p>
+            
+                <p class="mb-4 text-md text-gray-500">
+                    The first physical implementation of Grover’s Algorithm occurred much later, in the early 2000s, when small-scale quantum computers became capable of executing basic quantum circuits. It has since been demonstrated on platforms such as IBM’s quantum computers and trapped ion systems, validating the theoretical predictions.
+                </p>
+            
+                <h2 class="text-xl font-semibold text-indigo-800">How Does It Work?</h2>
+                <p class="mb-4 text-md text-gray-500">
+                    Grover’s Algorithm works by amplifying the probability of the correct solution while simultaneously reducing the probability of incorrect ones. It consists of two main operations:
+                </p>
+            
+                <ul class="list-disc list-inside text-gray-500 mb-4">
+                    <li><span class="text-indigo-800">Oracle Marking</span>: A special quantum function that flips the phase of the correct answer.</li>
+                    <li><span class="text-indigo-800">Amplitude Amplification</span>: A quantum operation that increases the probability of measuring the correct answer using quantum interference.</li>
+                </ul>
+            
+                <p class="mb-4 text-md text-gray-500">
+                    By repeating these steps O(√N) times, the probability of measuring the correct answer approaches 100%, making Grover’s Algorithm exponentially faster than classical search methods.
+                </p>
+            
+                <h3 class="text-lg font-semibold text-indigo-800">Next Steps</h3>
+                <p class="mb-4 text-md text-gray-500">
+                    Now that we understand the background and significance of Grover’s Algorithm, let’s take a closer look at its pseudo-code to break down each step in detail.
+                </p>
+            </div>
+
+            <div id="section-2" class="p-4 mx-2">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Grover’s Algorithm: Step-by-Step Breakdown</h1>
+            
+                <p class="mb-8 text-md font-normal text-gray-500">
+                    Now that we understand the principles behind Grover’s Algorithm, let’s analyze its step-by-step implementation using pseudo-code. Each step contributes to amplifying the probability of the correct solution while leveraging quantum properties such as superposition, phase inversion, and interference.
+                </p>
+            
+                <h2 class="text-xl font-semibold text-indigo-800 mb-4">Pseudo-Code for Grover’s Algorithm</h2>
+            
+                <pre class="p-4 bg-gray-100 rounded-md text-sm text-gray-700">
+                1. Initialize an n-qubit quantum system in the |0⟩ state.
+                2. Apply Hadamard gates to all qubits to create an equal superposition.
+                3. Repeat the following steps approximately O(√N) times:
+                    a. Apply the Oracle function to mark the correct solution.
+                    b. Apply the Diffusion Operator (Amplitude Amplification).
+                4. Measure the qubits to obtain the most likely result.
+                </pre>
+            
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2 mt-4">Step 1: Initialize Qubits</h3>
+                <p class="mb-4 text-md text-gray-500">
+                    We begin with n qubits initialized in the state |0⟩:
+                    \[
+                    |000...0⟩
+                    \]
+                    This represents the classical starting state where all qubits are in zero.
+                </p>
+            
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Step 2: Apply Hadamard Transformation</h3>
+                <p class="mb-4 text-md text-gray-500">
+                    A Hadamard gate H is applied to each qubit, placing the system in an equal superposition of all possible states:
+                    \[
+                    H^{\otimes n} |000...0⟩ = \frac{1}{\sqrt{N}} \sum_{x=0}^{N-1} |x⟩
+                    \]
+                    At this stage, each basis state has an equal probability amplitude, meaning every possible solution is equally likely.
+                </p>
+            
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Step 3a: Apply the Oracle Function</h3>
+                <p class="mb-4 text-md text-gray-500">
+                    The oracle is a quantum function that identifies the correct solution. It does this by flipping the phase of the marked state |w⟩:
+                    \[
+                    U_f |x⟩ =
+                    \begin{cases}
+                        -|x⟩, & \text{if } x = w \\
+                        \quad |x⟩, & \text{otherwise}
+                    \end{cases}
+                    \]
+                    This phase flip differentiates the correct answer from incorrect ones, which is key for amplitude amplification in the next step.
+                </p>
+            
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Step 3b: Apply the Diffusion Operator</h3>
+                <p class="mb-4 text-md text-gray-500">
+                    The diffusion operator (sometimes called the inversion about mean) amplifies the probability of the marked state. It consists of:
+                </p>
+                <ul class="list-disc list-inside text-gray-500 mb-4">
+                    <li>Applying Hadamard gates (H) to return to the computational basis.</li>
+                    <li>Flipping the phase of the |0⟩ state.</li>
+                    <li>Applying Hadamard gates again to spread the amplitude changes.</li>
+                </ul>
+                <p class="mb-4 text-md text-gray-500">
+                    This step increases the probability amplitude of the marked state while decreasing the amplitudes of incorrect states.
+                </p>
+            
+                <h3 class="text-lg font-semibold text-indigo-800 mb-2">Step 4: Repeat and Measure</h3>
+                <p class="mb-4 text-md text-gray-500">
+                    Steps 3a and 3b are repeated O(√N) times. After these iterations, the correct state’s probability approaches 1. Finally, we measure the system, collapsing it into the most probable state—our solution!
+                </p>
+            
+                <h3 class="text-lg font-semibold text-indigo-800">What’s Next?</h3>
+                <p class="mb-4 text-md text-gray-500">
+                    Now that we understand the theoretical steps, let’s trace an example of Grover’s Algorithm in action. We’ll walk through a simple case to illustrate how the algorithm converges on the correct solution.
+                </p>
+            </div>
+            
+            
+            
+
+            <div id="section-3" class="p-4 mx-2">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Tracing an Example: Grover’s Algorithm</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">
+                    Let's walk through an example where we use Grover’s Algorithm to search for a marked state
+                    in a system of <strong>4 elements</strong> using <strong>2 qubits</strong>. We will find the target state <code>|10⟩</code> step by step.
+                </p>
+            
+                <h2 class="text-xl font-semibold text-indigo-800 my-4">1. Initialize the System</h2>
+                <p class="text-md text-gray-500 mb-4">
+                    We begin with two qubits in the <code>|00⟩</code> state and apply Hadamard gates to create an equal superposition of all four states:
+                </p>
+                <p class="mb-4 text-md text-gray-500">
+                    \[
+                    H^{\otimes 2} |00\rangle = \frac{|00\rangle + |01\rangle + |10\rangle + |11\rangle}{2}
+                    \]
+
+                </p>
+                <p class="text-md text-gray-500">
+                    Now, each state has an equal probability amplitude of <code>1/2</code>.
+                </p>
+            
+                <h2 class="text-xl font-semibold text-indigo-800 my-4">2. Apply the Oracle (Mark the Target)</h2>
+                <p class="text-md text-gray-500 mb-4">
+                    The oracle flips the phase of the marked state <code>|10⟩</code>, applying the transformation:
+                </p>
+                <p class="mb-4 text-md text-gray-500">
+                    \[
+                    U_f |x⟩ =
+                    \begin{cases}
+                        -|10⟩, & \text{if } x = |10⟩ \\
+                        |x⟩, & \text{otherwise}
+                    \end{cases}
+                \]
+                
+                </p>
+                <p class="text-md text-gray-500">
+                    After the oracle step, the quantum state becomes:
+                </p>
+                <p class="mb-4 text-md text-gray-500">
+                    \[
+                    \frac{|00⟩ + |01⟩ - |10⟩ + |11⟩}{2}
+                    \]
+                    
+                </p>
+                <p class="text-md text-gray-500">The probability amplitudes remain the same, but <code>|10⟩</code> is negated.</p>
+            
+                <h2 class="text-xl font-semibold text-indigo-800 my-4">3. Apply the Diffusion Operator</h2>
+                <p class="text-md text-gray-500 mb-4">
+                    The diffusion operator amplifies the probability of the correct state. First, we calculate the mean of the amplitudes:
+                </p>
+                <p class="mb-4 text-md text-gray-500">
+                    \[
+                    \text{Mean} = \frac{\left( \frac{1}{2} + \frac{1}{2} - \frac{1}{2} + \frac{1}{2} \right)}{4} = \frac{1}{4}
+                    \]
+                    
+                </p>
+                <p class="text-md text-gray-500">
+                    Then, we reflect each amplitude around the mean, boosting the probability of <code>|10⟩</code>.
+                </p>
+            
+                <h2 class="text-xl font-semibold text-indigo-800 my-4">4. Measure the System</h2>
+                <p class="text-md text-gray-500 mb-4">
+                    After applying the oracle and diffusion operator <strong>once</strong> (since <code>O(√N) = 1</code> for N=4),
+                    the probability of measuring <code>|10⟩</code> is now nearly <strong>100%</strong>. 
+                </p>
+                <p class="text-md text-gray-500">
+                    When we perform a measurement, the system collapses into the most probable state:
+                </p>
+                <p class="mb-4 text-md text-gray-500">
+                    \[
+                    |10\rangle \text{ (with probability } \approx 1\text{)}
+                    \]                    
+                </p>
+        
+                <h2 class="text-lg font-semibold text-indigo-800 mt-6">Key Takeaways</h2>
+                <ul class="list-disc list-inside text-gray-500 mb-4">
+                    <li>Grover’s Algorithm reduces search time from <code>O(N)</code> to <code>O(√N)</code>.</li>
+                    <li>Instead of checking all possibilities, it amplifies the correct answer’s probability.</li>
+                    <li>Originally designed as a theoretical proof before quantum computers existed.</li>
+                </ul>
+            
+                <p class="text-md text-gray-500">
+                    Now that we understand how Grover’s Algorithm works in practice, let's implement it using Qiskit in the next section.
+                </p>
+            </div>
+
+            <div id="section-4" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">CIRCUIT</h1>
+
+            </div>
+
+            <div id="section-5" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">QISKIT with ipynb</h1>
+
+                
+            </div>
+
+
+            <div id="section-6" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Knowledge Test 1</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">Test your Grover’s knowledge so far with the interactive quiz below!</p>
+
+                <div id="question-container-6" class="bg-gray-100 rounded-lg p-4 mb-8">
+                    
+                </div>
+            </div>
+
+            <div id="section-7" class="p-4 mx-2 hidden">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Visualising a Qubit</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">We will continue with our example of an electron, with spin-up and spin-down states. The diagram below represents our electron (our qubit), where the north pole represents spin-up, and the south pole represents spin-down.</p>
+
+                <img src="static/images/spinupspindown.svg" alt="Diagram representing an electron with spin-up and spin-down states." class="w-56 object-contain mx-auto">   
+            </div>
+
+            <div id="section-6" class="p-4 mx-2 hidden">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Visualising a Qubit</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">We represent a quantum state as a point on the surface of the sphere, as shown in the diagram below. In quantum computing, we don't actually refer to states as 'spin-up' and 'spin-down', we use \(|0\rangle\) and \(|1\rangle\), respectively.</p>
+
+                <div class="max-lg:hidden flex justify-center mb-4">
+                    <img src="static/images/spinupspindownstates.svg" alt="Diagram representing spin-up and spin-down states as points on the previous diagram." class="max-lg:hidden w-96 object-contain mx-4"> 
+
+                    <img src="static/images/spinto01.svg" alt="Diagram representing spin-up and spin-down states as points on the previous diagram, relabelled to 0 and 1." class="max-lg:hidden w-96 object-contain mx-4"> 
+                </div>
+
+                <div class="lg:hidden mb-4">
+                    <img src="static/images/spinupspindownstates.svg" alt="Diagram representing spin-up and spin-down states as points on the previous diagram." class="w-72 object-contain mx-4"> 
+
+                    <img src="static/images/spinto01.svg" alt="Diagram representing spin-up and spin-down states as points on the previous diagram, relabelled to 0 and 1." class="w-72 object-contain mx-4"> 
+                </div>
+
+                <p class="mb-8 text-md font-normal text-gray-500">This sphere, with a radius of 1, is a standard visualisation used in quantum computing called a 'Bloch Sphere'.</p>
+                 
+            </div>
+
+            <div id="section-7" class="p-4 mx-2 hidden">
+                <div class="flex justify-center">
+                    <div class="lg:mr-4">
+                        <h3 class="mb-2 text-lg font-semibold text-indigo-800">What is a Qubit: Review</h3>
+                        <p class="mb-8 text-md font-normal text-gray-500">So far, we have learnt that in quantum computing we have different physical systems than in classical computing. This also means quantum computing uses different units of information than classical - the qubit.</p>
+                        <p class="mb-8 text-md font-normal text-gray-500">A qubit can be visualised as a point on the surface of a sphere, where the north pole represents \(|0\rangle\) and the south pole represents \(|1\rangle\). This sphere is called a Bloch Sphere (see the diagram), and is a standard visualisation used in quantum computing.</p>
+
+                        <img src="static/images/bloch1.svg" alt="Diagram representing spin-up and spin-down states as points on the previous diagram, relabelled to 0 and 1." class="lg:hidden w-64 object-contain mx-auto mb-8"> 
+
+                        <p class="mb-8 text-md font-normal text-gray-500">Finally, we know that classical systems are deterministic, while quantum systems are non-deterministic. The next sections will explain exactly what this means, and why this is such an important quality of quantum computing.</p>
+                        <p class="mb-8 text-md font-normal text-gray-500">Before we continue, the next page will contain a short quiz for you to test your knowledge.</p>
+                    </div>
+                    
+                    <img src="static/images/bloch1.svg" alt="Diagram representing spin-up and spin-down states as points on the previous diagram, relabelled to 0 and 1." class="max-lg:hidden w-64 object-contain mx-4"> 
+                </div>
+            </div>
+
+            <div id="section-8" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Knowledge Test 2</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">Test your knowledge so far with the interactive quiz below!</p>
+
+                <div id="question-container-8" class="bg-gray-100 rounded-lg p-4 mb-8">
+                    
+                </div>
+            </div>
+
+            <div id="section-9" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Superposition</h1>
+                <p class="mb-4 text-md font-normal text-gray-500">Superposition is one of the unique properties of quantum systems that makes quantum computing so powerful. Similar to classical computing, a qubit can be in one of two distinct states. However, unlike classical computing a qubit may also be in a superposition of both these two states at once.</p>
+
+                <p class="mb-8 text-md font-normal text-gray-500">Think of the physical systems used for each type of computing - in classical computing, of course you can only have 0 or 1. You can have ON or OFF, but nothing inbetween. While in quantum computing, think of the Bloch sphere, you can have a point at either the north pole (\(|0\rangle\)), or the south pole (\(|1\rangle\)), but you can also have a point anywhere else on the surface of the sphere, where this would be a superposition of |0⟩ and |1⟩.</p>
+
+                <div>
+                    <div class="bg-gray-100 rounded-t-lg overflow-hidden w-32 flex items-center">
+                        <p class="font-semibold text-indigo-800 px-4">Definition</p>
+                    </div> 
+                </div>
+                <div class="bg-gray-50 rounded mb-8">
+                    <p class="p-4 text-sm font-normal text-indigo-800"><b>Superposition:</b> The unique property of a qubit to exist in a state that is a combination of both \(|0\rangle\) and \(|1\rangle\).</p>
+                </div>
+            </div>
+
+            <div id="section-10" class="p-4 mx-2 hidden">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">An aside on notation</h3>
+                <p class="mb-4 text-md font-normal text-gray-500">To formalise everything we have discussed up to this point, and to continue talking about superposition, we need some notation.</p>
+
+                <div class="lg:flex">
+                    <div>
+                        <p class="lg:mb-4 max-lg:mb-8 text-md font-normal text-gray-500">In quantum computing, we use a notation called 'Dirac notation' to represent qubit states. This notation is used to represent the state of a qubit, and is written as \(|0\rangle\) and \(|1\rangle\). You may have noticed us using this notation already. The \(|v\rangle\) combination of symbols is called a 'ket', and it represents a vector. The Bloch sphere helps us visualise and represent vectors, which correlate to qubit states. See the diagram - \(|0\rangle\) represents \((0,0,1)\) and \(|1\rangle\) represents \((0,0,-1)\)</p>
+
+                        <img src="static/images/bloch10coords.svg" alt="Diagram representing \(|0\rangle\) and \(|1\rangle\) as their coordinates on a Bloch sphere." class="lg:hidden w-64 object-contain mx-auto mb-8">  
+
+                        <p class="mb-8 text-md font-normal text-gray-500">We can write out a quantum state formally as:</p>
+                        $$|\phi\rangle = \alpha|0\rangle + \beta|1\rangle$$
+
+                        <p class="mt-8 mb-4 text-md font-normal text-gray-500">Where \(\phi\) is the vector state, and \(\alpha\) and \(\beta\) are complex numbers representing the probability of measuring the qubit in the \(|0\rangle\) and \(|1\rangle\) states, respectively.</p>
+
+                    </div>
+                
+                    <img src="static/images/bloch10coords.svg" alt="Diagram representing \(|0\rangle\) and \(|1\rangle\) as their coordinates on a Bloch sphere." class="max-lg:hidden w-64 object-contain mx-8">  
+
+                </div>
+            
+                <p class="mb-4 text-md font-normal text-gray-500">Finally, \(|0\rangle\) and \(|1\rangle\) are referred to as the computational basis states.</p>   
+
+            </div>
+
+            <div id="section-11" class="p-4 mx-2 hidden">
+                <div class="lg:flex">
+                    <div>
+                        <h3 class="mb-2 text-lg font-semibold text-indigo-800">Back to superposition</h3>
+                        <p class="mb-4 text-md font-normal text-gray-500">Let's consider the following example:</p>
+                        $$|\phi\rangle = \frac{1}{\sqrt{2}}|0\rangle + \frac{1}{\sqrt{2}}|1\rangle$$
+                        <p class="mb-4 text-md font-normal text-gray-500">This state represents a qubit in a superposition of \(|0\rangle\) and \(|1\rangle\) with equal probability. Where the coefficients \(\frac{1}{\sqrt{2}}\) are complex numbers that represent the probability of measuring the qubit in the \(|0\rangle\) and \(|1\rangle\) states, respectively.</p>
+                        
+                        <img src="static/images/pluststate.svg" alt="Diagram representing the \(|+\rangle\) state on a Bloch sphere." class="lg:hidden w-64 object-contain mx-auto mb-8"> 
+
+                        <p class="mb-8 text-md font-normal text-gray-500">Intuitively, on a Bloch sphere, this point lies on the equator exactly between the north and south poles, as shown in the diagram. This specific state appears frequently and is called the plus state: \(|+\rangle\).</p> 
+                    </div>
+                    <img src="static/images/pluststate.svg" alt="Diagram representing the \(|+\rangle\) state on a Bloch sphere." class="max-lg:hidden w-64 object-contain mx-8">  
+                </div> 
+            </div>
+
+            <div id="section-12" class="p-4 mx-2 hidden">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Additional common states</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">Apart from the two computational basis states \(|0\rangle\) and \(|1\rangle\), and the state we saw previously, \(|+\rangle\), there are also 3 more common states that have their own symbols - the \(|-\rangle\), \(|i\rangle\) and \(|-i\rangle\) states.</p>
+
+                <img src="static/images/commonstatesbloch.svg" alt="Diagram representing the 6 common states on a Bloch sphere." class="w-80 object-contain mx-auto"> 
+                
+            </div>
+
+            <div id="section-13" class="p-4 mx-2 hidden">
+                <h3 class="mb-2 text-lg font-semibold text-indigo-800">Measurement</h3>
+                <p class="mb-4 text-md font-normal text-gray-500">A really important distinction should be made at this point. Although a qubit can exist in a superposition of both states, it can only be measured as either \(|0\rangle\) and \(|1\rangle\). Measurement forces the qubit to collapse into one of the two computational basis states.</p>
+
+                <div class="lg:flex">
+                    <div>
+                        <p class="lg:mb-4 max-lg:mb-8 text-md font-normal text-gray-500">The Schrödinger's Cat thought experiment can help conceptualise this. In the experiment, a cat, a vial of poison, a hammer, a radioactive source and a Geiger counter are placed in a sealed box. If the Geiger counter detects a single atom from the radioactive source decaying, the hammer is triggered to shatter the vial of poison, killing the cat.</p>
+
+                        <img src="static/images/schrodingerscat.svg" alt="Illustration of Schrödinger's Cat" class="lg:hidden w-80 object-contain mx-auto mb-8"> 
+
+                        <p class="mb-4 text-md font-normal text-gray-500">The idea is that the event of the radioactive source decaying is random and may or may not occour.</p>
+                        <p class="mb-8 text-md font-normal text-gray-500">The cat is in a superposition of both alive and dead states until the box is opened and the cat is observed. Once the box is opened, the cat must be alive or dead, but not in a superposition of both.</p>
+                    </div>
+                    <img src="static/images/schrodingerscat.svg" alt="Illustration of Schrödinger's Cat" class="max-lg:hidden w-80 object-contain mx-8"> 
+                </div> 
+            </div>
+
+            <div id="section-14" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Knowledge Test 2</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">Test your knowledge of superposition so far with the interactive quiz below!</p>
+
+                <div id="question-container-14" class="bg-gray-100 rounded-lg p-4 mb-8">
+                    
+                </div>
+            </div>
+
+            <div id="section-15" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Entanglement</h1>
+                <p class="mb-4 text-md font-normal text-gray-500">Entanglement is another unique quantum property that involves multiple qubits. So far we have spoken about systems only involving a single qubit, where we have two computational basis states - \(|0\rangle\) and \(|1\rangle\).</p>
+
+                <p class="mb-8 text-md font-normal text-gray-500">If we had a quantum system with two qubits, there would be four computational basis states - \(|00\rangle\), \(|01\rangle\), \(|10\rangle\) and \(|11\rangle\). A pair of qubits can be said to be in a superposition of these four states. For example:</p>
+
+                $$ |\phi\rangle = \frac{1}{\sqrt{2}}|00\rangle + \frac{1}{2}|01\rangle + \frac{\sqrt{3}}{4}|10\rangle + \frac{1}{4}|11\rangle $$
+
+                <p class="mb-4 mt-8 text-md font-normal text-gray-500">The probability of measuring the two qubits is \(\frac{1}{2}\) for \(|00\rangle\), \(\frac{1}{4}\) for \(|01\rangle\), \(\frac{3}{16}\) for \(|10\rangle\) and \(\frac{1}{16}\) for \(|11\rangle\).</p>
+
+                <p class="mb-8 text-md font-normal text-gray-500"> To generalise this, for \(n\)-qubits of a system, there are \(2^{n}\) computational basis states, where the system is in a superposition of the \(2^{n}\) computational basis states.</p>
+            </div>
+
+            <div id="section-16" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Entanglement</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">Consider this example:</p>
+
+                $$|\phi\rangle = \frac{1}{\sqrt{2}}|00\rangle + \frac{1}{\sqrt{2}}|11\rangle$$
+
+                <p class="mb-4 mt-8 text-md font-normal text-gray-500">Notice how there is no possibility of measuring either \(|01\rangle\) or \(|10\rangle\), and additionally if you measure the first qubit as 0 or 1, without measuring the second, you can deduce its state. If we measured \(|0?\rangle\), the only possibility is that the second qubit is \(|0\rangle\).</p>
+
+                <p class="mb-8 text-md font-normal text-gray-500">This is the concept of entanglement - where the state of one qubit is correlated to the state of another qubit.</p>
+            </div>
+
+            <div id="section-17" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Knowledge Test 4</h1>
+                <p class="mb-8 text-md font-normal text-gray-500">Test your knowledge of entanglement so far with the interactive quiz below!</p>
+
+                <div id="question-container-17" class="bg-gray-100 rounded-lg p-4 mb-8">
+                    
+                </div>
+            </div>
+
+            <div id="section-18" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Introduction to Quantum Computing</h1>
+                <p class="mb-4 text-md font-normal text-gray-500">You have reached the end of this lesson! We have covered the basics of quantum computing, including the qubit, superposition and entanglement. These are the fundamental building blocks of quantum computing, and understanding them is key to understanding how quantum computers work.</p>
+                <p class="mb-8 text-md font-normal text-gray-500">Quantum computing is a complex and rapidly evolving field, and there is much more to learn beyond this lesson. If you are interested in learning more about quantum computing, there are many resources available online, including textbooks, research papers, and online courses. A recomendation is <i>Introduction to Classical and Quantum Computing - Thomas G. Wong</i>.</p>
+
+                <div id="references-container" class="bg-gray-100 rounded-lg p-4 mb-8">
+                    <h3 class="mb-2 text-lg font-semibold text-indigo-800">More sources for content covered in this lesson</h3>
+                    <p class="text-md">
+                        - <span class="fw-semibold">Introduction to Classical and Quantum Computing:</span> 
+                        <a class="text-blue-600 underline hover:text-blue-800" href="https://www.thomaswong.net/introduction-to-classical-and-quantum-computing-1e4p.pdf#page=86">Qubits</a>, 
+                        <a class="text-blue-600 underline hover:text-blue-800" href="https://www.thomaswong.net/introduction-to-classical-and-quantum-computing-1e4p.pdf#page=102">The bloch sphere</a>, 
+                        <a class="text-blue-600 underline hover:text-blue-800" href="https://www.thomaswong.net/introduction-to-classical-and-quantum-computing-1e4p.pdf#page=86">Superposition</a>, 
+                        <a class="text-blue-600 underline hover:text-blue-800" href="https://www.thomaswong.net/introduction-to-classical-and-quantum-computing-1e4p.pdf#page=250">Entanglement</a>
+                      </p>
+                    <p class="text-md">
+                    - <span class="fw-semibold">Q-CTRL's BLACK OPAL for learning quantum computing: </span> 
+                    <a class="text-blue-600 underline hover:text-blue-800" href="https://black.q-ctrl.com/skill/qubits">Qubits</a>, 
+                    <a class="text-blue-600 underline hover:text-blue-800" href="https://black.q-ctrl.com/skill/superposition">Superposition</a>, 
+                    <a class="text-blue-600 underline hover:text-blue-800" href="https://black.q-ctrl.com/skill/entanglement">Entanglement</a>
+                    </p>
+                    <p class="text-md">
+                        - <span class="fw-semibold">IBM Quantum Learning: </span> 
+                        <a class="text-blue-600 underline hover:text-blue-800" href="https://learning.quantum.ibm.com/course/quantum-business-foundations/quantum-computing-fundamentals#qubits">Qubits</a>, 
+                        <a class="text-blue-600 underline hover:text-blue-800" href="https://learning.quantum.ibm.com/course/quantum-business-foundations/quantum-computing-fundamentals#superposition">Superposition</a>, 
+                        <a class="text-blue-600 underline hover:text-blue-800" href="https://learning.quantum.ibm.com/course/basics-of-quantum-information/entanglement-in-action">Entanglement</a>
+                    </p>
+                    <p>- <a class="text-blue-600 underline hover:text-blue-800" href="https://medium.com/quantum-untangled/quantum-states-and-the-bloch-sphere-9f3c0c445ea3">Quantum States and the Bloch Sphere</a> by Pranav Viswanath</p>
+                    <p>- <a class="text-blue-600 underline hover:text-blue-800" href="https://quantum.microsoft.com/en-us/insights/education/concepts/dirac-notation">The bra-ket/dirac notation</a> by Azure Quantum</p>
+                </div>
+
+                <a href="/dashboard" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Back to Dashboard</a>
+            </div>
+
+
+        
+            <div class="w-full bg-gray-50 flex justify-between">
+                <div>
+                    <button aria-label="Back" id="back-button" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-1 px-2 rounded m-2" data-tooltip-target="tooltip-back" data-tooltip-placement="top">
+                        <svg class="w-[20px] h-[20px] text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12l4-4m-4 4 4 4"/>
+                        </svg>                      
+                    </button>
+                </div>
+                <div  id="tooltip-back" role="tooltip" class="absolute z-10 invisible inline-block px-2 py-1 text-xs font-small text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip">
+                    Back
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>       
+
+                <button aria-label="Next" id="next-button" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-1 px-2 rounded m-2" data-tooltip-target="tooltip-next" data-tooltip-placement="top">
+                    <svg class="w-[20px] h-[20px] text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4"/>
+                    </svg>
+                </button>
+                <div  id="tooltip-next" role="tooltip" class="absolute z-10 invisible inline-block px-2 py-1 text-xs font-small text-white transition-opacity duration-200 bg-gray-700 rounded-lg shadow-sm opacity-0 tooltip">
+                    Next
+                    <div class="tooltip-arrow" data-popper-arrow></div>
+                </div>  
+
+            </div>
+
+        </div>
+        
+    </div> 
 </div>
+
+{% endblock %}

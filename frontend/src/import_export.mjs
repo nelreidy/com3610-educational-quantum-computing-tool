@@ -49,56 +49,64 @@ export function setExportForm(){
  * @param {*} file - The file to import
  */
 export function importCircuit(event, file) {
-    if (event) event.preventDefault();
 
-    var reader = new FileReader();
-    reader.addEventListener('load', function(event) {
-        var jsonData = JSON.parse(event.target.result);
-        var circuitKeys = Object.keys(circuit).sort();
-        var jsonKeys = Object.keys(jsonData).sort();
+    return new Promise((resolve, reject) => {
+        if (event) event.preventDefault();
 
-        // Check if the JSON keys are valid
-        circuitKeys = Object.keys(circuit).filter(key => typeof circuit[key] !== 'function').sort();
-        jsonKeys = Object.keys(jsonData).sort();
-        if (JSON.stringify(circuitKeys) === JSON.stringify(jsonKeys)) {
-            // Check if the number of qubits is between MIN and MAX qubits
-            if (jsonData.qubits >= MIN_QUBITS && jsonData.qubits <= MAX_QUBITS) {
-                var allLetters = gateData.map(gate => gate.letter).concat(svgGates.map(gate => gate.letter));
-                var uniqueLetters = Array.from(new Set(allLetters));
+        var reader = new FileReader();
+        reader.addEventListener('load', function(event) {
+            var jsonData = JSON.parse(event.target.result);
+            var circuitKeys = Object.keys(circuit).sort();
+            var jsonKeys = Object.keys(jsonData).sort();
 
-                for (var i = 0; i < jsonData.gates.length; i++) {
-                    for (var j = 0; j < jsonData.gates[i].length; j++) {
-                        if (jsonData.gates[i][j] != 0 && !uniqueLetters.includes(jsonData.gates[i][j])) {
-                            createModalAlert('Invalid gate in circuit', 0);
-                            console.error('Error: Invalid gate in circuit');
-                            return;
+            // Check if the JSON keys are valid
+            circuitKeys = Object.keys(circuit).filter(key => typeof circuit[key] !== 'function').sort();
+            jsonKeys = Object.keys(jsonData).sort();
+            if (JSON.stringify(circuitKeys) === JSON.stringify(jsonKeys)) {
+                // Check if the number of qubits is between MIN and MAX qubits
+                if (jsonData.qubits >= MIN_QUBITS && jsonData.qubits <= MAX_QUBITS) {
+                    var allLetters = gateData.map(gate => gate.letter).concat(svgGates.map(gate => gate.letter));
+                    var uniqueLetters = Array.from(new Set(allLetters));
+
+                    for (var i = 0; i < jsonData.gates.length; i++) {
+                        for (var j = 0; j < jsonData.gates[i].length; j++) {
+                            if (jsonData.gates[i][j] != 0 && !uniqueLetters.includes(jsonData.gates[i][j])) {
+                                createModalAlert('Invalid gate in circuit', 0);
+                                console.error('Error: Invalid gate in circuit');
+                                reject('Invalid gate in circuit');
+                                return;
+                            }
                         }
                     }
-                }
 
-                for (var key in jsonData) {
-                    if (jsonData.hasOwnProperty(key) && circuit.hasOwnProperty(key)) {
-                        circuit[key] = jsonData[key];
+                    for (var key in jsonData) {
+                        if (jsonData.hasOwnProperty(key) && circuit.hasOwnProperty(key)) {
+                            circuit[key] = jsonData[key];
+                        }
                     }
+        
+                    document.getElementById('circuit-name-nav').textContent = circuit.title;
+                    setCurrentQubits(circuit.qubits);
+                    updateArea();
+                    resolve();
+                    createModalAlert('Circuit successfully imported', 1);
+                } else {
+                    createModalAlert('Invalid number of qubits', 0);
+                    console.error('Error: Invalid number of qubits');
+                    reject('Invalid number of qubits');
+                    return;
                 }
-    
-                document.getElementById('circuit-name-nav').textContent = circuit.title;
-                setCurrentQubits(circuit.qubits);
-                updateArea();
-                createModalAlert('Circuit successfully imported', 1);
             } else {
-                createModalAlert('Invalid number of qubits', 0);
-                console.error('Error: Invalid number of qubits');
-                return;
+                createModalAlert('Invalid JSON file', 0);
+                console.error('Error: Invalid JSON file');
+                reject('Invalid JSON file');
             }
-        } else {
-            createModalAlert('Invalid JSON file', 0);
-            console.error('Error: Invalid JSON file');
-        }
-    });
+        });
 
-    // Read the file as text
-    reader.readAsText(file);
+        // Read the file as text
+        reader.onerror = reject;
+        reader.readAsText(file);
+    });
 };
 
 /**

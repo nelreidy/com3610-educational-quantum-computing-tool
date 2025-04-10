@@ -23,6 +23,8 @@ from users.models import UserFile
 circuit_files = [f for f in os.listdir(find('circuits')) if f.endswith('.json')]
 example_circuits = []
 
+QT = None
+
 for circuit_file in circuit_files:
 
     file_path = find(os.path.join('circuits', circuit_file))
@@ -33,6 +35,11 @@ for circuit_file in circuit_files:
     json_string = json.dumps(circuit_data)
 
     url_encoded_json_string = quote(json_string)
+
+    print(circuit_data['title'])
+
+    if 'Teleportation' in circuit_data['title']:
+        QT = { 'name': circuit_data['title'], 'data': url_encoded_json_string }
 
     example_circuits.append({
         'name': circuit_data['title'], 
@@ -131,7 +138,9 @@ def quantum_circuits(request):
     return render(request, 'pages/circuits_lesson.html', {})
 
 def quantum_phenomena(request):
-    return render(request, 'pages/phenomena_lesson.html', {})
+    print(QT)
+    print("QT")
+    return render(request, 'pages/phenomena_lesson.html', {'circuit_data': QT})
 
 def error_correction(request):
     return render(request, 'pages/error_correction_lesson.html', {})
