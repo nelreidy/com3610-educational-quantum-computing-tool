@@ -20,3 +20,8 @@
     <script src="{% static 'js/lesson.bundle.js' %}"></script>
 {% endif %}
 
+
+{% if request.path == '/profile'%}
+    <script src="{% static 'js/profile.bundle.js' %}"></script>
+{% endif %}
+

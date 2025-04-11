@@ -808,9 +808,11 @@ function main() {
         updateUrl(currentLessonIndex);
     }
 
-    if (currentLessonIndex == 2) {
+    if (window.location.pathname === "introduction-to-quantum-computing" ){
         load_timeline();
     }
+
+
 
     updateButtons();
     displayLesson(currentLessonIndex);
