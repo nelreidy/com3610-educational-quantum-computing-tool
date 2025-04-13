@@ -1,89 +1,89 @@
 "use strict";
 
-const lesson_plan = [
+export const lesson_plan = [
     {
       title: "Intro to QC",
       description: "An introduction to classical computing, qubits, and foundational quantum concepts.",
-      sections: [
-        "Classical Computing refresher",
-        "Brief history",
-        "What is a Qubit?",
-        "Superposition",
-        "Entanglement",
-      ],
+      sections: {
+        "Classical Computing refresher": 1 ,
+        "Brief history": 2,
+        "What is a Qubit?": 7,
+        "Superposition": 11,
+        "Entanglement": 16,
+      },
       url: "/introduction-to-quantum-computing",
       knowledge_test: [3, 8 , 14, 17]
     },
     {
       title: "Fundamentals of QC",
       description: "Covers gate-level operations and qubit manipulation.",
-      sections: [
-        "Classical Computing gates refresher",
-        "Single Qubit gates",
-        "Two Qubit gates",
-      ],
+      sections: {
+        "Classical Computing gates refresher": 2,
+        "Single Qubit gates": 6,
+        "Two Qubit gates": 9,
+      },
       url : "/fundamentals-of-quantum-computing",
       knowledge_test: [7,10]
     },
     {
       title: "Quantum Circuits",
       description: "Focuses on how to connect quantum gates in circuits.",
-      sections: [
-        "Connecting gates in series",
-        "Connecting gates in parallel",
-        "Common Circuits and their purpose",
-      ],
+      sections: {
+        "Connecting gates in series": 2 ,
+        "Connecting gates in parallel": 5,
+        "Common Circuits and their purpose": 9 ,
+      },
       url: "/quantum-circuits",
       knowledge_test: [3,6]
     },
     {
       title: "Some Quantum Principles / Phenomena",
       description: "Important quantum effects and phenomena with practical implications.",
-      sections: [
-        "No-cloning theorem",
-        "Quantum Teleportation",
-        "Quantum Tunneling",
-        "Bell’s Theorem and Non-locality",
-      ],
+      sections: {
+        "No-cloning theorem": 1,
+        "Quantum Teleportation": 2,
+        "Quantum Tunneling": 4,
+        "Bell’s Theorem and Non-locality": 5,
+      },
       url: "/quantum-phenomena",
       knowledge_test: [3,6]
     },
     {
       title: "Quantum Noise and Error Correction",
       description: "Introduces sources of quantum error and methods of correction.",
-      sections: [
-        "Introduction to Quantum Noise",
-        "Quantum Noise",
-        "Quantum Decoherence",
-        "Error Correction",
-        "Fault Tolerance in QC",
-      ],
+      sections: {
+        "Quantum Noise": 1,
+        "Quantum Decoherence": 2,
+        "Error Correction": 4,
+        "Fault Tolerance in QC":5,
+      },
       url: "/error-correction",
       knowledge_test: [3,6]
     },
     {
       title: "Running Quantum Programs",
       description: "How to simulate and run quantum circuits using real hardware.",
-      sections: [
-        "Simulation VS Quantum Hardware",
-        "What is Qiskit?",
-        "Circuit Tutorial in Qiskit",
-        "Executing on Real Quantum Devices",
-      ],
+      sections: {
+        "Quantum Hardware": 2,
+        "Quantum Simulation": 3,
+        "What is Qiskit?":6,
+        "Circuit Tutorial in Qiskit": 7,
+        "Executing on Real Quantum Devices":9
+      },
       url: "/running-quantum-programs",
       knowledge_test: [4]
     },
     {
       title: "Algorithms",
       description: "An overview of key quantum algorithms that demonstrate quantum advantage.",
-      sections: [
-        "Introduction",
-        "Grover’s",
-        "Shor’s",
+      sections: {
+        "Introduction to Quantum Algorithms": 1 ,
+        "Grover’s": 5,
+        "Shor’s": 11,
 
-      ],
+      },
       url: "/quantum-algorithms",
-      knowledge_test: [7]
+      knowledge_test: [7, 12]
     }
   ];
   
@@ -181,3 +181,5 @@ function main() {
     container.appendChild(scoreWrapper);
   });
 }
+
+

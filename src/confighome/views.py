@@ -18,7 +18,7 @@ from django.contrib.staticfiles.finders import find
 from confighome.simulator import Simulator
 from users.forms import CustomUserCreationForm, ChangeEmailForm
 from users.models import UserFile
-
+from users.progress import Lesson, Section, LessonProgress, TestScore
 
 circuit_files = [f for f in os.listdir(find('circuits')) if f.endswith('.json')]
 example_circuits = []
@@ -226,3 +226,54 @@ def simulate(request):
         return JsonResponse({'status': 'error', 'message': str(e)})
 
     return JsonResponse({'status': 'error', 'message': 'Invalid request method'})
+
+@csrf_exempt
+@login_required
+def mark_section_complete(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        lesson_url = data.get('lesson_url')
+        section_end_id = data.get('section_id')
+
+        try:
+            lesson = Lesson.objects.get(url=lesson_url)
+            section = Section.objects.get(lesson=lesson, end_id=section_end_id)
+        except (Lesson.DoesNotExist, Section.DoesNotExist):
+            return JsonResponse({'status': 'error', 'message': 'Invalid lesson or section'}, status=400)
+
+        progress, _ = LessonProgress.objects.get_or_create(
+            user=request.user,
+            section=section
+        )
+        progress.is_completed = True
+        progress.save()
+        return JsonResponse({'status': 'success'})
+
+    return JsonResponse({'status': 'error', 'message': 'POST only'}, status=405)
+
+
+@csrf_exempt  
+@login_required
+def submit_test_score(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        lesson_url = data.get("lesson_url")
+        test_id = data.get("test_id")
+        score = data.get("score")
+
+        try:
+            lesson = Lesson.objects.get(url=lesson_url)
+        except Lesson.DoesNotExist:
+            return JsonResponse({"status": "error", "message": "Lesson not found"}, status=400)
+
+        ts, _ = TestScore.objects.update_or_create(
+            user=request.user,
+            lesson=lesson,
+            test_id=test_id,
+            defaults={
+                "score": score,
+                "completed": True
+            }
+        )
+        return JsonResponse({"status": "success"})
+    return JsonResponse({"status": "error", "message": "POST only"}, status=405)

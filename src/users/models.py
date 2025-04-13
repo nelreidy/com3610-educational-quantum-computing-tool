@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from .managers import CustomUserManager
+from .progress import Lesson, Section, LessonProgress, TestScore
 
 class CustomUser(AbstractUser):
     username = None
@@ -23,4 +24,5 @@ class UserFile(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     last_modified = models.DateTimeField(auto_now=True)
+
 

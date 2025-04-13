@@ -35,7 +35,9 @@ urlpatterns = [
     path('running-quantum-programs', views.running_programs, name='running-quantum-programs'),
     path('quantum-phenomena', views.quantum_phenomena, name='quantum-phenomena'),
     path('quantum-algorithms', views.quantum_algorithms, name='quantum-algorithms'),
-    
+    #progress 
+    path('api/mark-progress/', views.mark_section_complete, name='mark_section_complete'),
+    path("api/submit-test/", views.submit_test_score, name="submit_test_score")
 ]
 
 if settings.DEBUG:
