@@ -87,7 +87,6 @@ export const lesson_plan = [
     }
   ];
   
-
 window.addEventListener("load", main);
 
 function main() {
@@ -97,6 +96,30 @@ function main() {
 
   console.log("Lesson progress tracking loaded.");
 
+  let completedSections = [];
+  let userScores = {};
+
+  Promise.all([
+    fetch("/api/lesson-progress/").then(res => res.json()),
+    fetch("/api/test-scores/").then(res => res.json())
+  ]).then(([progressData, testScores]) => {
+    completedSections = progressData;
+
+    testScores.forEach(score => {
+      if (!userScores[score.lesson__url]) {
+        userScores[score.lesson__url] = {};
+      }
+      userScores[score.lesson__url][score.test_id] = score.score;
+    });
+
+    renderProgress(completedSections, userScores, container);
+  }).catch(error => {
+    console.error("Failed to load progress data:", error);
+    renderProgress([], {}, container); // Fallback with no data
+  });
+}
+
+function renderProgress(completedSections, userScores, container) {
   lesson_plan.forEach((lesson, idx) => {
     // Lesson title
     const titleEl = document.createElement("p");
@@ -108,28 +131,34 @@ function main() {
     const timeline = document.createElement("div");
     timeline.className = "w-full flex justify-between items-center py-6 px-2 relative";
 
-    lesson.sections.forEach((section, sectionIdx) => {
+    Object.entries(lesson.sections).forEach(([sectionName, endId], sectionIdx) => {
       const step = document.createElement("div");
       step.className = "flex flex-col items-center text-center flex-1 relative";
 
+      const isCompleted = completedSections.some(p =>
+        p.section__lesson__url === lesson.url && p.section__end_id === endId
+      );
+
       const circle = document.createElement("div");
-      circle.className = `w-6 h-6 rounded-full ${sectionIdx === 0 ? 'bg-indigo-600 border-indigo-600' : 'bg-white border-gray-300'} border-2 z-10`;
+      circle.className = `w-6 h-6 rounded-full border-2 z-10 ${
+        isCompleted ? 'bg-indigo-600 border-indigo-600' : 'bg-white border-gray-300'
+      }`;
 
       const label = document.createElement("p");
-      label.className = `mt-2 text-xs truncate max-w-[100px] ${sectionIdx === 0 ? 'text-indigo-600' : 'text-gray-700'}`;
-      label.textContent = section;
+      label.className = `mt-2 text-xs truncate max-w-[100px] ${
+        isCompleted ? 'text-indigo-600' : 'text-gray-700'
+      }`;
+      label.textContent = sectionName;
 
-      // Line connector
-    //   if (sectionIdx < lesson.sections.length - 1) {
-    const line = document.createElement("div");
-    line.className = `absolute top-3 right-0 w-full h-0.5 ${sectionIdx === 0 ? 'bg-indigo-600' : 'bg-gray-300'} z-0`;
-    step.appendChild(line);
-    //   }
+      const line = document.createElement("div");
+      line.className = `absolute top-3 right-0 w-full h-0.5 ${
+        isCompleted ? 'bg-indigo-600' : 'bg-gray-300'
+      } z-0`;
 
+      step.appendChild(line);
       step.appendChild(circle);
       step.appendChild(label);
       timeline.appendChild(step);
-      
     });
 
     container.appendChild(timeline);
@@ -137,7 +166,6 @@ function main() {
     // Knowledge test section
     const scoreWrapper = document.createElement("div");
     scoreWrapper.className = "mt-6 space-y-2 w-full max-w-md mx-auto";
-
 
     lesson.knowledge_test.forEach((testId, i) => {
       const testBox = document.createElement("div");
@@ -154,25 +182,34 @@ function main() {
 
       const score = document.createElement("span");
       score.className = "text-sm font-medium text-indigo-700";
-      score.textContent = "80%"; // Placeholder score
 
       const retake = document.createElement("a");
       retake.href = `${lesson.url}?section=${testId}`;
       retake.className = "text-sm text-indigo-600 hover:underline hover:text-indigo-800";
-      retake.textContent = "Retake";
+      retake.textContent = "(Re)take";
+
+      const scoreVal = userScores[lesson.url]?.[testId];
+
+      const bar = document.createElement("div");
+      bar.className = "w-full bg-gray-200 rounded-full h-3";
+      const fill = document.createElement("div");
+      fill.className = "h-3 rounded-full";
+      bar.appendChild(fill);
+
+      if (scoreVal !== undefined) {
+        score.textContent = `${scoreVal}%`;
+        fill.style.width = `${scoreVal}%`;
+        fill.classList.add("bg-indigo-600");
+      } else {
+        score.textContent = "Not taken";
+        fill.style.width = "0%";
+        fill.classList.add("bg-gray-400");
+      }
 
       right.appendChild(score);
       right.appendChild(retake);
       top.appendChild(testTitle);
       top.appendChild(right);
-
-      const bar = document.createElement("div");
-      bar.className = "w-full bg-gray-200 rounded-full h-3";
-      const fill = document.createElement("div");
-      fill.className = "bg-indigo-600 h-3 rounded-full";
-      fill.style.width = "80%";
-      bar.appendChild(fill);
-
       testBox.appendChild(top);
       testBox.appendChild(bar);
       scoreWrapper.appendChild(testBox);
@@ -181,5 +218,3 @@ function main() {
     container.appendChild(scoreWrapper);
   });
 }
-
-

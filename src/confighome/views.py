@@ -277,3 +277,20 @@ def submit_test_score(request):
         )
         return JsonResponse({"status": "success"})
     return JsonResponse({"status": "error", "message": "POST only"}, status=405)
+
+
+@login_required
+def get_lesson_progress(request):
+    data = LessonProgress.objects.filter(user=request.user, is_completed=True).values(
+        'section__end_id', 'section__lesson__url'
+    )
+
+    print(data)
+    return JsonResponse(list(data), safe=False)
+
+@login_required
+def get_test_scores(request):
+    scores = TestScore.objects.filter(user=request.user).values(
+        'lesson__url', 'test_id', 'score', 'completed'
+    )
+    return JsonResponse(list(scores), safe=False)

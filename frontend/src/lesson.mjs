@@ -231,7 +231,7 @@ function quizCompleted(sectionIndex) {
     if (!section) return;
 
     const totalQuestions = section.questions.length;
-    const score = questionsCorrect;  // how many correct
+    const score = Math.round((questionsCorrect / totalQuestions) * 100);  // percent
     const testId = section.questions[0].id ?? sectionIndex;  // assume first question has an ID (or fallback to section index)
 
     console.log(`Submitting test score: ${score}/${totalQuestions} for test ID ${testId}`);
@@ -258,7 +258,7 @@ function quizCompleted(sectionIndex) {
     questionContainer.innerHTML = `
         <h3 class="mb-2 text-lg font-semibold text-indigo-800">Quiz Completed</h3>
         <p class="mb-2 text-md font-normal text-gray-500">You have completed the quiz for this section.</p>
-        <p class="text-sm font-normal text-gray-400 mb-4">Score: ${score}/${totalQuestions}</p>
+        <p class="text-sm font-normal text-gray-400 mb-4">Score: ${score}/100%</p>
         <a href="${retakeUrl}" class="inline-block bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
             Retake Quiz
         </a>
