@@ -2,7 +2,7 @@
     "qubits": 3,
     "gates": [
         ["H", "c", 0],
-        [0, "X", 0],
+        [0, "X", 0], 
         [0, 0]
     ],
     "title": "Bell state (ERP pair)",

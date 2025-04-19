@@ -64,29 +64,10 @@
                             <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
                         </svg>
                     </span>
-                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Extension: Quantum Error Correction</h3>
-                    <p class="text-sm font-normal text-gray-500">Exploring what QEC is.</p>
+                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Some Common Quantum Circuits</h3>
+                    <p class="text-sm font-normal text-gray-500">Exploring some common quantum circuits, and what they do..</p>
                 </li>
 
-                <li class="mb-10 ms-6">
-                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
-                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                        </svg>
-                    </span>
-                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Bit Flip Code</h3>
-                    <p class="text-sm font-normal text-gray-500">Looking at the quantum circuit for correcting a single bit flip error.</p>
-                </li>
-
-                <li class="ms-6">
-                    <span class="absolute flex items-center justify-center w-6 h-6 bg-indigo-100 rounded-full -start-3 ring-8 ring-gray-50">
-                        <svg class="w-2.5 h-2.5 text-indigo-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
-                        </svg>
-                    </span>
-                    <h3 class="mb-1 text-md font-semibold text-indigo-900">Phase Flip Code</h3>
-                    <p class="text-sm font-normal text-gray-500">Looking at the quantum circuit for correcting a single phase flip error.</p>
-                </li>
             </ol>
         </div>
     </aside>
@@ -169,7 +150,7 @@
                 </div>
             </div>
 
-            <div id="section-2" class="p-4 mx-2">
+            <div id="section-2" class="p-4 mx-2 hidden">
                 <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Series</h1>
                 <p class="mb-8 text-md font-normal text-gray-500">Quantum circuits 'flow' from left to right - gates are applied in this order. The diagram below is a basic, example that we will look at now.</p>
 
@@ -189,7 +170,7 @@
                 </div>
             </div>
 
-            <div id="section-4" class="p-4 mx-2">
+            <div id="section-4" class="p-4 mx-2 hidden">
                 <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Parallel</h1>
                 <p class="mb-8 text-md font-normal text-gray-500">We will now look at circuits with multiple qubits, where operations can be applied in 'parallel'. In these circuits, a moment contains all operations to be appliced/executed at a single point in time, at the same time. We draw parallel circuit lines for each qubit in a multi-qubit circuit, and qubits are labelled \(q[0]\) to \(q[n]\), for \(n\) amount of qubits in a circuit. See the diagram below:</p>
 
@@ -203,7 +184,7 @@
                 <p class="mb-8 text-md font-normal text-gray-500">After moment 2: \(|011\rangle\)</p>
             </div>
 
-            <div id="section-5" class="p-4 mx-2">
+            <div id="section-5" class="p-4 mx-2 hidden">
                 <h3 class="mb-2 text-lg font-semibold text-indigo-800">Another Example</h3>
                 <p class="mb-4 text-md font-normal text-gray-500">Again, in the diagram below we have two moments, moment 1 (m1) and moment 2 (m2). This time, however, we have a controlled SWAP gate in moment 2.</p>
 
@@ -221,18 +202,105 @@
                 </div>
             </div>
 
-            <div id="section-7" class="p-4 mx-2">
-                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Extension: Quantum Error Correction</h1>
-                <p class="mb-8 text-md font-normal text-gray-500">We've reached the end of the lesson! If you're interested in learning more about Quantum Error Correction (QEC), or to see some practical examples of quantum circuits, you can continue on (note: currently under construction). Otherwise, you can head on over to the <a href="/fundamentals-of-quantum-computing" class="text-indigo-800 underline">Circuit Builder</a>, or back to your Dashboard.</p>
-                <div id="references-container" class="bg-gray-100 rounded-lg p-4 mb-8">
-                    <h3 class="mb-2 text-lg font-semibold text-indigo-800">More sources for content covered in this lesson</h3>
-
-                    <p>- Introduction to Classical and Quantum Computing: <a class="text-blue-600 underline hover:text-blue-800" href="https://www.thomaswong.net/introduction-to-classical-and-quantum-computing-1e4p.pdf#page=123">Quantum Circuits</a></p>
-                    <p>- Q-CTRL BLACK OPAL'S <a class="text-blue-600 underline hover:text-blue-800" href="https://black.q-ctrl.com/skill/circuits">circuits lesson</a></p>
-                    <p>- <a class="text-blue-600 underline hover:text-blue-800" href="https://learning.quantum.ibm.com/course/basics-of-quantum-information/quantum-circuits">Basics of Quantum Information: Quantum circuits</a> by IBM</p>
-                </div>
-                <a href="/dashboard" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Back to Dashboard</a>
+            <div id="section-7" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Common Quantum Circuits</h1>
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    Now that you’ve explored how quantum circuits are built and how different gates work, let’s take a look at some of the most well-known and powerful circuits that demonstrate key quantum behaviors in action.
+                </p>
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    These circuits show up often in quantum algorithms, research papers, and real-world experiments. Understanding them will give you a strong foundation for exploring more advanced topics like quantum algorithms, teleportation, and error correction.
+                </p>
+                <h3 class="mt-6 mb-2 text-lg font-semibold text-indigo-800">🔗 Bell State</h3>
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    The Bell State circuit is the simplest example of quantum entanglement. It uses a Hadamard and CNOT gate to produce a state where measuring one qubit immediately tells you the result of the other—no matter how far apart they are.
+                </p>
+            
+                <h3 class="mt-6 mb-2 text-lg font-semibold text-indigo-800">🔗 GHZ State</h3>
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    The GHZ (Greenberger–Horne–Zeilinger) state is a 3-qubit entangled state that generalizes the Bell state. It's useful in testing non-locality and forms the basis for many quantum network protocols.
+                </p>
+            
+                <h3 class="mt-6 mb-2 text-lg font-semibold text-indigo-800">🔗 Quantum Fourier Transform (QFT)</h3>
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    The QFT is an essential part of many quantum algorithms, including Shor’s algorithm. It transforms the amplitudes of a quantum state into the frequency domain—kind of like the quantum version of the FFT in signal processing.
+                </p>
+                <p class="mb-8 text-md font-normal text-gray-500">
+                    In the next sections, you'll get to build and experiment with some of these circuits yourself using the circuit builder.
+                </p>
             </div>
+
+            <div id="section-8" class="p-4 mx-2 hidden">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">The Bell State Circuit</h1>
+            
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    Let’s take a closer look at the Bell State circuit — one of the simplest and most powerful demonstrations of quantum entanglement.
+                    It involves just two gates, but results in two qubits being perfectly correlated, even when separated by vast distances.
+                </p>
+            
+                <h3 class="mt-6 mb-2 text-lg font-semibold text-indigo-800">🔧 How it works</h3>
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    We start with two qubits in the state \(|00\rangle\). First, a Hadamard gate is applied to the first qubit to put it into a superposition. Then, a CNOT gate entangles the second qubit with the first.
+                </p>
+            
+                <div class="mb-8 flex justify-center">
+                    <img src="/static/images/bell-state-circuit.svg" alt="Bell state circuit diagram" class="w-72 object-contain">
+                </div>
+            
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    After these two gates are applied, the system is in the Bell state:
+                    \[
+                    |\Phi^+\rangle = \frac{1}{\sqrt{2}} (|00\rangle + |11\rangle)
+                    \]
+                </p>
+            
+                <h3 class="mt-6 mb-2 text-lg font-semibold text-indigo-800">🧠 Why it matters</h3>
+                <p class="mb-4 text-md font-normal text-gray-500">
+                    This means if you measure the first qubit and get 0, the second will also be 0. If you get 1, the second will also be 1 — even though each outcome is random. The measurements are perfectly correlated due to entanglement.
+                </p>
+            
+                <h3 class="mt-6 mb-2 text-lg font-semibold text-indigo-800">🧪 Want to try it?</h3>
+                <p class="mb-8 text-md font-normal text-gray-500">
+                    Let's expirament with the Bell state circuit in the next section!
+                </p>
+            
+            </div>
+
+            <div id="section-9" class="p-4 mx-2 hidden" data-circuit="bell">
+                <div class="flex justify-center items-center">
+                    <div class="w-full" id="section-9-circuit-wrapper">
+                    </div>
+                </div>
+                
+            </div>
+
+            <div id="section-10" class="p-4 mx-2 hidden" data-circuit="GHZ">
+                <div class="flex justify-center items-center">
+                    <div class="w-full" id="section-10-circuit-wrapper">
+                    </div>
+                </div>
+                
+            </div>
+
+            <div id="section-11" class="p-4 mx-2 hidden" data-circuit="Quantum Fourier">
+                <div class="flex justify-center items-center">
+                    <div class="w-full" id="section-11-circuit-wrapper">
+                    </div>
+                </div>
+                
+            </div>
+
+
+            <div id="circuit-builder-host" class="hidden">
+                {% include 'pages/components/build.html' %}
+            </div>
+
+                        <!-- Toast anchor for circuit alerts -->
+            <div id="toast-parent" class="fixed top-4 right-4 z-50 hidden"></div>
+
+            
+
+        
+            
 
             <div class="w-full bg-gray-50 flex justify-between">
                 <div>

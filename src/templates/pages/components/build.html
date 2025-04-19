@@ -1,32 +1,22 @@
-
-{% block content %}
-
-<script>
-    window.isReadOnly = false; // or false
-</script>
-
-
-<!-- container for sim -->
-<div id="sim-container" class="h-full relative">
-    <!-- main -->
+<div class="flex flex-col">
+    <!-- grid layout: sidebar + circuit -->
     <div class="grid grid-cols-5 border-b border-gray-400">
         <!-- component bar -->
-        <div class="bg-gray-100 h-screen col-span-1 p-2"> 
-            <div class="h-full overflow-auto" id="component-bar">
-            </div>
+        <div class="bg-gray-100 col-span-1 p-2 h-full">
+            <div class="h-full overflow-auto" id="component-bar"></div>
         </div>
 
         <!-- main builder -->
-        <div class="bg-white flex flex-col h-screen col-span-4"> 
-            <!-- tools for main builder -->
+        <div class="bg-white flex flex-col col-span-4 max-h-[70vh] overflow-auto">
             {% include 'pages/components/tools.html' %}
+            <div id="circuit-wrapper" class="flex flex-row p-3"></div>
 
-            <!-- circuit creation area -->
-            <div id ="circuit-wrapper" class="h-full flex flex-row p-3 overflow-auto">
+            <div class="px-3 py-0 bg-white shadow">
+                {% include 'pages/components/measurements.html' %}
             </div>
         </div>
     </div>
-</div>
 
-{% include 'pages/components/measurements.html' %}
-{% endblock %}
+    <!-- histogram underneath -->
+
+</div>

@@ -294,3 +294,14 @@ def get_test_scores(request):
         'lesson__url', 'test_id', 'score', 'completed'
     )
     return JsonResponse(list(scores), safe=False)
+
+
+def get_circuit(request):
+    name = request.GET.get('name', '').lower()
+
+    for circuit in example_circuits:
+        if name in circuit['name'].lower():
+            print("FOUND")
+            return JsonResponse(circuit)
+
+    return JsonResponse({'error': 'Circuit not found'}, status=404)

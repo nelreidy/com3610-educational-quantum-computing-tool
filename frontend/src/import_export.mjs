@@ -146,6 +146,11 @@ export function setImportForm() {
 export function createModalAlert(message, type) {
     var toastParent = document.getElementById('toast-parent');
 
+    if (!toastParent) {
+        console.error('Error: toast-parent element not found');
+        return;
+    }
+
     while (toastParent.firstChild) {
         toastParent.removeChild(toastParent.firstChild);
     }

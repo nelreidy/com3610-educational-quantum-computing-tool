@@ -5,10 +5,11 @@
 */
 
 "use strict";
+let yum = 0 ;
 
 import { initFlowbite } from "flowbite";
 import { Gate } from './gate.mjs';
-import { Circuit } from './circuit.mjs';
+import { Circuit, getCircuit } from './circuit.mjs';
 import { HoverInfo } from './hover_info.mjs';
 import { Grapher } from "./graphs.mjs";
 import { createMeasurementSvg, constructSvg, constructSquareGate, createComponentIcon, drawMeasurementInCircuit } from './icons.mjs';
@@ -16,6 +17,7 @@ import { simulate, currentStateVector, currentMeasurementProbeValues } from './t
 import { exportCircuit, setExportForm, importCircuit, setImportForm } from './import_export.mjs';
 import { saveCircuit, setSaveForm, loadCircuit, setLoadForm } from './load_save.mjs';
 import { startTutorial } from './tutorial.mjs';
+
 
 
 // Gate data (name and associated letter)
@@ -88,6 +90,7 @@ export function setCurrentQubits(qubits) {
  */
 function createSideBar() {
     const componentBar = document.getElementById('component-bar');
+    componentBar.innerHTML = '';
     componentBar.classList.add('space-y-2', 'flex', 'flex-col');
 
     const gateSelector = createGateSelector();
@@ -568,6 +571,10 @@ function createMeasurements(container) {
  */
 function clearArea() {
     const circuitArea = document.getElementById('circuit-wrapper');
+
+    if (!circuitArea) {
+        return;
+    }
     while (circuitArea.firstChild) {
         circuitArea.removeChild(circuitArea.firstChild);
     }
@@ -593,7 +600,12 @@ export async function updateArea() {
     // dont stall the updateArea function to wait for measurements, just redraw once they are ready
     updateMeasurementProbes();
 
-    graphing.update(currentStateVector);
+    // check this is ready before updating
+    if (graphing && currentStateVector) {
+        graphing.update(currentStateVector);
+    } else {
+        console.warn("Graphing or state vector not ready:", graphing, currentStateVector);
+    }
 
     // Update url with circuit data
     var url = new URL(window.location.href);
@@ -601,6 +613,13 @@ export async function updateArea() {
     params.set('load', encodeURIComponent(JSON.stringify(circuit)));
     url.search = params.toString();
     window.history.replaceState({}, '', url.toString());
+
+
+    try {
+        currentDropZones = circuit.getAllDropAreas();
+    } catch (e) {
+        console.error("Error getting drop areas:", e);
+    }
 
     initFlowbite();
     let hoverInfo = new HoverInfo();
@@ -674,10 +693,50 @@ function createPortraitError() {
 // Call the function to create gates when the page loads
 window.addEventListener('load', main);
 export async function main() {
+
+    console.log("main in circuit area");
     // Check if the device is in portrait mode
     var isPortrait = window.matchMedia("(orientation: portrait)").matches;
     let currentPage = window.location.pathname; 
     var url = new URL(window.location.href);
+
+    circuit = new Circuit(currentQubits);
+
+    // if (currentPage === '/quantum-circuits') {
+
+
+    //     // Initiate the circuit and 
+    //     circuit = new Circuit(currentQubits);
+    //     graphing = new Grapher();
+
+    //     // Initiate the circuit area and side bar
+    //     createSideBar();
+    //     createArea();
+    //     initFlowbite();
+
+    //     // Create hover info
+    //     let hoverInfo = new HoverInfo();
+    //     hoverInfo.generateInfo();
+
+    //     console.log("Quantum Circuits page loaded");
+
+    //     circuit.setTitle("Bell State");
+    //     document.getElementById('circuit-name-nav').textContent = "Bell State";
+
+    //     console.log|("Lol");
+    //     const data = await getCircuit("Bell State");
+    //     console.log("mydata", data);
+
+    //     try {
+    //         const decoded = decodeURIComponent(data.data);
+    //         const blob = new Blob([decoded], { type: "application/json" });
+    //         await importCircuit(null, blob);  // now it's safe to await!
+    //         console.log("Circuit imported successfully!");
+    //     } catch (error) {
+    //         console.error("Error importing circuit:", error);
+    //     }
+
+    // }
 
 
     if (currentPage === '/quantum-phenomena'){
@@ -686,7 +745,7 @@ export async function main() {
         
         
         // Initiate the circuit and graphing
-        circuit = new Circuit(currentQubits);
+        
         graphing = new Grapher();
 
         // Initiate the circuit area and side bar
@@ -707,15 +766,11 @@ export async function main() {
             console.error("Error importing circuit:", error);
         }
 
-        updateArea();
-
-
     } else {
-        
         if (isPortrait) {
             // If the device is in portrait mode or is a mobile device, display a message
             createPortraitError();
-        } else {
+        }  else  {
             var url = new URL(window.location.href);
             var load = url.searchParams.get("load");
             var tutorial = url.searchParams.get("tutorial");
@@ -773,7 +828,7 @@ export async function main() {
         }
     });
 
-    updateArea();
+    await updateArea();
 }
 
 window.addEventListener("orientationchange", function() {
@@ -792,3 +847,39 @@ window.clearCircuit = function() {
     circuit.clear();
     updateArea();
 };
+
+
+
+export async function loadLessonCircuit(name) {
+
+    document.getElementById('circuit-wrapper').innerHTML = ''; 
+    
+    circuit = new Circuit(currentQubits);
+    graphing = new Grapher();
+
+    if (!document.getElementById('gate-selector')) {
+        createSideBar();
+    }
+    createArea();
+    initFlowbite();
+    
+
+    try {
+        const data = await getCircuit(name);
+        const decoded = decodeURIComponent(data.data);
+        const blob = new Blob([decoded], { type: "application/json" });
+        await importCircuit(null, blob);
+        await updateArea();
+        console.log(`Circuit "${name}" loaded successfully.`);
+    } catch (error) {
+        console.error("Error loading circuit:", error);
+    }
+
+    circuit.setTitle(name);
+    console.log("Noor");
+    if (document.getElementById('circuit-name-nav')) {
+        console.log(name);
+        document.getElementById('circuit-name-nav').textContent = name;
+    }
+    
+}

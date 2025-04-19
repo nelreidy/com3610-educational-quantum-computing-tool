@@ -336,4 +336,25 @@ export class Circuit{
         }
         console.log(str);
     }
+
+
+
+}
+
+export async function getCircuit(name) {
+    const encodedName = encodeURIComponent(name);
+    const url = `/api/get-circuit/?name=${encodedName}`;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("Network response was not ok");
+
+        const data = await response.json();
+        console.log("mydaya");
+        console.log(data);
+        return data;
+    } catch (error) {
+        console.error("Failed to fetch circuit:", error);
+        return null;
+    }
 }

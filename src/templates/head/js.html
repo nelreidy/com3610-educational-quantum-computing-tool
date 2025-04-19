@@ -9,6 +9,10 @@
     <script src="{% static 'js/circuit.bundle.js' %}"></script>
 {% endif %}
 
+{% if request.path == '/quantum-circuits' %}
+    <script src="{% static 'js/circuit.bundle.js' %}"></script>
+{% endif %}
+
 <!-- load only for lesson page -->
 {% if request.path == '/introduction-to-quantum-computing' or request.path == '/fundamentals-of-quantum-computing' or request.path == '/quantum-circuits' %}
     <script src="{% static 'js/lesson.bundle.js' %}"></script>

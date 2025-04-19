@@ -17,7 +17,9 @@ import { questionsIntroduction,
          questionsRunningQuantumPrograms
  } from './quizzes.mjs';
 import { timelineData } from './timeline.mjs';
-
+import { showTutorial } from './guided.mjs';
+import { updateArea } from './circuit_area.mjs';
+import { loadLessonCircuit } from './circuit_area.mjs';
 
 let currentPage = window.location.pathname; 
 let questions;
@@ -44,9 +46,7 @@ let currentQuestionIndex = 0;
  */
 function next() {
     if (currentLessonIndex < sections.length - 1) {
-
         markSectionComplete();
-
         currentLessonIndex++;
         displayLesson(currentLessonIndex);
     }
@@ -71,6 +71,42 @@ function displayLesson(index) {
     sections.forEach((section, i) => {
         if (i == index) {
             section.classList.remove('hidden');
+
+            const circuitName = section.dataset.circuit;
+            console.log("Circuit name:", circuitName);
+            if (circuitName) {
+                const target = section.querySelector('[id$="-circuit-wrapper"]');
+                const host = document.getElementById('circuit-builder-host');
+            
+                if (target && host) {
+                    console.log("Moving circuit to target:", target.id);
+                    console.log("Host:", host.id);
+                    // Move all children from host into the target wrapper
+                    target.innerHTML = ''; // clear if re-entering
+                    target.append(...host.children); 
+                    host.classList.add("hidden"); // just in case
+
+                    requestAnimationFrame(() => {
+                        updateArea();
+                        setTimeout(updateArea, 100); // just to be sure
+                    });
+                    
+                }
+
+                const circuitSections = [9, 10, 11];
+                if (circuitSections.includes(index)) {
+                    const alreadyReloaded = sessionStorage.getItem(`reloaded-${index}`);
+                    if (!alreadyReloaded) {
+                        sessionStorage.setItem(`reloaded-${index}`, 'true');
+                        const url = new URL(window.location.href);
+                        url.searchParams.set("section", index);
+                        window.location.href = url.toString();
+                        return;
+                    }
+                }
+            
+                loadLessonCircuit(circuitName);
+            }
         } else {
             section.classList.add('hidden');
         }
@@ -81,6 +117,7 @@ function displayLesson(index) {
 
     currentQuestionIndex = 0;
     loadQuestion(currentLessonIndex);
+
 }
 
 /**
@@ -115,11 +152,12 @@ function updateUrl(sectionIndex) {
 }
 
 window.addEventListener('load', main);
+
 function main() { 
+
     document.getElementById('back-button').addEventListener("click", function() {
         back();
     });
-    
     document.getElementById('next-button').addEventListener("click", function() {
         next();
     });
@@ -146,6 +184,9 @@ function main() {
         load_timeline();
     }
 
+
+    console.log("OM");
+    
 
     updateButtons();
     displayLesson(currentLessonIndex);
@@ -316,7 +357,7 @@ function markSectionComplete() {
     }
 
     // Extract end_ids from the sections object
-    const endIds = Object.values(lesson.sections);  // e.g., [1, 2, 7, 11, 16]
+    const endIds = Object.values(lesson.sections);  
 
     if (!endIds.includes(sectionId)) {
         // This section is not a final slide of any sub-section — don't mark progress

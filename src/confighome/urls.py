@@ -40,6 +40,8 @@ urlpatterns = [
     path("api/submit-test/", views.submit_test_score, name="submit_test_score"),
     path("api/lesson-progress/", views.get_lesson_progress, name="get_lesson_progress"),
     path("api/test-scores/", views.get_test_scores, name="get_test_scores"),
+    ## API endpoints
+    path('api/get-circuit/', views.get_circuit, name='get_circuit'),
 
 ]
 
