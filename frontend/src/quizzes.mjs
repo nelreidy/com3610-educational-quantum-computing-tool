@@ -592,7 +592,7 @@ export const questionsErrorCorrection = [
 
 export const questionsRunningQuantumPrograms = [
     {
-        section: 4,
+        section: 6,
         questions: [
             {
                 question: "Which of the following best describes a qubit in a quantum computer?",

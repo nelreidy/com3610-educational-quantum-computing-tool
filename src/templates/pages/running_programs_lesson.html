@@ -140,242 +140,162 @@
                     Great! Let's explore the differences between quantum hardware and simulation, and how you can leverage both to develop and run quantum programs.
                 </p>
             </div>
-            
+
+            <!-------------------------------------------------------------------------------------------------------------------------------------------->
+            <!-------------------------------------------------------------------------------------------------------------------------------------------->
 
             <div id="section-1" class="p-4 mx-2">
+
                 <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Quantum Hardware</h1>
                 <p class="mb-4 text-md font-normal text-gray-500">
                     Quantum computers operate fundamentally differently from classical computers, leveraging quantum mechanics to process information. Unlike traditional systems, they do not use operating systems and instead rely on direct manipulation of qubits to execute quantum circuits.
                 </p>
 
-                <div class="flex flex-col md:flex-row items-center md:items-start p-4">
-                    <div class="md:w-1/2">
-                        <h2 class="text-xl font-semibold text-indigo-800 mb-2">What is a Qubit? (on an almost physical level) </h2>
-                        <p class="text-md text-gray-500 mb-4">
-                            Unlike classical computers, which use bits represented by high and low voltages (1s and 0s), quantum computers use <span class="text-indigo-800">qubits</span>. Instead of just being 0 or 1, a qubit can exist in a combination of both states at the same time due to  <span class="text-indigo-800">superposition</span>.
-                        </p>
-                        
-                        <p class="text-md text-gray-500 mb-4">
-                            In classical computers, transistors use electrical voltage to store and manipulate bits. However, in quantum systems, qubits are typically implemented using one of: superconducting circuits, trapped ions, or photonic systems.
-                        </p>
-
-                        <!----------------------------------------------------------------------->
-                        <!------------------------------------------------------------------------>
-                        <!-- horizonal line -->
-                        <hr class="border-gray-300 my-8">
-                        <!------------------------------------------------------------------------>
-                        <!------------------------------------------------------------------------>
-
-                        <h3 class="text-xl font-semibold text-indigo-800 mb-2 mt-8">Superconducting Circuit Systems </h2>
-                        <div class="mb-4 flex items-start">
-                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center  min-w-12 max-w-8 min-h-8 max-h-8 w-8 h-8 bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
-                                1
-                            </span>
-
-                            <p class="text-md text-gray-600">
-                                A <span class=" text-indigo-800">superconducting circuit</span> is just like a normal electrical circuit but made of superconducting material. This means it conducts electricity without resistance, so current can flow <span class="font-semibold">forever</span> without losing energy.
-                            </p>
-                        </div>
+                <div class="p-3 bg-gray-100 shadow-md rounded-lg my-2  border-l-4 border-indigo-500 ">
                     
-                        <div class="mb-4 flex items-start">
-                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center  bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
-                                2
-                            </span>
-                            <p class="text-md text-gray-600">
-                                Inside this circuit, we add something called a <span class="font-semibold text-indigo-800">Josephson Junction</span>—a tiny insulating barrier. This junction forces the current to flow in a quantum way, meaning it can flow in <span class="font-semibold">one direction or the other</span>, or even <span class="font-semibold">both directions at the same time</span> (superposition).
-                            </p>
-                        </div>
+                    <h2 class="text-l font-semibold text-indigo-800 mb-2">What is a Qubit? (on an almost physical level) </h2>
+                    <p class="text-md text-gray-500 mb-4">
+                        Unlike classical computers, which use bits represented by high and low voltages (1s and 0s), quantum computers use <span class="text-indigo-800">qubits</span>. Instead of just being 0 or 1, a qubit can exist in a combination of both states at the same time due to  <span class="text-indigo-800">superposition</span>.
+                    </p>
                     
-                        <div class="mb-4 flex items-start">
-                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center  bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
-                                3
-                            </span>
-                            <div>
-                                <p class="text-md text-gray-600">
-                                    The <span class="font-semibold text-indigo-800">direction of the current flow</span> defines the qubit state:
-                                </p>
-                                <ul class="list-disc list-inside text-gray-600">
-                                    <li><span class="text-indigo-800">Current flowing one way</span> = |0⟩ (low energy state).</li>
-                                    <li><span class="text-indigo-800">Current flowing the other way</span> = |1⟩ (high energy state).</li>
-                                    <li><span class="text-indigo-800">Both at once (superposition)</span> = The qubit is in a mix of |0⟩ and |1⟩.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    
-                        <div class="mb-4 flex items-start">
-                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center  bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
-                                4
-                            </span>
-                            <p class="text-md text-gray-600">
-                                To <span class="font-semibold text-indigo-800">control the qubit</span>, we use <span class="font-semibold">microwave pulses</span>. These pulses give the qubit energy to push the current in the direction we want. This is how we perform quantum operations like flipping a qubit from <span class="text-indigo-800">|0⟩ → |1⟩</span> or creating <span class="font-semibold">superposition</span>.
-                            </p>
-                        </div>
+                    <p class="text-md text-gray-500 mb-4">
+                        In classical computers, transistors use electrical voltage to store and manipulate bits. However, in quantum systems, qubits are typically implemented using one of: <span class="text-indigo-800"> superconducting circuits</span>, <span class="text-indigo-800"> trapped ions</span>, or <span class="text-indigo-800">photonic systems</span> .
+                    </p>
 
-                        <div class="mb-4 flex items-start">
-                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
-                                5
-                            </span>
-                            <p class="text-md text-gray-600">
-                                In <span class="font-semibold text-indigo-800">multi-qubit systems</span>, each qubit consists of its own superconducting loop with a Josephson junction, forming distinct quantum states. Qubits interact through electric fields (capacitive coupling) or magnetic fields (inductive coupling), enabling entanglement and controlled quantum operations such as multi-qubit gates</span>.
-                            </p>
-                        </div>
-
-                        <div class="p-4 bg-gray-100 border-l-4 border-indigo-500 shadow-md rounded-lg mt-6">
-                            <p class="text-md text-gray-600">This technology is used by IBM, Google, and Rigetti because it allows for fast quantum operations, but the need for extreme cooling and suscpetibility to noise makes it challenging to scale.</p>
-                        </div>
-
-                        <!------------------------------------------------------------------------>
-                        <!-- horizonal line -->
-                        <hr class="border-gray-300 my-8">
-                        <!------------------------------------------------------------------------>
-
-
-                        <h3 class="text-xl font-semibold text-indigo-800 mb-2 mt-4s">Trapped Ion Quantum Systems</h3>
-
-                        <!-- Step 1 -->
-                        <div class="mb-4 flex items-start">
-                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center min-w-12 max-w-8 min-h-8 max-h-8 w-8 h-8 bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
-                                1
-                            </span>
-                            <p class="text-md text-gray-600">
-                                A <span class=" text-indigo-800">trapped ion system</span> consists of individual <span class="font-semibold">charged atoms (ions)</span> that are suspended using <span class="font-semibold">electromagnetic fields</span> inside a vacuum chamber. These ions are highly stable, preserving their quantum states for extended periods.
-                            </p>
-                        </div>
-                        
-                        <!-- Step 2 -->
-                        <div class="mb-4 flex items-start">
-                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
-                                2
-                            </span>
-                            <p class="text-md text-gray-600">
-                                Each ion has multiple <span class="font-semibold text-indigo-800">electronic energy levels</span>, but we use two specific levels to represent a qubit:
-                            </p>
-                        </div>
-                        
-                        <!-- Step 3 (Qubit states) -->
-                        <div class="mb-4 flex items-start">
-                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
-                                3
-                            </span>
-                            <div>
-                                <p class="text-md text-gray-600">
-                                    The <span class="font-semibold text-indigo-800">qubit states</span> in a trapped ion system are defined as:
-                                </p>
-                                <ul class="list-disc list-inside text-gray-600">
-                                    <li><span class="text-indigo-800">Lower energy state</span> = |0⟩</li>
-                                    <li><span class="text-indigo-800">Higher energy state</span> = |1⟩</li>
-                                    <li><span class="text-indigo-800">Superposition</span> = The ion exists in a mix of |0⟩ and |1⟩.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <!-- Step 4 -->
-                        <div class="mb-4 flex items-start">
-                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
-                                4
-                            </span>
-                            <p class="text-md text-gray-600">
-                                To control the qubit, <span class="font-semibold text-indigo-800">laser pulses</span> are used to manipulate the ion’s quantum state. These pulses provide energy to transition between |0⟩ and |1⟩, allowing quantum operations like superposition and entanglement.
-                            </p>
-                        </div>
-                        
-                        <!-- Step 5 -->
-                        <div class="mb-4 flex items-start">
-                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
-                                5
-                            </span>
-                            <p class="text-md text-gray-600">
-                                In <span class="font-semibold text-indigo-800">multi-qubit systems</span>, each qubit is an ion, and qubits interact through <span class="font-semibold">Coulomb forces (electrostatic repulsion)</span>. This enables entanglement and controlled multi-qubit gates, such as the <span class="font-semibold">CNOT Gate</span>.
-                            </p>
-                        </div>
-
-
-
-                        <!------------------------------------------------------------------------>
-                        <!------------------------------------------------------------------------>
-                        <!-- horizonal line -->
-                        <hr class="border-gray-300 my-8">
-                        <!------------------------------------------------------------------------>
-                        <!------------------------------------------------------------------------>
-
-                        
-                        <h3 class="text-xl font-semibold text-indigo-800 mb-2">Photonic Quantum Systems</h3>
-
-                        <!-- Step 1 -->
-                        <div class="mb-4 flex items-start">
-                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center min-w-12 max-w-8 min-h-8 max-h-8 w-8 h-8 bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
-                                1
-                            </span>
-                            <p class="text-md text-gray-600">
-                                A <span class="font-semibold text-indigo-800">photonic quantum system</span> uses <span class="font-semibold">individual photons (particles of light)</span> to represent qubits. Unlike other quantum systems that use matter-based qubits, photons travel at the speed of light and are naturally resistant to environmental noise.
-                            </p>
-                        </div>
-                        
-                        <!-- Step 2 -->
-                        <div class="mb-4 flex items-start">
-                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
-                                2
-                            </span>
-                            <p class="text-md text-gray-600">
-                                Qubits in photonic systems are encoded using light properties, such as:
-                            </p>
-                        </div>
-                        
-                        <!-- Step 3 (Qubit Encoding) -->
-                        <div class="mb-4 flex items-start">
-                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
-                                3
-                            </span>
-                            <div>
-                                <p class="text-md text-gray-600">
-                                    The quantum state of a photonic qubit is defined by:
-                                </p>
-                                <ul class="list-disc list-inside text-gray-600">
-                                    <li><span class="text-indigo-800">Polarization</span> – The direction in which the light wave oscillates (e.g., horizontal = |0⟩, vertical = |1⟩).</li>
-                                    <li><span class="text-indigo-800">Phase</span> – The wave’s position in its oscillation cycle, which can encode superposition states.</li>
-                                    <li><span class="text-indigo-800">Path Encoding</span> – Using beam splitters to direct photons into separate paths, representing different quantum states.</li>
-                                </ul>
-                            </div>
-                        </div>
-                        
-                        <!-- Step 4 -->
-                        <div class="mb-4 flex items-start">
-                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
-                                4
-                            </span>
-                            <p class="text-md text-gray-600">
-                                To manipulate photonic qubits, optical components such as <span class="font-semibold">beam splitters, wave plates, and phase shifters</span> are used. These components change the quantum state of the photons, allowing quantum operations to be performed.
-                            </p>
-                        </div>
-                        
-                        <!-- Step 5 -->
-                        <div class="mb-4 flex items-start">
-                            <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
-                                5
-                            </span>
-                            <p class="text-md text-gray-600">
-                                In <span class="font-semibold text-indigo-800">multi-qubit systems</span>, each qubit is an ion, and qubits interact through <span class="font-semibold">Coulomb forces (electrostatic repulsion)</span>. This enables entanglement and controlled multi-qubit gates, such as the <span class="font-semibold">CNOT Gate</span>.
-                            </p>
-                        </div>
-                        
-                
-                    </div>
-                
-                    <!-- Image on the Right -->
-                    <div class="md:w-1/2 flex justify-center">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Qubit_Superposition.svg" 
-                             alt="POSSIBLE image of each system"
-                             class="w-full max-w-sm rounded-lg shadow-md">
-                    </div>
+                    <p class="text-md text-gray-500"> Let's begin with the most common type: superconducting circuits.</p>
+                </div>
+                <h1 class="mb-3 mt-5 text-xl font-semibold text-indigo-800">Superconducting Circuit Systems</h1>
+                <p class="mb-4 text-md text-gray-500">
+                    A <span class=" text-indigo-800">superconducting circuit</span> is just like a normal electrical circuit but made of superconducting material. This means it conducts electricity without resistance, so current can flow <span class="font-semibold">forever</span> without losing energy.
+                </p>
+                <p class="mb-4 text-md text-gray-500">
+                    Inside this circuit, we add something called a <span class="font-semibold text-indigo-800">Josephson Junction</span>, which is a tiny insulating barrier. This junction forces the current to flow in a quantum way, meaning it can flow in <span class="font-semibold">one direction or the other</span>, or even <span class="font-semibold">both directions at the same time</span> (superposition).
+                </p>
+                <p class="mb-4 text-md text-gray-500">
+                    The <span class="font-semibold text-indigo-800">direction of the current flow</span> defines the qubit state:
+                </p>
+                <ul class="list-disc list-inside text-gray-600 mb-4">
+                    <li><span class="text-indigo-800">Current flowing one way</span> = |0⟩ (low energy state).</li>
+                    <li><span class="text-indigo-800">Current flowing the other way</span> = |1⟩ (high energy state).</li>
+                    <li><span class="text-indigo-800">Both at once (superposition)</span> = The qubit is in a mix of |0⟩ and |1⟩.</li>
+                </ul>
+                <p class="mb-4 text-md text-gray-500">
+                    To <span class="font-semibold text-indigo-800">control the qubit</span>, we use <span class="font-semibold">microwave pulses</span>. These pulses give the qubit energy to push the current in the direction we want. This is how we perform quantum operations like flipping a qubit from <span class="text-indigo-800">|0⟩ → |1⟩</span> or creating <span class="font-semibold">superposition</span>.
+                </p>
+                <p class="mb-4 text-md text-gray-500">
+                    In <span class="font-semibold text-indigo-800">multi-qubit systems</span>, each qubit consists of its own superconducting loop with a Josephson junction, forming distinct quantum states. Qubits interact through electric or magnetic fields, enabling entanglement and controlled operations.
+                </p>
+                <div class="p-4 bg-gray-100 border-l-4 border-indigo-500 shadow-md rounded-lg mt-6">
+                    <p class="text-md text-gray-600">This technology is used by IBM, Google, and Rigetti because it allows for fast quantum operations, but the need for extreme cooling and suscpetibility to noise makes it challenging to scale.</p>
                 </div>
             </div>
 
-             <!-------------------------------------------------------------------------------------------------------------------------------------------->
-            <!-------------------------------------------------------------------------------------------------------------------------------->
+            <!-------------------------------------------------------------------------------------------------------------------------------------------->
+            <!-------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+            <div id="section-2" class="p-4 mx-2">
+                <h3 class="text-xl font-semibold text-indigo-800 mb-2">Trapped Ion Quantum Systems</h3>
+            
+                <!-- Step 1 -->
+                <div class="mb-4 flex items-start">
+                    <span class="flex items-center justify-center w-8 h-8 bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                        1
+                    </span>
+                    <p class="text-md text-gray-600">
+                        A <span class="text-indigo-800">trapped ion system</span> consists of individual <span class="font-semibold">charged atoms (ions)</span> that are suspended using <span class="font-semibold">electromagnetic fields</span> inside a vacuum chamber. These ions are highly stable, preserving their quantum states for extended periods.
+                    </p>
+                </div>
+            
+                <!-- Step 2 -->
+                <div class="mb-4 flex items-start">
+                    <span class="flex items-center justify-center w-8 h-8 bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                        2
+                    </span>
+                    <p class="text-md text-gray-600">
+                        Each ion has multiple <span class="font-semibold text-indigo-800">electronic energy levels</span>, but we use two specific levels to represent a qubit:
+                    </p>
+                </div>
+            
+                <!-- Step 3 -->
+                <div class="mb-4 flex items-start">
+                    <span class="flex items-center justify-center w-8 h-8 bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                        3
+                    </span>
+                    <div>
+                        <p class="text-md text-gray-600">
+                            The <span class="font-semibold text-indigo-800">qubit states</span> in a trapped ion system are defined as:
+                        </p>
+                        <ul class="list-disc list-inside text-gray-600">
+                            <li><span class="text-indigo-800">Lower energy state</span> = |0⟩</li>
+                            <li><span class="text-indigo-800">Higher energy state</span> = |1⟩</li>
+                            <li><span class="text-indigo-800">Superposition</span> = The ion exists in a mix of |0⟩ and |1⟩.</li>
+                        </ul>
+                    </div>
+                </div>
+            
+                <!-- Step 4 -->
+                <div class="mb-4 flex items-start">
+                    <span class="flex items-center justify-center w-8 h-8 bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                        4
+                    </span>
+                    <p class="text-md text-gray-600">
+                        To control the qubit, <span class="font-semibold text-indigo-800">laser pulses</span> are used to manipulate the ion’s quantum state. These pulses provide energy to transition between |0⟩ and |1⟩, allowing quantum operations like superposition and entanglement.
+                    </p>
+                </div>
+            
+                <!-- Step 5 -->
+                <div class="mb-4 flex items-start">
+                    <span class="flex items-center justify-center w-8 h-8 bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                        5
+                    </span>
+                    <p class="text-md text-gray-600">
+                        In <span class="font-semibold text-indigo-800">multi-qubit systems</span>, each qubit is an ion, and qubits interact through <span class="font-semibold">Coulomb forces (electrostatic repulsion)</span>. This enables entanglement and controlled multi-qubit gates, such as the <span class="font-semibold">CNOT Gate</span>.
+                    </p>
+                </div>
+            </div>
+            
+            
+            
+    
+            <!-------------------------------------------------------------------------------------------------------------------------------------------->
+            <!-------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+
+            <div id="section-3" class="p-4 mx-2">
+                <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Photonic Quantum Systems</h1>
+                <p class="mb-4 text-md text-gray-500">
+                    <span class="font-semibold text-indigo-800">Photonic systems</span> use <span class="font-semibold">individual photons</span> (light particles) to represent qubits. They travel at light speed and are naturally immune to noise.
+                </p>
+                <p class="mb-4 text-md text-gray-500">
+                    Qubits are encoded using properties like:
+                </p>
+                <ul class="list-disc list-inside text-gray-600 mb-4">
+                    <li><span class="text-indigo-800">Polarization</span> – Horizontal = |0⟩, Vertical = |1⟩</li>
+                    <li><span class="text-indigo-800">Phase</span> – Used to represent superposition</li>
+                    <li><span class="text-indigo-800">Path Encoding</span> – Using beam splitters to direct photons</li>
+                </ul>
+                <p class="mb-4 text-md text-gray-500">
+                    We manipulate photonic qubits using <span class="font-semibold">beam splitters, wave plates, and phase shifters</span>. These change the photon's state and enable operations like entanglement.
+                </p>
+                <p class="mb-4 text-md text-gray-500">
+                    Multi-photon systems use entangled photons to represent multi-qubit operations. While photons are robust, building large-scale photonic systems remains a challenge.
+                </p>
+            </div>
+            
+
+
+
+
+                
+            <!-------------------------------------------------------------------------------------------------------------------------------------------->
+            <!-------------------------------------------------------------------------------------------------------------------------------------------->
             
             
 
-            <div id="section-2" class="p-4 mx-2 hidden">
+            <div id="section-4" class="p-4 mx-2 hidden">
                 <h3 class="mb-4 text-2xl font-semibold text-indigo-800">Running Programs on Quantum Hardware</h3>
 
                 <p class="mb-4 text-md font-normal text-gray-500">
@@ -492,9 +412,9 @@
          <!-------------------------------------------------------------------------------------------------------------------------------->
         
          
-         <div id="section-3" class="p-4 mx-2 hidden">
+         <div id="section-5" class="p-4 mx-2 hidden">
             <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Quantum Simulation</h1>
-            <p class="mb-8 text-md font-normal text-gray-500">
+            <p class="mb-5 text-md font-normal text-gray-500">
                 Now that we know about the state of hardware-based quantum development, let's learn about how quantum simulation works and what tools we can use to simulate quantum circuits, algorithms, and programs.
             </p>
 
@@ -577,7 +497,7 @@
             
             
 
-        <div id="section-4" class="p-4 mx-2 hidden">
+        <div id="section-6" class="p-4 mx-2 hidden">
             <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Knowledge Test 1</h1>
             <p class="mb-8 text-md font-normal text-gray-500">Let's test your knowledge about Quantum Hardware and Simulation! </p>
 
@@ -590,11 +510,11 @@
 
             
          <!-------------------------------------------------------------------------------------------------------------------------------------------->
-         <!-------------------------------------------------------------------------------------------------------------------------------->
+         <!--------------------------------------------------------------------------------------------------------------------------------------------->
         
 
             
-        <div id="section-5" class="p-4 mx-2 hidden">
+        <div id="section-7" class="p-4 mx-2 hidden">
 
             <h1 class="text-2xl font-semibold text-indigo-800 mb-2 mt-4">Introduction to Qiskit</h1>
             <p class="text-md text-gray-600">
@@ -649,13 +569,13 @@
 
             
          <!-------------------------------------------------------------------------------------------------------------------------------------------->
-         <!-------------------------------------------------------------------------------------------------------------------------------->
+         <!-------------------------------------------------------------------------------------------------------------------------------------------->
         
         
 
-        <div id="section-6" class="p-4 mx-2 hidden">
+        <div id="section-8" class="p-4 mx-2 hidden">
 
-            <h3 class="text-xl font-semibold text-indigo-800 mb-2 mt-4">Setting Up Your Environment for Qiskit</h3>
+            <h3 class="text-xl font-semibold text-indigo-800 mb-2 mt-1">Setting Up Your Environment for Qiskit</h3>
 
             <p class="text-md text-gray-600">
                 Before we start coding quantum circuits, we need to set up our environment and install <span class="font-semibold text-indigo-800">Qiskit version 1.4.0</span>.  
@@ -672,8 +592,17 @@
                 </p>
             </div>
 
-            <pre class="bg-gray-100 p-3 rounded-md text-sm text-gray-800"><code>python --version</code></pre>
-
+            <div class="relative mb-2">
+                <button onclick="copyToClipboard('code-python-version')"
+                  class="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400 hover:text-indigo-600 transition">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                      d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h6m2 4h4a2 2 0 012 2v8a2 2 0 01-2 2h-6a2 2 0 01-2-2V8z" />
+                  </svg>
+                </button>
+                <pre class="bg-gray-100 p-3 rounded-md text-sm text-gray-800"><code id="code-python-version">python --version</code></pre>
+            </div>
+              
             <p class="text-md text-gray-600 mt-3">
                 If you need to install Python, download it from the official site:  
                 <a href="https://www.python.org/downloads/" class="text-indigo-800 underline hover:text-indigo-900">python.org/downloads</a>.
@@ -681,7 +610,7 @@
 
             <!-- Step 2: Create a Virtual Environment -->
             <div class="mb-4 mt-8 flex items-start">
-                <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
+                <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-2 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
                     2
                 </span>
                 <p class="text-md text-gray-600">
@@ -689,15 +618,45 @@
                 </p>
             </div>
 
-            <pre class="bg-gray-100 p-3 mb-1 rounded-md text-sm text-gray-800"><code id="code1">python -m venv qiskit-env</code></pre>
-            <pre class="bg-gray-100 p-3 mb-1 rounded-md text-sm text-gray-800"><code id="code2">source qiskit-env/bin/activate  # On Mac/Linux</code></pre>
-            <pre class="bg-gray-100 p-3 mb-1 rounded-md text-sm text-gray-800"><code id="code3">qiskit-env\Scripts\activate     # On Windows</code></pre>
+            <div class="relative">
+                <button onclick="copyToClipboard('code1')"
+                class="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400 hover:text-indigo-600 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h6m2 4h4a2 2 0 012 2v8a2 2 0 01-2 2h-6a2 2 0 01-2-2V8z" />
+                </svg>
+              </button>
+                <pre class="bg-gray-100 p-3 mb-1 rounded-md text-sm text-gray-800"><code id="code1">python -m venv qiskit-env</code></pre>
+            </div>
+            
+
+            <div class="relative mb-2">
+                <button onclick="copyToClipboard('code2')"
+                class="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400 hover:text-indigo-600 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h6m2 4h4a2 2 0 012 2v8a2 2 0 01-2 2h-6a2 2 0 01-2-2V8z" />
+                </svg>
+                </button>
+                <pre class="bg-gray-100 p-3 rounded-md text-sm text-gray-800"><code id="code2">source qiskit-env/bin/activate  # On Mac/Linux</code></pre>
+            </div>
+
+            <div class="relative mb-2">
+                <button onclick="copyToClipboard('code3')"
+                class="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400 hover:text-indigo-600 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h6m2 4h4a2 2 0 012 2v8a2 2 0 01-2 2h-6a2 2 0 01-2-2V8z" />
+                </svg>
+                </button>
+                <pre class="bg-gray-100 p-3 rounded-md text-sm text-gray-800"><code id="code3">qiskit-env\Scripts\activate     # On Windows</code></pre>
+            </div>
+  
 
             <p class="text-md text-gray-600 mt-2 ">
                 Once activated, your terminal should show (qiskit-env) before the command prompt.
             </p>
 
-            <!-- Step 3: Install Qiskit 1.4.0 -->
             <div class="mb-4 flex items-start mt-8">
                 <span style="width: 32px; height: 32px;" class="flex items-center justify-center bg-indigo-100 rounded-full ring-4 ring-gray-50 text-indigo-800 font-bold text-md mr-2">
                     3
@@ -707,11 +666,54 @@
                 </p>
             </div>
 
-            <pre class="bg-gray-100 p-3 rounded-md text-sm text-gray-800"><code>pip install qiskit==1.4.0</code></pre>
-            <pre class="bg-gray-100 p-3 rounded-md text-sm text-gray-800"><code>pip install qiskit-aer==0.16.4</code></pre>
-            <pre class="bg-gray-100 p-3 rounded-md text-sm text-gray-800"><code>pip install pylatexec==2.10</code></pre>
-            <pre class="bg-gray-100 p-3 rounded-md text-sm text-gray-800"><code>pip install matplotlib==3.8.3</code></pre>
-
+            <!-- Code 3 -->
+            <div class="relative mb-2">
+                <button onclick="copyToClipboard('code4')"
+                class="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400 hover:text-indigo-600 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h6m2 4h4a2 2 0 012 2v8a2 2 0 01-2 2h-6a2 2 0 01-2-2V8z" />
+                </svg>
+                </button>
+                <pre class="bg-gray-100 p-3 rounded-md text-sm text-gray-800"><code id="code4">pip install qiskit==1.4.0</code></pre>
+            </div>
+            
+            <!-- Code 4 -->
+            <div class="relative mb-2">
+                <button onclick="copyToClipboard('code5')"
+                class="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400 hover:text-indigo-600 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h6m2 4h4a2 2 0 012 2v8a2 2 0 01-2 2h-6a2 2 0 01-2-2V8z" />
+                </svg>
+                </button>
+                <pre class="bg-gray-100 p-3 rounded-md text-sm text-gray-800"><code id="code5">pip install qiskit-aer==0.16.4</code></pre>
+            </div>
+            
+            <!-- Code 5 -->
+            <div class="relative mb-2">
+                <button onclick="copyToClipboard('code6')"
+                class="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400 hover:text-indigo-600 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h6m2 4h4a2 2 0 012 2v8a2 2 0 01-2 2h-6a2 2 0 01-2-2V8z" />
+                </svg>
+                </button>
+                <pre class="bg-gray-100 p-3 rounded-md text-sm text-gray-800"><code id="code6">pip install pylatexec==2.10</code></pre>
+            </div>
+            
+            <!-- Code 6 -->
+            <div class="relative mb-2">
+                <button onclick="copyToClipboard('code7')"
+                class="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400 hover:text-indigo-600 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h6m2 4h4a2 2 0 012 2v8a2 2 0 01-2 2h-6a2 2 0 01-2-2V8z" />
+                </svg>
+                </button>
+                <pre class="bg-gray-100 p-3 rounded-md text-sm text-gray-800"><code id="code7">pip install matplotlib==3.8.3</code></pre>
+            </div>
+  
 
             <!-- Troubleshooting Box -->
             <div class="p-4 bg-yellow-100 border-l-4 border-yellow-500 shadow-md rounded-lg mt-6">
@@ -739,10 +741,10 @@
 
                     
          <!-------------------------------------------------------------------------------------------------------------------------------------------->
-         <!-------------------------------------------------------------------------------------------------------------------------------->
+         <!-------------------------------------------------------------------------------------------------------------------------------------------->
         
 
-         <div id="section-7" class="p-4 mx-2 hidden">
+         <div id="section-9" class="p-4 mx-2 hidden">
             <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Qiskit Circuit Tutorial</h1>
             <p class="mb-4 text-md font-normal text-gray-500">
                 This tutorial explains how to create and execute quantum circuits using Qiskit on a local simulator. We will cover the basics of quantum gates, superposition, and measurement. Please follow along on your device.
@@ -754,29 +756,298 @@
             </iframe>
         </div>
         
+        <!-------------------------------------------------------------------------------------------------------------------------------------------->
+        <!-------------------------------------------------------------------------------------------------------------------------------------------->
+
+        <div id="section-10" class="p-4 mx-2 hidden">
+            <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Running Quantum Programs on Real Hardware</h1>
+            <p class="mb-4 text-md font-normal text-gray-500">
+                In the past, running quantum algorithms meant needing access to an actual quantum computer in a research lab.
+                But today, <span class= "text-indigo-800">cloud-based platforms</span> allow anyone to run real quantum programs — no lab access required.
+            </p>
+        
+            <h2 class="text-l font-semibold text-indigo-800 mb-2"> Major Cloud Providers</h2>
+            <ul class="list-disc list-inside text-md text-gray-600 mb-4">
+                <li><span class=" text-indigo-800">IBM Quantum</span> – Provides simulators and real devices via the <a href="https://quantum-computing.ibm.com" class="text-indigo-600 underline" target="_blank">IBM Quantum Platform</a>.</li>
+                <li><span class=" text-indigo-800">Amazon Braket</span> – Offers access to IonQ, Rigetti, and OQC via AWS.</li>
+                <li><span class=" text-indigo-800">Microsoft Azure Quantum</span> – Supports multiple hardware backends through the Azure portal.</li>
+                <li><span class=" text-indigo-800">Google Quantum AI</span> – Provides access to Sycamore processors via select partnerships.</li>
+            </ul>
+        
+            <div class="p-3 bg-gray-100 shadow-md rounded-lg my-2  border-l-4 border-indigo-500 ">
+                <h2 class="text-l font-semibold text-indigo-800 mb-2">IBM Quantum</h2>
+                <p class="text-md text-gray-500 mb-4">
+                    We will be using IBM Quantum. It is beginner-friendly and offers both simulator and hardware access. You can build circuits visually or connect your qiskit code directly using your API token.
+                </p> 
+
+            </div>
+
+        
+            <h3 class="text-lg font-semibold text-indigo-800 mb-1 mt-3">1. Using the Quantum Composer</h3>
+            <p class="text-md text-gray-500 mb-4">
+                The <a  href="https://quantum-computing.ibm.com" class="text-indigo-600 underline" target="_blank">IBM Quantum Composer</a> is another drag-and-drop interface where you can build and run circuits in your browser.
+            </p>
+
+            <p class="text-md text-gray-500 mb-4"> Let us take this opportunity to explain and execute an <a href="error-correction?section=4" class="text-indigo-600 underline" target="_blank">error correction</a> circuit  using the Quantum Composer. In the figure below, you'll see one possible implementation of a 3 qubit phase flip error correction circuit. Feel free to build it yourself, or simply click on <a class="text-indigo-600 underline"  href="https://quantum.ibm.com/composer/files/new?initial=N4IgdghgtgpiBcIAKALCBnGACAYgGwEsAHLAZQKgFc8IAXAgezCwjABMsBhBgJx5gDG9JiAA0IAI4YoCEAHkkAUQByARQCCpALJYATADoADAG4AOmAJgBeSm2ynJMQgCMAjPssCHZsOYn8AcywJAG0AZgBdHwFArAFwqPMBAA9gkMMI0TTXRKtU0Iys0N1clDSMnzLi0uzcgC9ymurK2paC3JTGopCc6Pz0zLSS6M7QnO6S7orzWAxKfkasAFoAPjiBnzEQO3QY4mEwWRAAXyA" target="_blank">this link</a>. </p>
+        
 
 
-        <div id="section-8" class="p-4 mx-2 hidden">
-            <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Quantum Phenomena and Principles</h1>
-            <p class="mb-4 text-md font-normal text-gray-500">You have reached the end of this lesson. You have learned about some of the key quantum pricnciples and phenomena that define the behavior of quantum systems. </p>
+            <div class="flex flex-col md:flex-row p-4 items-start gap-4">
+                <!-- Left: Carousel Steps -->
+                <div class="w-full md:w-1/2 relative  max-w-4xl mx-auto  bg-white border rounded-lg shadow p-2 flex items-center">
+
+                    <button id="carousel-prev"
+                    onclick="prevStep()"
+                    class="mr-4  hover:bg-indigo-700 text-indigo-800 font-bold px-4 py-2 rounded-full">
+                     &lt;
+                    </button>
+
+                    <div id="carousel-steps" class="flex-1 text-center">
+                        <div class="step" data-step="0">
+                            <h3 class="text-l font-semibold text-indigo-700">Introduction: What Are We Doing?</h3>
+                            <p  class="text-md text-sm text-gray-500 mb-4">
+                            This is a 3-qubit phase-flip error correction circuit. 
+                            It encodes a logical qubit (α|0⟩ + β|1⟩) across three physical qubits to detect and correct a possible <strong>Z (phase flip)</strong> error.
+                            <br><br>
+                            At the start, the state is: 
+                            <code>|ψ⟩ = α|0⟩ + β|1⟩</code> on <code>q[0]</code>, and <code>|0⟩</code> on <code>q[1]</code> and <code>q[2]</code>.
+                            </p>
+                        </div>
+                        
+                        <div class="step hidden" data-step="1">
+                            <h3 class="text-l font-semibold text-indigo-700">Step 1: Encode the Logical Qubit</h3>
+                            <p  class="text-md text-sm text-gray-500 mb-4">
+                            We apply two CNOT gates from <code>q[0]</code> to <code>q[1]</code> and <code>q[2]</code>, copying the state.
+                            <br><br>
+                            State becomes:
+                            <code>|ψ⟩ = α|000⟩ + β|111⟩</code>
+                            </p>
+                        </div>
+                        
+                        <div class="step hidden" data-step="2">
+                            <h3 class="text-l font-semibold text-indigo-700">Step 2: Apply Hadamards</h3>
+                            <p  class="text-md text-sm text-gray-500 mb-4">
+                            Hadamard gates are applied to all three qubits. This turns any phase (Z) errors into bit flip (X) errors. We do this because it is easier to correct bit flips than phase flips. It is, however, still possible to correct phase flips indepenedantly using more advanced techniques like shor's code.
+                            <br><br>
+                            State transforms basis: Z-errors → X-errors.
+                            </p>
+                        </div>
+                        
+                        <div class="step hidden" data-step="3">
+                            <h3 class="text-l font-semibold text-indigo-700">Step 3: Simulate a Phase Flip</h3>
+                            <p  class="text-md text-sm text-gray-500 mb-4">
+                            A Z gate is applied to <code>q[0]</code> to simulate a phase error.
+                            <br><br>
+                            State is now affected by a phase flip on that qubit.
+                            </p>
+                        </div>
+                        
+                        <div class="step hidden" data-step="4">
+                            <h3 class="text-l font-semibold text-indigo-700">Step 4: Decode</h3>
+                            <p  class="text-md text-sm text-gray-500 mb-4">
+                            We undo the Hadamards to return to the original basis. This is the same as the original state, but with a phase flip on <code>q[0]</code>.
+                            <br><br>
+                            
+                            </p>
+                        </div>
+
+                        <div class="step hidden" data-step="5">
+                            <h3 class="text-l font-semibold text-indigo-700">Step 5: Correct</h3>
+                            <p class="text-md text-sm text-gray-500 mb-4">
+                              We apply two CNOT gates followed by a Toffoli gate to perform majority voting correction. This helps fix a bit flip (which originated from a phase flip).
+                              <br><br>
+                              The CNOTs use <code>q[0]</code> as the control and <code>q[1]</code>, <code>q[2]</code> as targets. If <code>q[0]</code> is 1, both get flipped. Then, the Toffoli gate uses <code>q[1]</code> and <code>q[2]</code> as controls and flips <code>q[0]</code> only if both are 1.
+                              <br><br>
+                              For example, suppose the state is <code>|ψ⟩ = α|000⟩ - β|111⟩</code>. After the CNOTs, if an error flipped <code>q[0]</code> to 1, the CNOTs flip both <code>q[1]</code> and <code>q[2]</code> to 1 too. The Toffoli sees <code>q[1] = q[2] = 1</code> and flips <code>q[0]</code> back to 0, correcting the error. This ensures all three qubits agree again.
+                            </p>
+                          </div>
+                          
+
+                        <div class="step hidden" data-step="6">
+                            <h3 class="text-lg font-semibold text-indigo-700">Step 6: Measure the Output</h3>
+                            <p class="text-md text-sm text-gray-500 mb-4">
+                              We add a measurement gate (↓Z symbol) to collapse the quantum state into classical bits in our classical register that takes 3 bits(hence the c3). 
+                              This lets us read the final result after correction.
+                              <br><br>
+                              Without this step, we wouldn’t be able to observe the qubit values!
+                            </p>
+                        </div>
+                          
+                    </div>
+
+                    <button id="carousel-next"
+                        onclick="nextStep()"
+                        class="ml-4  hover:bg-indigo-700  text-indigo-800  font-bold px-4 py-2 rounded-full">
+                        &gt;
+                    </button>
+                            
+              
+                  <!-- <div class="mt-4 flex justify-start space-x-2">
+                    <button id="carasoul-pre" onclick="prevStep()" class="bg-indigo-200 text-indigo-800 px-3 py-1 rounded">Prev Step</button>
+                    <button id="carasoul-next" onclick="nextStep()" class="bg-indigo-600 text-white px-3 py-1 rounded">Next Step</button>
+                  </div> -->
+                </div>
+              
+                <!-- Right: Circuit Image with Overlay -->
+                <div class="relative w-full md:w-1/2 border border-red-500 rounded overflow-hidden">
+                  <img src="/static/images/phase_flipcomposer.svg" alt="Phase flip code circuit" id="base-image" class="w-full object-contain" />
+                  <!-- Overlays -->
+                  <img id="overlay-0" src="/static/images/overlay-step0.png" class="absolute top-0 left-0 w-full h-full hidden pointer-events-none" />
+                  <img id="overlay-1" src="/static/images/overlay-step1.png" class="absolute top-0 left-0 w-full h-full hidden pointer-events-none" />
+                  <img id="overlay-2" src="/static/images/overlay-step2.png" class="absolute top-0 left-0 w-full h-full hidden pointer-events-none" />
+                  <img id="overlay-3" src="/static/images/overlay-step3.png" class="absolute top-0 left-0 w-full h-full hidden pointer-events-none" />
+                  <img id="overlay-4" src="/static/images/overlay-step4.png" class="absolute top-0 left-0 w-full h-full hidden pointer-events-none" />
+                  <img id="overlay-5" src="/static/images/overlay-step5.png" class="absolute top-0 left-0 w-full h-full hidden pointer-events-none" />
+                  <img id="overlay-6" src="/static/images/overlay-step6.png" class="absolute top-0 left-0 w-full h-full hidden pointer-events-none" />
+                </div>
+              </div>
+
+            <h2 class="text-lg font-semibold text-indigo-800 mb-2 mt-3">Running the Circuit</h2>
+            <p class="text-md text-gray-500 mb-4">
+                To run the circuit, you need to create an account and be signed in on the IBM Quantum platform. ONce you are signed in, and have built the circuit, follow the steps below:
+            </p>
+
+            <div class="relative w-full max-w-3xl mx-auto mt-2 mb-5">
+                <!-- Carousel Container -->
+                <div class="overflow-hidden relative rounded-sm shadow-lg">
+                  <!-- Slide Track -->
+                  <div id="carousel-images" class="flex transition-transform duration-500 ease-in-out h-full">
+                    <img src="/static/images/run_circuit1.png" class="w-full flex-shrink-0 object-contain">
+                    <img src="/static/images/run_circuit2.png" class="w-full flex-shrink-0 object-contain">
+                    <img src="/static/images/run_circuit3.png" class="w-full flex-shrink-0 object-contain">
+                    <img src="/static/images/run_circuit4.png" class="w-full flex-shrink-0 object-contain">
+                    <img src="/static/images/run_circuit5.png" class="w-full flex-shrink-0 object-contain">
+                  </div>
+              
+                  <!-- Left Arrow -->
+                  <div class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10">
+                    <button onclick="prevSlide()" class="text-white bg-black bg-opacity-40 hover:bg-opacity-70 p-2 rounded-r-md text-xl">&lt;</button>
+                  </div>
+              
+                  <!-- Right Arrow -->
+                  <div class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10">
+                    <button onclick="nextSlide()" class="text-white bg-black bg-opacity-40 hover:bg-opacity-70 p-2 rounded-l-md text-xl">&gt;</button>
+                  </div>
+              
+                  <!-- Bottom Banner -->
+
+                </div>
+                <div id="carousel-banner" class="absolute bottom-0 left-0 w-full bg-indigo-500 bg-opacity-60 text-white text-sm text-center py-2">
+                    1. Click on "Setup and Run" on the top right of the composer window
+                  </div>
+            </div>
+              
+            <h3 class="text-lg font-semibold text-indigo-800 mb-1"> Congratulations!</h3>
+            <p class="text-md text-gray-500 mb-4">
+                You have successfully run a quantum circuit on a real quantum computer! Let's learn how to run some qiskit code in the next section.
+            </p>
+        </div>
+
+                    
+        <!-------------------------------------------------------------------------------------------------------------------------------------------->
+        <!-------------------------------------------------------------------------------------------------------------------------------------------->
+
+        <div id="section-11" class="p-4 mx-2 hidden">
+
+            
+            <h3 class="text-lg font-semibold text-indigo-800 mb-1">2. Using Your API Token in Qiskit</h3>
+            <p class="text-md text-gray-500 mb-2">
+                You will also to be signed into the IBM quantum platform for this. On the top right of the navigation bar, click on the account icon, and then on <strong>manage account.</strong>This is where you will find your API token. Copy it!</p>
+         
+            <h4 class="text-md font-semibold text-indigo-800 mb-1">Step 1: Get Your API token</h4>
+            <p class="text-md text-gray-500 mb-4"> You can simply find this on the main dashboard of the <a href="https://quantum.ibm.com/" target="_blank" class="text-indigo-600 underline">IBM quantum platform</a> as pictured below. Alternatively, you can also find it in the <span class="text-indigo-700">Manage Account</span> section, after clicking on the account icon on the top right of the navigation bar.</p>
+            <img src="/static/images/ibm_main.png" alt="API token" class="w-full max-w-2xl mx-auto mt-4 mb-4 rounded-lg shadow-md">
+
+            <h4 class="text-md font-semibold text-indigo-800 mb-1">Step 2: Setup Your environemnt</h4>
+            <p class="text-md text-gray-500 mb-4">You will have installed the qiskit libraries needed for simulation after the previous qiskit tutorial. You can run Qiskit code on a real quantum computer using the <span class="text-indigo-700">Qiskit Runtime Service</span>. We will need to install the necessary library. Make sure to activate your virtual environmnet in your terminal before running:</p>
+            <code class="text-md text-gray-500 mb-4"></code>
+
+            <div class="relative mb-2">
+                <button onclick="copyToClipboard('code8')"
+                class="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400 hover:text-indigo-600 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h6m2 4h4a2 2 0 012 2v8a2 2 0 01-2 2h-6a2 2 0 01-2-2V8z" />
+                </svg>
+                </button>
+                <pre class="bg-gray-100 p-3 rounded-md text-sm text-gray-800"><code id="cod85">pip install qiskit_ibm_runtime==0.36.0</code></pre>
+            </div>
+
+            <h4 class="text-md font-semibold text-indigo-800 mb-1">Step 3: Save Your API Token</h4>
+            <p class="text-sm text-gray-500">This needs to be done once, so it can simply be done quickly in a python terminal. First import the Qiskit Runtime Service: </p>
+            <div class="relative mb-2">
+                <button onclick="copyToClipboard('code9')"
+                class="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400 hover:text-indigo-600 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h6m2 4h4a2 2 0 012 2v8a2 2 0 01-2 2h-6a2 2 0 01-2-2V8z" />
+                </svg>
+                </button>
+                <pre class="bg-gray-100 p-3 rounded-md text-sm text-gray-800"><code id="code9"> from qiskit_ibm_runtime import QiskitRuntimeService</code></pre>
+            </div>
+            <p class="text-sm text-gray-500 ">Then, save your API token using the following code:</p>
+            <div class="relative mb-2">
+                <button onclick="copyToClipboard('code10')"
+                class="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400 hover:text-indigo-600 transition">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                    d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h6m2 4h4a2 2 0 012 2v8a2 2 0 01-2 2h-6a2 2 0 01-2-2V8z" />
+                </svg>
+                </button>
+                <pre class="bg-gray-100 p-3 rounded-md text-sm text-gray-800"><code id="code10"> QiskitRuntimeService.save_account(channel="ibm_quantum", token="YOUR_API_TOKEN")</code></pre>
+            </div>
+         
+            <p class="text-md text-gray-500">
+                Great! We are now ready to run our quantum circuit!
+            </p>
+        
+            <!-- Optional notebook iframe -->
+            <iframe src="static/notebooks/hardware.html" 
+                    width="100%" height="1000px" 
+                    style="border: 1px solid #ccc; border-radius: 8px;" 
+                    class="mt-6"></iframe>
+        </div>
+        
+
+
+        <!-------------------------------------------------------------------------------------------------------------------------------------------->
+        <!-------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+        <div id="section-12" class="p-4 mx-2 hidden">
+            <h1 class="mb-4 text-2xl font-semibold text-indigo-800">Running Quantum Programs</h1>
+            <p class="mb-4 text-md font-normal text-gray-500">You have reached the end of this lesson. You have learned about  </p>
 
             <div id="references-container" class="bg-gray-100 rounded-lg p-4 mb-8">
                 <h3 class="mb-2 text-lg font-semibold text-indigo-800">More sources for content covered in this lesson</h3>
                 <p class="text-md">
-                    - <span class="fw-semibold">Introduction to Classical and Quantum Computing:</span> 
-                    <a class="text-blue-600 underline hover:text-blue-800" href="https://www.thomaswong.net/introduction-to-classical-and-quantum-computing-1e4p.pdf#page=177">No-Cloning Theorem</a>, 
-                    <a class="text-blue-600 underline hover:text-blue-800" href="https://www.thomaswong.net/introduction-to-classical-and-quantum-computing-1e4p.pdf#page=252">Bell Inequalities</a>, 
-                    <a class="text-blue-600 underline hover:text-blue-800" href="https://www.thomaswong.net/introduction-to-classical-and-quantum-computing-1e4p.pdf#page=269">Quantum Teleportation</a>, 
-                    </p>
+                    <p class="fw-semibold">Quantum Hardware:</p> 
+                  <p> - <a class="text-blue-600 underline hover:text-blue-800" href="https://arxiv.org/pdf/2303.163587">Quantum Computing with trapped ions by Bernardini et al.</a>, </p>
+                  <p> - <a class="text-blue-600 underline hover:text-blue-800" href="https://jonathan-hui.medium.com/qc-how-to-build-a-quantum-computer-with-trapped-ions-88b958b81484"> How to Build a QC with trapped Ions by Jonathan Hui.</a></p>
+                  <p> - <a class="text-blue-600 underline hover:text-blue-800" href="https://journals.aps.org/prxquantum/abstract/10.1103/PRXQuantum.2.040204">Superconducting Qubit Systems by Rasmussen et al.</a> </p>
+                  <p> - <a class="text-blue-600 underline hover:text-blue-800" href="https://arxiv.org/pdf/2404.03367">Photonic QC by Romero el at.</a> </p>
+                  <p>  </p>
                 <p class="text-md">
-                <p> - <a class="text-blue-600 underline hover:text-blue-800" href="https://learning.quantum.ibm.com/course/basics-of-quantum-information/quantum-circuits#no-cloning-theorem">Basics of Quantum Information: No-cloning theorem</a> by IBM</p>
-                <p> - <a class="text-blue-600 underline hover:text-blue-800" href="https://byjus.com/physics/quantum-tunnelling/">Quantum Tunneling</a> by BYJU's</p>
-
+                <p class="fw-semibold">Quantum Circuits Covered:</p> 
+                <p> - <a class="text-blue-600 underline hover:text-blue-800" href="https://www.quera.com/glossary/phase-flip"> Phase-Flip Errors</a></p>
+                <p> - <a class="text-blue-600 underline hover:text-blue-800" href="https://quantumcomputinguk.org/tutorials/quantum-error-correction-phase-flip-code-in-qiskit"> Phase-Flip error correction</a></p>
+                <p> - <a class="text-blue-600 underline hover:text-blue-800" href="https://learning.quantum.ibm.com/course/fundamentals-of-quantum-algorithms/quantum-query-algorithms">Quantum Query Algorithms and Deutsch-Jozsa</a> by IBM</p>
+                <p class="fw-semibold"> Amplitudes, Probablity and Normalisation </p>
+                <p> - <a class="text-blue-600 underline hover:text-blue-800" href="https://www.thomaswong.net/introduction-to-classical-and-quantum-computing-1e4p.pdf#page=96"> Introduction to classical and quantum computing</a>by Thomas G. Wang</p>
+                <p> Running Programs using IBM's Quantum Hardware:</p>
+                <p> - <a class="text-blue-600 underline hover:text-blue-800" href="https://quantum-computing.ibm.com/composer/docs/overview">IBM Quantum Composer</a></p>
+                <p> - <a class="text-blue-600 underline hover:text-blue-800" href="https://quantum.cloud.ibm.com/docs/en/api/qiskit-ibm-runtime/runtime-service" >Qiskit Runtime Service</a></p>
 
             </div>
 
             <a href="/dashboard" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Back to Dashboard</a>
         </div>
+
+
+
+        <!-------------------------------------------------------------------------------------------------------------------------------------------->
+        <!-------------------------------------------------------------------------------------------------------------------------------------------->
+
 
         <div class="w-full bg-gray-50 flex justify-between">
             <div>
@@ -808,4 +1079,117 @@
     </div> 
 </div>
 </div>
+
+
+<!-------------------------------------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------------------------------------------->
+
+
+
+<div id="copy-toast" class="fixed bottom-4 right-4 bg-gray-300 text-white text-sm px-4 py-2 rounded shadow-lg hidden transition-opacity duration-300">
+    Copied to clipboard!
+  </div>
+  
+
+
+  <script>
+    function copyToClipboard(codeId) {
+      const codeElement = document.getElementById(codeId);
+      const text = codeElement.innerText.trim();
+  
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById("copy-toast");
+        toast.classList.remove("hidden");
+        toast.classList.add("opacity-100");
+  
+        setTimeout(() => {
+          toast.classList.remove("opacity-100");
+          toast.classList.add("opacity-0");
+          setTimeout(() => toast.classList.add("hidden"), 100);
+        }, 600);
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+      });
+    }
+  </script>
+
+
+<script>
+    let current = 0;
+    const steps = document.querySelectorAll('.step');
+    const overlays = [
+      document.getElementById('overlay-0'),
+      document.getElementById('overlay-1'),
+      document.getElementById('overlay-2'),
+      document.getElementById('overlay-3'),
+      document.getElementById('overlay-4'),
+      document.getElementById('overlay-5'),
+      document.getElementById('overlay-6')
+    ];
+
+    const baseImage = document.getElementById('base-image');
+
+  
+    function showStep(index) {
+      steps.forEach((el, i) => el.classList.toggle('hidden', i !== index));
+      overlays.forEach((el, i) => el.classList.toggle('hidden', i !== index-1));
+
+          // Apply grayscale if on step >= 1
+        if (index >= 1) {
+        baseImage.classList.add('grayscale', 'brightness-90');
+        console.log("greyyyy")
+        } else {
+        baseImage.classList.remove('grayscale', 'brightness-90');
+        }
+    }
+  
+    function nextStep() {
+      current = (current + 1) % steps.length;
+      showStep(current);
+    }
+  
+    function prevStep() {
+      current = (current - 1 + steps.length) % steps.length;
+      showStep(current);
+    }
+  
+    showStep(current);
+  </script>
+
+
+    <script>
+        const carousel = document.getElementById("carousel-images");
+        const banner = document.getElementById("carousel-banner");
+    
+        const banners = [
+        "1. Click on \"Setup and Run\" on the top right of the composer window",
+        "2. Select your QPU. It is best to select the one with the smaller queue. In this case, brisbane has higher CLOPS (Circuit Layer Operations Per Second), so it is faster for larger more complex circuits, but we don't need that for this circuit.",
+        "3. Select the number of shots. This is the number of times the circuit will be run. Recall that quantum measurements are probabilistic. The more shots, the more accurate the results, but also the longer it takes to run.",
+        "4. Open the panel on the left hand side to view your composer Jobs, and select the one you just created.",
+        "5. Toggle down the results section to view your histogram. The result of |000> confirms that the phase flip was corrected, and the small number of 001 outcomes highlights the noise and errors present in real quantum hardware compared to ideal simulation(histogram on bottom right of main composer window)."
+        ];
+    
+        let currentSlide = 0;
+    
+        function updateCarousel() {
+        const width = carousel.children[0].clientWidth;
+        carousel.style.transform = `translateX(-${currentSlide * width}px)`;
+        banner.textContent = banners[currentSlide];
+        }
+    
+        function nextSlide() {
+        currentSlide = (currentSlide + 1) % carousel.children.length;
+        updateCarousel();
+        }
+    
+        function prevSlide() {
+        currentSlide = (currentSlide - 1 + carousel.children.length) % carousel.children.length;
+        updateCarousel();
+        }
+    
+        window.addEventListener('resize', updateCarousel);
+    </script>
+  
+  
+
 {% endblock %}

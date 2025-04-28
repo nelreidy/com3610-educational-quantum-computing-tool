@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>bell_state</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>hardware</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -2820,7 +2820,7 @@ a:hover {
   box-shadow: inset 0 0 0 var(--jp-border-width) var(--jp-input-border-color);
   padding-bottom: 0;
   padding-top: 0;
-  padding-left: 10px;
+  padding-left: 1px;
   padding-right: 28px;
   position: relative;
   width: 100%;
@@ -7510,220 +7510,444 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=89681fa4">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>Welcome to this tutorial! Here, we'll use <strong>Qiskit v1.4</strong> to:</p>
-<ol>
-<li>Build a <strong>Bell state</strong> quantum circuit</li>
-<li>Simulate the quantum circuit</li>
-<li>Analyze the results</li>
-</ol>
-<hr/>
-<h3 id="What-is-a-Bell-State?">What is a Bell State?<a class="anchor-link" href="#What-is-a-Bell-State?">¶</a></h3><p>Recall the Bell state, one of the <strong>simplest maximally entangled states</strong>.When measuring one qubit in the Bell state, the outcome is a random (50% |0⟩, 50% |1⟩), but once measured, the other qubit’s state is instantly determined due to quantum entanglement, no matter how far apart they are.</p>
-<p>Let's implement it in Qiskit! We first import our dependecies. We import the very specifics we need here for this to be light weight.</p>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Deutsch%E2%80%93Jozsa-on-IBM-quantum-hardware">Deutsch–Jozsa on IBM quantum hardware<a class="anchor-link" href="#Deutsch%E2%80%93Jozsa-on-IBM-quantum-hardware">¶</a></h2><p>The Deutsch–Jozsa algorithm is one of the earliest examples of a quantum algorithm that outperforms classical solutions. <br/> It shows how we can determine if a function is constant or balanced using just <strong>one</strong> query to a quantum oracle.</p>
+<h2 id="The-problem">The problem<a class="anchor-link" href="#The-problem">¶</a></h2><p>Given a function <code>f(x)</code> that returns either 0 or 1, and is guaranteed to be either:</p>
+<ul>
+<li><strong>Constant</strong>: the same value for all inputs, or</li>
+<li><strong>Balanced</strong>: returns 0 for half of the inputs and 1 for the other half,</li>
+</ul>
+<p>Our task is to determine which type it is using <strong>just one call</strong> to the quantum oracle. You may wonder what the practical application of this is.<br/> The truth is, it is not very practical on its own as an algorithm, but it is a stepping stone for other real-life applicable algorithms like Bernstein–Vazirani, Shor's and Simon's.</p>
+<h3 id="STEP-1:-Import-our-libraries">STEP 1: Import our libraries<a class="anchor-link" href="#STEP-1:-Import-our-libraries">¶</a></h3><p>Let's first begin by importing our libraries.</p>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c44c7c07">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> 
-    <span class="c1">#needed for numerical operations</span>
+<div class="highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                             <span class="c1">#needed for numerical operations</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>                <span class="c1">#needed for plotting </span>
 
-<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">transpile</span><span class="p">,</span> <span class="n">assemble</span>
+<span class="kn">from</span> <span class="nn">qiskit</span> <span class="kn">import</span> <span class="n">QuantumCircuit</span><span class="p">,</span> <span class="n">transpile</span>
     <span class="c1"># QuantumCircuit: Defines and manipulates quantum circuits.  </span>
     <span class="c1"># transpile: Optimizes quantum circuits for a specific quantum backend.  </span>
     <span class="c1"># assemble: Converts the circuit into a runnable format for execution on simulators or real quantum hardware.</span>
 
-<span class="kn">from</span> <span class="nn">qiskit.primitives</span> <span class="kn">import</span> <span class="n">StatevectorSampler</span>    
-    <span class="c1"># A high-level Qiskit primitive that allows simulation of quantum circuits using state vectors.</span>
-
 <span class="kn">from</span> <span class="nn">qiskit.visualization</span> <span class="kn">import</span> <span class="n">plot_histogram</span>
     <span class="c1"># Lets us visualize quantum measurement results in a histogram format.</span>
-<span class="kn">from</span> <span class="nn">qiskit_aer</span> <span class="kn">import</span> <span class="n">Aer</span>  
-    <span class="c1"># Provides high-performance simulators to run quantum circuits on classical hardware.</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>  
-    <span class="c1"># For plotting</span>
+
+<span class="kn">from</span> <span class="nn">qiskit_ibm_runtime</span> <span class="kn">import</span> <span class="n">QiskitRuntimeService</span><span class="p">,</span> <span class="n">SamplerV2</span> <span class="k">as</span> <span class="n">Sampler</span>
+    <span class="c1"># QiskitRuntimeService: Lets us connect to a cloud provided quantum backend and execute our jobs on into</span>
+    <span class="c1"># SamplerV2 Submits circuits to run on a backend and collects measurement results (bitstrings or counts).</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6b7d4d4f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Step-1:-Creating-a-Quantum-Circuit">Step 1: Creating a Quantum Circuit<a class="anchor-link" href="#Step-1:-Creating-a-Quantum-Circuit">¶</a></h2><p>We create a 2-qubit quantum circuit and apply:</p>
-<pre><code>1. Hadamard Gate (H): Places qubit 0 in superposition  
-2. CNOT Gate (CX): Entangles qubit 0 with qubit 1  </code></pre>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="STEP-2:-Choose-our-QPU-backend">STEP 2: Choose our QPU backend<a class="anchor-link" href="#STEP-2:-Choose-our-QPU-backend">¶</a></h3>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=0b68b97e">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># Create a quantum circuit with 2 qubits</span>
-<span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">service</span> <span class="o">=</span> <span class="n">QiskitRuntimeService</span><span class="p">(</span><span class="n">channel</span><span class="o">=</span><span class="s2">"ibm_quantum"</span><span class="p">)</span>
+   <span class="c1"># Connects to IBM Quantum service, uses your saved IBM token</span>
+   <span class="c1"># the service object gives access to IBM Quantum devices and lets you run jobs on them.</span>
 
-<span class="c1"># Apply a Hadamard gate to qubit 0 (superposition)</span>
-<span class="n">qc</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">backend</span> <span class="ow">in</span> <span class="n">service</span><span class="o">.</span><span class="n">backends</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span> <span class="c1"># fetch non-simulator backends, print out details</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">backend</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">backend</span><span class="o">.</span><span class="n">num_qubits</span><span class="si">}</span><span class="s2"> qubits, </span><span class="si">{</span><span class="n">backend</span><span class="o">.</span><span class="n">status</span><span class="p">()</span><span class="o">.</span><span class="n">pending_jobs</span><span class="si">}</span><span class="s2"> jobs in queue, </span><span class="si">{</span><span class="n">backend</span><span class="o">.</span><span class="n">status</span><span class="p">()</span><span class="o">.</span><span class="n">operational</span><span class="si">}</span><span class="s2"> operational"</span><span class="p">)</span>
+    
 
-<span class="c1"># Apply a CNOT gate to entangle qubits 0 and 1</span>
-<span class="n">qc</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># several ways to visualise the quantum circuit, like:</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">qc</span><span class="p">)</span>             <span class="c1"># 1. Prints ascii representation to the terminal, as QuantumCircuit has a __str__ method</span>
-<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">'mpl'</span><span class="p">)</span>        <span class="c1"># 2. Produces a matplotlib diagram. draw("text") would print an ascii representation as well.</span>
+<span class="c1"># backend = service.backend("NAME_OF_CHOSEN_BACKEND")</span>
+<span class="n">backend</span> <span class="o">=</span> <span class="n">service</span><span class="o">.</span><span class="n">least_busy</span><span class="p">(</span><span class="n">simulator</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">operational</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># or simply fetch the least busy</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=fd975d6c">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Step-2:-Transpile-and-Choose-a-backend.">Step 2: Transpile and Choose a backend.<a class="anchor-link" href="#Step-2:-Transpile-and-Choose-a-backend.">¶</a></h2><p>At this stage, we have <strong>built a quantum circuit</strong>, but it has <strong>not been executed</strong> yet. It is siply an <strong>abstract representation</strong> of quantum operations.</p>
-<p>Before running it on real hardware or a simulator, we need to:</p>
-<pre><code>1. Transpile the circuit  
-2. Choose a quantum backend
-3. Prepare the circuit for execution</code></pre>
-<h3 id="Transpilation">Transpilation<a class="anchor-link" href="#Transpilation">¶</a></h3><p>Transpilation is like "translating" your quantum circuit so that it can run correctly on the backend you choose. A quantum computer has <strong>physical constraints</strong>, so depending on the computer, certain operations (gates) will not be natively supported. <strong><code>transpile()</code></strong> converts the circuit into an <strong>optimized</strong> version that respects the <strong>hardware's connectivity</strong> and <strong>gate set</strong>.</p>
-<p>Since we are simulating on a classical computer, we don’t have to worry about real hardware limitations, and the circuit would still execute without it, but we still transpile because:</p>
-<pre><code>1. It optimizes the circuit for faster and more efficient execution.
-2. It removes unnecessary operations that don’t affect the final result.
-3. It ensures compatibility in case we later want to run on a real quantum device.</code></pre>
-<h3 id="Choosing-a-backend">Choosing a backend<a class="anchor-link" href="#Choosing-a-backend">¶</a></h3><ul>
-<li>Qiskit provides multiple quantum <strong>simulators</strong> (simulated quantum computers), like aer_simuator, qasm_simulator and statevector_simulator</li>
-<li>We use <strong><code>'aer_simulator'</code></strong> due to its efficiency. It also allows us to simulate both noise-free and noisy environments.</li>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="STEP-3:-Define-our-circuit">STEP 3: Define our circuit<a class="anchor-link" href="#STEP-3:-Define-our-circuit">¶</a></h3>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=165c0326">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="3.1-Create-a-quantum-circuit-with-3-qubits-and-2-classical-bits">3.1 Create a quantum circuit with 3 qubits and 2 classical bits<a class="anchor-link" href="#3.1-Create-a-quantum-circuit-with-3-qubits-and-2-classical-bits">¶</a></h4><ul>
+<li><strong>q0, q1</strong>:   the input qubits (for the function input x)</li>
+<li><strong>q2</strong>:       the ancilla qubit (used to help encode the function output)</li>
+<li><strong>c0, c1</strong>:   classical bits to record measurement results</li>
 </ul>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3f4632d6">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># Choose a simulator backend</span>
-<span class="n">simulator</span> <span class="o">=</span> <span class="n">Aer</span><span class="o">.</span><span class="n">get_backend</span><span class="p">(</span><span class="s1">'aer_simulator'</span><span class="p">)</span>
-
-<span class="c1"># Transpile the circuit for the simulator</span>
-<span class="n">qc_transpiled</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">qc</span><span class="p">,</span> <span class="n">simulator</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Transpiled Circuit Ready for Execution:"</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">qc_transpiled</span><span class="p">)</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">qc</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=827876c1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="3.2--Prepare-the-ancillary-qubit-q2-in-state-%7C1%E2%9F%A9-by-applying-an-X-gate-to-bit-flip">3.2  Prepare the ancillary qubit <strong>q2</strong> in state |1⟩ by applying an X gate to bit flip<a class="anchor-link" href="#3.2--Prepare-the-ancillary-qubit-q2-in-state-%7C1%E2%9F%A9-by-applying-an-X-gate-to-bit-flip">¶</a></h4><ul>
+<li>We'll use it to flip the phase based on f(x) later</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=ed86bebe">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Step-3:-Running-the-Circuit-and-Getting-Results">Step 3: Running the Circuit and Getting Results<a class="anchor-link" href="#Step-3:-Running-the-Circuit-and-Getting-Results">¶</a></h2><p>Now that the circuit is <strong>transpiled</strong> and a simulator is chosen, we can <strong>execute</strong> it.</p>
-<h3 id="What-Happens-During-Execution?">What Happens During Execution?<a class="anchor-link" href="#What-Happens-During-Execution?">¶</a></h3><ol>
-<li>Ensure the circuit includes measurement gates<ul>
-<li>A quantum circuit does not measure qubits by default.</li>
-<li>We explicitly add measurement gates using qc.measure_all(inplace=False) to store results in classical registers after execution.</li>
+<p>qc.x(2)</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c843cded">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h4 id="3.3-Apply-Hadamard-gates-to-all-qubits">3.3 Apply Hadamard gates to all qubits<a class="anchor-link" href="#3.3-Apply-Hadamard-gates-to-all-qubits">¶</a></h4><ul>
+<li>This puts the input qubits into superposition, so we can evaluate all possible inputs x at once</li>
 </ul>
-</li>
-<li>Send the circuit to the quantum backend for execution.<ul>
-<li>In most quantum simulations and real hardware runs, shots controls the number of times the circuit is executed.</li>
-<li>If shots=1024, circuit is executed 1024 times and results are statistically sampled.</li>
-</ul>
-</li>
-</ol>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=b714624f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-python"><pre><span></span><span class="c1"># Add measurement, inplace=False creates a new circuit with measurement gates instead of modifying qc directly</span>
-<span class="n">qc_measured</span> <span class="o">=</span> <span class="n">qc</span><span class="o">.</span><span class="n">measure_all</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  
-
-<span class="c1"># Run the circuit on the simulator        </span>
-<span class="n">job</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">qc_measured</span><span class="p">],</span> <span class="n">shots</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>  
- 
-<span class="c1"># Get and print results </span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">get_counts</span><span class="p">())</span>
+<div class="highlight hl-python"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">h</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=10aeb353">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Congratulations!">Congratulations!<a class="anchor-link" href="#Congratulations!">¶</a></h2><p>You got your first quantum program to run! You have all the power in your hands now. Go wild and expirament.</p>
-<p>You should have a result similar to {'00': 510, '11': 514}. This means that the circuit collapsed to the state |00⟩ 510 times out of 1024, and |11⟩ 514 times out of 1024. Such results suggest that our quantum circuit created an equal superposition of (a 50/50 chance of either) |00⟩ and |11⟩ before measurement.</p>
-<h4 id="Why-Are-%7C01%E2%9F%A9-and-%7C10%E2%9F%A9-Missing?"><strong>Why Are <code>|01⟩</code> and <code>|10⟩</code> Missing?</strong><a class="anchor-link" href="#Why-Are-%7C01%E2%9F%A9-and-%7C10%E2%9F%A9-Missing?">¶</a></h4><p>If the quantum circuit entangled two qubits into a <strong>Bell state</strong>, the system is described by:
-$
-\frac{|00\rangle + |11\rangle}{\sqrt{2}}
-$</p>
-<p>This means that the two qubits are <strong>correlated</strong>—measuring one qubit immediately determine~s the state of the other.</p>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>At this point:</p>
 <ul>
-<li>If <strong><code>q_0 = 0</code></strong>, then <strong><code>q_1</code> must also be <code>0</code></strong>, resulting in <strong><code>|00⟩</code></strong>.</li>
-<li>If <strong><code>q_0 = 1</code></strong>, then <strong><code>q_1</code> must also be <code>1</code></strong>, resulting in <strong><code>|11⟩</code></strong>.</li>
+<li><p>$q_0$ and $q_1$ are in a superposition of all possible input states:</p>
+<p>$$
+  \frac{1}{2} (|00⟩ + |01⟩ + |10⟩ + |11⟩)  $$</p>
+<p>This means the circuit is exploring all possible inputs at the same time.</p>
+</li>
+<li><p>$q_2$ (the ancilla) is in the |−⟩ state<br>
+$$\frac{|0⟩ - |1⟩}{\sqrt{2}}$$</br></p>
+<p>This special state enables something called <strong>phase kickback</strong>.<br/>
+Phase kickback means that when we apply the oracle (CNOTs),
+the effect of the function $f(x)$ is not stored in the ancilla qubit itself, <br/>
+but instead it flips the <strong>sign (phase)</strong> of the amplitude of the input state |x⟩. <br/>
+Here, $|x⟩$ refers to one of the possible 2-qubit basis states like $|00⟩$, $|01⟩$, $|10⟩$, or $|11⟩$.  of $q_0$ and $q_1$ <br/></p>
+<p>This change affects the <strong>entire superposition</strong> of $q_0$ and $q_1$,<br>
+and it’s what allows the algorithm to detect whether $f(x)$ is constant or balanced later through interference.</br></p>
+</li>
+<li><p>Reminder: The <strong>phase</strong> of a quantum state
+refers to whether an amplitude is positive or negative (or complex).<br/>
+Two different quantum states  with the same probablisitic measrements but different phases might look like this:</p>
+<ul>
+<li>$|\psi_1⟩ = \frac{1}{\sqrt{2}}(|0⟩ + |1⟩)$</li>
+<li>$|\psi_2⟩ = \frac{1}{\sqrt{2}}(|0⟩ - |1⟩)$</li>
 </ul>
-<p>Since the system <strong>never collapses into <code>|01⟩</code> or <code>|10⟩</code></strong>, those states do not appear in the measurement results.</p>
+</li>
+</ul>
+<br/>
+<h4 id="3.4-Add-the-oracle-(balanced-for-this-example)">3.4 Add the oracle (balanced for this example)<a class="anchor-link" href="#3.4-Add-the-oracle-(balanced-for-this-example)">¶</a></h4><p>In quantum algorithms like Deutsch–Jozsa, an <strong>oracle</strong> is a special subcircuit that simulates the behavior of our function $f(x)$.</p>
+<p>You can think of it as a <strong>black box</strong> that applies a transformation to the quantum state based on $f(x)$.<br>
+It doesn't reveal the actual function outputs — instead, it uses quantum gates to <strong>modify the state in a way that reflects whether $f(x)$ is 0 or 1</strong>.</br></p>
+<p><strong>In this example, we, the programmers, are the ones who define the oracle.</strong><br>
+We choose a specific function $f(x)$ (in this case, a balanced one) and simulate its effect.
+This lets us test how the Deutsch–Jozsa algorithm responds to different kinds of functions, ie, the oracle can be thought of as a stub in our algorithm.</br></p>
+<p>One way to implement a balanced $f(x)$ is to apply the equivalent of an XOR to our $q_0$ and $q_1$, such that half our inputs will have an output of 1 and the other half 0.  The result of our output does not change out input qubits, and instead affects our ancillary $q_2$. The oracle acts on a combined state of the input |x⟩ and ancilla qubit |y⟩:<br>
+$$
+|x⟩|y⟩ \rightarrow |x⟩|y \oplus f(x)⟩
+$$</br></p>
 </div>
 </div>
 </div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=aa9a3b04">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Controlled-NOT: flips q2 if q0 is 1</span>
+<span class="n">qc</span><span class="o">.</span><span class="n">cx</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Controlled-NOT: flips q2 if q1 is 1</span>
+</pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c9b414c3">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>This means:</p>
+<ul>
+<li>If $f(x) = 0$, the oracle does nothing.</li>
+<li>If $f(x) = 1$, it attempt to bit flip the second qubit (<code>y</code>, our ancilla).</li>
+</ul>
+<h5 id="Here's-the-key-idea:"><strong>Here's the key idea:</strong><a class="anchor-link" href="#Here's-the-key-idea:">¶</a></h5><p>We have previously prepared our the ancilla qubit $q_2$ in the special quantum state  $|-\rangle$ :
+$$
+\frac{|0⟩ - |1⟩}{\sqrt{2}} \quad 
+$$</p>
+<p>When the oracle evaluates $f(x) = 1$, it attempts to <strong>bit flip</strong> the ancilla using an X gate (the quantum NOT gate).<br>
+Normally, X flips $|0⟩$ to $|1⟩$ and vice versa. But when applied to the $|-\rangle$ state, we get:</br></p>
+<p>$$
+X \left( \frac{|0⟩ - |1⟩}{\sqrt{2}} \right) = \frac{|1⟩ - |0⟩}{\sqrt{2}} = -\left( \frac{|0⟩ - |1⟩}{\sqrt{2}} \right) = -|-\rangle
+$$</p>
+<p>So the ancilla looks the same, but the entire system's state has gained a <strong>global minus sign</strong>.</p>
+<p>Because the oracle applied that X gate conditionally based on the input $|x⟩$ , this global phase becomes <strong>attached to the $|x⟩$ state</strong> that caused it, ie the effect is passed <strong>back</strong> to the input.</p>
+<p>This is what we call <strong>phase kickback</strong>.</p>
+<p>Thus, even though the ancilla qubit itself doesn't visibly change or store $f(x)$, its interaction with the input qubits <strong>leaves behind a subtle phase flip</strong><br>
+in the <strong>superposition of the input states $q_0$ and $q_1$</strong> such that they become:
+$$
+      \frac{1}{2} (|00⟩ - |01⟩ - |10⟩ + |11⟩)  $$</br></p>
+<h4 id="3.5-Apply-Hadamards-to-input-qubits">3.5 Apply Hadamards to input qubits<a class="anchor-link" href="#3.5-Apply-Hadamards-to-input-qubits">¶</a></h4><p>Now that the phase information from the oracle is encoded into the input qubits,<br>
+we apply <strong>Hadamard gates again</strong> to $q_0$ and $q_1$.</br></p>
+<p>The purpose of this second round of Hadamards is to <strong>interfere</strong> the amplitudes of the different basis states.</p>
+<p><strong>Applying Hadamard gates</strong>:</p>
+<p>Each Hadamard acts like a "spreader", turning each qubit into a superposition:</p>
+<ul>
+<li>$|0⟩$ becomes $\frac{1}{\sqrt{2}} (|0⟩ + |1⟩)$</li>
+<li>$|1⟩$ becomes $\frac{1}{\sqrt{2}} (|0⟩ - |1⟩)$</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=c3957215">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">h</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=46de5eb1">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>Thus, applying $H \otimes H$ (tensor product) to each 2-qubit basis state:</p>
+<ul>
+<li>$|00⟩$ spreads into $(|00⟩ + |01⟩ + |10⟩ + |11⟩)$ with coeeficint of $\frac{1}{2}$</li>
+<li>$|01⟩$ spreads into $(|00⟩ - |01⟩ + |10⟩ - |11⟩)$ with coeeficint of $\frac{1}{2}$</li>
+<li>$|10⟩$ spreads into $(|00⟩ + |01⟩ - |10⟩ - |11⟩)$ with coeeficint of $\frac{1}{2}$</li>
+<li>$|11⟩$ spreads into $(|00⟩ - |01⟩ - |10⟩ + |11⟩)$ with coeeficint of $\frac{1}{2}$</li>
+</ul>
+<ul>
+<li>Tensor product is where we multiply every term in the first bracket by every term in the second bracket.</li>
+</ul>
+<hr/>
+<p>After applying $H \otimes H$, the full state becomes:</p>
+<p>$$
+\frac{1}{2} \left(
+\frac{1}{2} (|00⟩ + |01⟩ + |10⟩ + |11⟩)
+- \frac{1}{2} (|00⟩ - |01⟩ + |10⟩ - |11⟩)
+- \frac{1}{2} (|00⟩ + |01⟩ - |10⟩ - |11⟩)
++ \frac{1}{2} (|00⟩ - |01⟩ - |10⟩ + |11⟩)
+\right)
+$$</p>
+<p>Expanding inside the parentheses:</p>
+<p>$$
+= \frac{1}{2} \times \frac{1}{2} \left[
+(|00⟩ + |01⟩ + |10⟩ + |11⟩)
+- (|00⟩ - |01⟩ + |10⟩ - |11⟩)
+- (|00⟩ + |01⟩ - |10⟩ - |11⟩)
++ (|00⟩ - |01⟩ - |10⟩ + |11⟩)
+\right]
+$$</p>
+<p>Grouping like terms:</p>
+<p>$$
+= \frac{1}{4} \left[
+(+1 -1 -1 +1)|00⟩ +
+(+1 +1 -1 -1)|01⟩ +
+(+1 -1 +1 -1)|10⟩ +
+(+1 -1 -1 +1)|11⟩
+\right]
+$$</p>
+<p>Simplifying each coefficient:</p>
+<ul>
+<li>For $|00⟩$: $(+1 -1 -1 +1) = 0$</li>
+<li>For $|01⟩$: $(+1 +1 -1 -1) = 0$</li>
+<li>For $|10⟩$: $(+1 -1 +1 -1) = 0$</li>
+<li>For $|11⟩$: $(+1 -1 -1 +1) = 2$</li>
+</ul>
+<p>Thus, the final state after multiplying the global $\frac{1}{4}$:</p>
+<p>$$
+= \frac{1}{2} |11⟩
+$$</p>
+<h4 id="3.6-Measure-input-qubits">3.6 Measure input qubits<a class="anchor-link" href="#3.6-Measure-input-qubits">¶</a></h4><ul>
+<li>If the measured bits are <strong>00</strong> ➔ the function is <strong>constant</strong>.</li>
+<li>If the measured bits are <strong>anything else</strong> (01, 10, or 11) ➔ the function is <strong>balanced</strong>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=8a6ddfe9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="n">qc</span><span class="o">.</span><span class="n">measure</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>     <span class="c1">#measure quantum bits 0 and 1 into classical register bits 0 and 1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=df49f4ac">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h5 id="Why-does-$00$-mean-the-function-is-constant?"><strong>Why does $00$ mean the function is constant?</strong><a class="anchor-link" href="#Why-does-$00$-mean-the-function-is-constant?">¶</a></h5><ul>
+<li>If $f(x)$ is <strong>constant</strong>, the quantum amplitudes <strong>all add up</strong> constructively at $|00⟩$ after the second Hadamards.</li>
+<li>This leads to a <strong>100% chance</strong> of measuring $|00⟩$.</li>
+<li>If $f(x)$ is <strong>balanced</strong>, the amplitudes <strong>cancel out</strong> at $|00⟩$ by destructive interference (as we've demonstarted in 3.5), and you will measure something else.</li>
+</ul>
+<h4 id="STEP-4:-Execute-on-hardware">STEP 4: Execute on hardware<a class="anchor-link" href="#STEP-4:-Execute-on-hardware">¶</a></h4><p>Note that this may take a couple of minutes to run, depending on the queue.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=ba7482ac">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-python"><pre><span></span><span class="n">sampler</span> <span class="o">=</span> <span class="n">Sampler</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">backend</span><span class="p">)</span>
+    <span class="c1"># Create a Sampler primitive linked to the selected backend</span>
+    <span class="c1"># This will send the circuit to real quantum hardware for execution</span>
+
+<span class="n">transpiled_circuit</span> <span class="o">=</span> <span class="n">transpile</span><span class="p">(</span><span class="n">qc</span><span class="p">,</span> <span class="n">backend</span><span class="p">)</span>
+    <span class="c1"># Transpile the circuit to match the backend's specific gate set and connectivity</span>
+    <span class="c1"># This also optimizes the circuit so the real device can run it properly</span>
+
+<span class="n">job</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">transpiled_circuit</span><span class="p">],</span> <span class="n">shots</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+    <span class="c1"># Submit the circuit to the backend for execution</span>
+    <span class="c1"># shots=1024 means we will run the circuit 1024 times to get good measurement statistics</span>
+    <span class="c1"># Notice how we pass the sampler an array. It expects an array of circuit/</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">job</span><span class="o">.</span><span class="n">result</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># Get the result of the job</span>
+    <span class="c1"># result[0] because Sampler returns a list of results (one per circuit)</span>
+
+<span class="n">counts</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">join_data</span><span class="p">()</span><span class="o">.</span><span class="n">get_counts</span><span class="p">()</span>
+    <span class="c1"># Merge the raw shot data across all executions (join_data),</span>
+    <span class="c1"># then format it into a classical {bitstring: count} dictionary (get_counts)</span>
+    <span class="c1"># so that we can easily plot and analyze the measurement results.</span>
+
+<span class="n">plot_histogram</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">"Measurement Results"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="c1">#Plot and show histogram of results</span>
+
+<span class="n">qc</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="s1">'mpl'</span><span class="p">)</span>
+    <span class="c1"># Visualize the quantum circuit</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=9ea36532">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="Congratulations!"><strong>Congratulations!</strong><a class="anchor-link" href="#Congratulations!">¶</a></h3><p>You have run a quantum circuit on actual quantum hardware! 	＼(＾O＾)／</p>
+<hr/>
+<h4 id="Note-on-results"><strong>Note on results</strong><a class="anchor-link" href="#Note-on-results">¶</a></h4><h5 id="1.-Why-are-there-runs-with-00-as-the-result?">1. Why are there runs with 00 as the result?<a class="anchor-link" href="#1.-Why-are-there-runs-with-00-as-the-result?">¶</a></h5><p>Real quantum hardware is <strong>noisy</strong>.<br/>
+There are small imperfections like <strong>gate errors</strong>, <strong>decoherence</strong>, and <strong>readout errors</strong> that can cause incorrect results.<br/>
+In an ideal, noiseless system, a <strong>balanced function</strong> should never produce <code>00</code>.<br/>
+However, on real devices, a small number of <code>00</code> measurements are expected due to these unavoidable noise effects.</p>
+<p>If most of your measurements are <code>11</code> and only a few are <code>00</code>, your experiment still worked as intended!</p>
+<h5 id="2.-How-is-the-result-supposed-to-be-100%25-11-when-its-amplitude-was-only-$%5Cfrac%7B1%7D%7B2%7D$?">2. How is the result supposed to be 100% <code>11</code> when its amplitude was only $\frac{1}{2}$?<a class="anchor-link" href="#2.-How-is-the-result-supposed-to-be-100%25-11-when-its-amplitude-was-only-$%5Cfrac%7B1%7D%7B2%7D$?">¶</a></h5><p>Remember from our introduction:<br/>
+<strong>Amplitude and probability are not the same.</strong></p>
+<ul>
+<li>The amplitude of $|11⟩$ after the second Hadamard gates is $\frac{1}{2}$.</li>
+<li>To find the probability of measuring $|11⟩$, we <strong>square the amplitude</strong>:</li>
+</ul>
+<p>$$
+\left( \frac{1}{2} \right)^2 = \frac{1}{4}
+$$</p>
+<p>This would suggest a <strong>25% chance</strong> if other states also survived.</p>
+<p><strong>However</strong>, in the Deutsch–Jozsa algorithm, after the second Hadamards:</p>
+<ul>
+<li><strong>Destructive interference</strong> cancels out the amplitudes of $|00⟩$, $|01⟩$, and $|10⟩$.</li>
+<li>Only $|11⟩$ remains with a nonzero amplitude.</li>
+</ul>
+<p>Because the total probability must <strong>still add up to 1</strong> (normalization), the surviving $|11⟩$ state automatically <strong>inherits all the probability mass</strong>.</p>
+<p>Thus, you get <strong>near 100% probability</strong> of measuring <code>11</code>.</p>
+<h5 id="Extra-Note-on-Normalization">Extra Note on Normalization<a class="anchor-link" href="#Extra-Note-on-Normalization">¶</a></h5><p>In quantum mechanics:</p>
+<ul>
+<li><strong>Normalization</strong> is not something we manually force. It is <strong>preserved automatically</strong> because all quantum operations (like Hadamard and CNOT) are <strong>unitary</strong>.</li>
+<li>When interference cancels some states, the probability is <strong>redistributed</strong> among the remaining states to keep the total probability = 1.</li>
+</ul>
+<p>You don't have to normalize manually when running Qiskit circuits as it’s built into how quantum gates work!</p>
 </div>
 </div>
 </div>
